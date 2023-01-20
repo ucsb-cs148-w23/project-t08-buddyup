@@ -21,6 +21,6 @@ Kai Hilbourne (kaihilbourne)
 
 **Lab01 Hello World**
 
-https://helloworld-kai.up.railway.app/kai_helloworld
-
-https://helloworld-t08-v2.up.railway.app
+**Kai & Sergio**
+- https://helloworld-kai.up.railway.app/kai_helloworld
+- https://helloworld-t08-v2.up.railway.app
