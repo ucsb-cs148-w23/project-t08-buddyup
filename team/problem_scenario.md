@@ -1,2 +1,1 @@
-Instructions: 
-*"a short story, involving a subset of the concrete Personas you came up with in assignment h02 and expressing what the people eventually will want to achieve with your product and what the problem is with current solutions"*
+Firstname Lastname is a UCSB student who needs to find a roommate for next school year. They specifically want on-campus, undergraduate housing. They would be able to use our web app to look through potential roommates.
