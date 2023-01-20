@@ -49,6 +49,23 @@ public class HelloControlller {
                 <h1>Hello World</h1>
                 <p>This is a dummy demo of the buddyup(TM) housemate finder and landlord rating application!</p>
 
+                <style>
+                    .block {
+                        display: block;
+                        border: none;
+                        background-color: #000000;
+                        color: white;
+                        padding: 14px 28px;
+                        font-size: 16px;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+                </style>
+
+                <a href=\"/\">
+                <button class=\"block\"><b>Home</b></button>
+                </a>
+
                 </body>
                 </html>
                 """;
