@@ -1,4 +1,4 @@
-User selects housing type.
-User scrolls through potential roommates.
-User messages potential roommates.
-User updates profile.
+- User selects housing type.
+- User scrolls through potential roommates.
+- User messages potential roommates.
+- User updates profile.
