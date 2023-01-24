@@ -5,12 +5,12 @@
 **Project Description:** A web application for finding roommates and housing at UCSB.
 
 **Group Member & GitHub IDs:**
-Brenna Scholte (BrennaScholte)
-Anouki Panthagani (anouki-p)
-Sophia Moore (sophiajmoore)
-Lauren Daniel (laurenjdaniel)
-Kaiwen Tang (kkwen123)
-Sergio Colis Chavez (sergioacolis)
+Brenna Scholte (BrennaScholte),
+Anouki Panthagani (anouki-p),
+Sophia Moore (sophiajmoore),
+Lauren Daniel (laurenjdaniel),
+Kaiwen Tang (kkwen123),
+Sergio Colis Chavez (sergioacolis),
 Kai Hilbourne (kaihilbourne)
 
 **Tech Stack(s) We Plan to Use:**
