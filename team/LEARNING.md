@@ -13,3 +13,7 @@
 - Watch Youtube Tutorials
 - Ask questions in Slack channel
 - Share tutorials/articles within our group to help other team members
+
+- Each member will watch these two tutorials by end of sprint01 (lab02):
+- https://firebase.google.com/learn
+- https://reactjs.org/tutorial/tutorial.html
