@@ -17,7 +17,7 @@ function App() {
         Hello World
       </header>
       <form onSubmit={submithandler}>
-        <input type= "text" ref={dataRef} placeholder="Input is pushed to Firebase" />
+        <input type= "text" ref={dataRef} placeholder="Text pushed to Firebase" />
         <button type = "submit">Save</button>
         </form>
     </div>
