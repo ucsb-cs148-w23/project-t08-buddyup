@@ -1,4 +1,4 @@
-Project: Buddy Up
+**Project: Buddy Up**
 
 Mentors: Mateo, Vivian
 
@@ -10,12 +10,12 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore
 
 Scribed Discussion: 
 
-*Start: what activities they want to start doing (because they think it will help)*
+Start: what activities they want to start doing (because they think it will help)
 -
 
 
-*Stop: what activites want to stop doing (because they aren’t helpful)*
+Stop: what activites want to stop doing (because they aren’t helpful)
 -
 
-*Continue: what activities they should continue (because they are working well)*
+Continue: what activities they should continue (because they are working well)
 -
