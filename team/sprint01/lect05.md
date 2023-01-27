@@ -1,4 +1,4 @@
-Project: Buddy Up
+**Project: Buddy Up**
 
 Mentors: Mateo, Vivian
 
