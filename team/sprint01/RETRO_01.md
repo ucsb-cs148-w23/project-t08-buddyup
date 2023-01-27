@@ -40,3 +40,13 @@ Continue: what activities they should continue (because they are working well)
 - Learning tech stacks and practicing throughout the project
 - Attending class
 - Creating meeting times outside of class to work on project
+
+## Retro Assessment
+
+* A brief description of what retro outline or process you used.
+- The retro outline we used was Start/Stop/Continue. We took three minutes initially to jot down what we thought was worth starting, stopping, and continuing. 
+* A brief assessment of how it went.
+- I think that the retro went smoothly. Everyone had a few items for each category and we have a diverse pool of reflections to learn from. 
+* What advice would you give to the next person leading a retro
+  based on what you learned today?
+- Next time, give more time for brainstorming ideas to share. Three minutes might not have been enough time to calmly reflect and was a little rushed. 
