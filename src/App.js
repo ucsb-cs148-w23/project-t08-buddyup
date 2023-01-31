@@ -14,13 +14,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Hello World
+        Buddy Up
       </header>
       <form onSubmit={submithandler}>
         <input type= "text" ref={dataRef} placeholder="Text pushed to Firebase" />
         <button type = "submit">Save</button>
         </form>
+        <MyButton />
     </div>
+  );
+}
+
+function MyButton() {
+  return (
+    <button>
+      Login
+    </button>
   );
 }
 
