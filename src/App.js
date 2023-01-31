@@ -27,7 +27,7 @@ function App() {
 
 function MyButton() {
   return (
-    <button>
+    <button className='button'>
       Login
     </button>
   );
