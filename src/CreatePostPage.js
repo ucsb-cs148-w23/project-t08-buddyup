@@ -20,10 +20,16 @@ function CreatePostPage() {
       <header className="subheading">
         Write some important things about yourself that you want your potential roommates to know.
       </header>
-      <form onSubmit={submithandler} className="bioBox">
-        <input type= "text" ref={dataRef} placeholder="Write stuff about yourself that you would want to know about potential roommates" />
+      <form onSubmit={submithandler}>
+        <div>Bio</div>
+        <input 
+            className="bioBox" 
+            type= "text" 
+            ref={dataRef} 
+            placeholder="Write stuff about yourself that you would want to know about potential roommates" 
+        />
         <button type = "submit">Save</button>
-        </form>
+      </form>
     </div>
   );
 }
