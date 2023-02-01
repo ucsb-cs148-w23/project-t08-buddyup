@@ -21,6 +21,9 @@ function CreatePostPage() {
         Write some important things about yourself that you want your potential roommates to know.
       </header>
       <form onSubmit={submithandler}>
+        <div>
+            <button onClick="dropdownFunc()">umuhh</button>
+        </div>
         <div>Bio</div>
         <input 
             className="bioBox" 
