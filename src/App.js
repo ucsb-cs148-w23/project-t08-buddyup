@@ -1,6 +1,8 @@
 import './App.css';
 import handleSubmit from './handles/handlesubmit';
 import { useRef } from 'react';
+import { auth} from "./firebase_setup/firebase"
+import { getAuth, signOut } from "firebase/auth";
 
 function App() {
   const dataRef = useRef()
@@ -17,11 +19,17 @@ function App() {
         Hello World
       </header>
       <form onSubmit={submithandler}>
-        <input type= "text" ref={dataRef} placeholder="Text pushed to Firebase" />
-        <button type = "submit">Save</button>
+        <button type = "submit">Log In</button>
         </form>
     </div>
   );
 }
+
+// function SignOut() {
+//   const auth = getAuth();
+//   signOut(auth);
+// }
+
+
 
 export default App;
