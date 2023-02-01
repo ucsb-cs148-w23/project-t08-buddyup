@@ -20,12 +20,12 @@ function CreatePostPage() {
       <header className="subheading">
         Write some important things about yourself that you want your potential roommates to know.
       </header>
-      <form onSubmit={submithandler}>
-        <input type= "text" ref={dataRef} placeholder="Text pushed to Firebase" />
+      <form onSubmit={submithandler} className="bioBox">
+        <input type= "text" ref={dataRef} placeholder="Write stuff about yourself that you would want to know about potential roommates" />
         <button type = "submit">Save</button>
         </form>
     </div>
   );
 }
 
-export default App;
+export default CreatePostPage;

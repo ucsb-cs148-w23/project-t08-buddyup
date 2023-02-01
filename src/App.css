@@ -17,3 +17,20 @@
   background-color: black;
   align-items: center;
 }
+
+.subheading {
+  background-color: #299206;
+  min-height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 1vmin);
+  color: white;
+}
+
+.bioBox {
+  width: 80%;
+  padding: 120px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
