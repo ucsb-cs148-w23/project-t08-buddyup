@@ -1,22 +1,22 @@
 import { uuidv4 } from "@firebase/util";
-import { useState } from "react";
+//import { useState } from "react";
 import {
     doc,
     setDoc,
   } from "firebase/firestore";
-import { db } from "lib/firebase";
+import { firestore } from "firebase_setup/firebase";
 
 
 export function useAddPost() {
-    const [isLoading, setLoading] = useState(false);
+    //const [isLoading, setLoading] = useState(false);
     async function addPost(post) {
-        setLoading(true);
-        const id = uuidv4
-        await setDoc(doc(db, "posts", id), {
+        //setLoading(true);
+        const id = uuidv4();
+        await setDoc(doc(firestore, "posts", id), {
             ...post, 
             id,
             date: Date.now(),
         })
     }
-    return {addPost, isLoading};
+    return {addPost};
 }
