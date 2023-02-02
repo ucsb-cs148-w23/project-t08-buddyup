@@ -44,9 +44,12 @@ function CreatePostPage() {
             }
         </script>
         <p className='subheading'>Bio</p>
-        <input 
+        <textarea 
             className="bioBox" 
-            type= "text" 
+            // type= "textarea"
+            // rows="4"
+            // cols="30"
+            wrap="soft" 
             ref={dataRef} 
             placeholder="Write stuff about yourself that you would want to know about potential roommates" 
         />
