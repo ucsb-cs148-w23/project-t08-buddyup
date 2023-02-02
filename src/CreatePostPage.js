@@ -3,6 +3,7 @@ import handleSubmit from './handles/handlesubmit'; //change this to a new functi
 //also in handleSubmit for ease?
 import { useRef } from 'react'; //ummm uhh
 
+
 function CreatePostPage() {
   const dataRef = useRef()
 
@@ -21,10 +22,28 @@ function CreatePostPage() {
         Write some important things about yourself that you want your potential roommates to know.
       </header>
       <form onSubmit={submithandler}>
-        <div>
-            <button onClick="dropdownFunc()">umuhh</button>
+        <div className='dropdown'>
+            <button 
+                onClick="dropdownFunc()"
+                className='button'
+            >
+                -Select your year in School-
+            </button>
+            <div id='yearDropdown'>
+                <a href='#1'>1st Year</a>
+                <a href='#2'>2nd Year</a>
+                <a href='#3'>3rd Year</a>
+                <a href='#4'>4th Year</a>
+                <a href='#5'>5th Year +</a>
+                <a href='#Grad'>Graduate Student</a>
+            </div>
         </div>
-        <div>Bio</div>
+        <script>
+            function dropdownFunc() {
+                document.getElementById("yearDropdown").classList.toggle("show")
+            }
+        </script>
+        <p className='subheading'>Bio</p>
         <input 
             className="bioBox" 
             type= "text" 

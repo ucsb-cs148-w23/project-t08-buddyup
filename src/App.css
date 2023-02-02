@@ -16,6 +16,12 @@
   color: white;
   background-color: black;
   align-items: center;
+  font-size: calc(10px+1vmin);
+}
+
+.button:hover {
+  background-color: #271536;
+  font-size: calc(15px+1vmin);
 }
 
 .subheading {
@@ -33,4 +39,9 @@
   padding: 120px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
