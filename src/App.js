@@ -1,35 +1,14 @@
 import './App.css';
-import handleSubmit from './handles/handlesubmit';
-import { useRef } from 'react';
-import { auth} from "./firebase_setup/firebase"
-import { getAuth, signOut } from "firebase/auth";
+import {auth} from './firebase_setup/firebase';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import Login from './login';
+import Mainpage from './main';
 
 function App() {
-  const dataRef = useRef()
-
-  const submithandler = (e) => {
-    e.preventDefault()
-    handleSubmit(dataRef.current.value)
-    dataRef.current.value = ""
-  }
-
+  const [user] = useAuthState(auth);
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello World
-      </header>
-      <form onSubmit={submithandler}>
-        <button type = "submit">Log In</button>
-        </form>
-    </div>
+    user ? <Mainpage/> : <Login/>
   );
 }
-
-// function SignOut() {
-//   const auth = getAuth();
-//   signOut(auth);
-// }
-
-
-
+  
 export default App;
