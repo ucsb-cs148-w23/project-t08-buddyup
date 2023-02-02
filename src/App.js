@@ -1,27 +1,14 @@
 import './App.css';
 import handleSubmit from './handles/handlesubmit';
 import { useRef } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { RouterProvider } from 'react-router-dom';
+import {router} from 'lib/routes';
 
-function App() {
-  const dataRef = useRef()
-
-  const submithandler = (e) => {
-    e.preventDefault()
-    handleSubmit(dataRef.current.value)
-    dataRef.current.value = ""
-  }
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello World
-      </header>
-      <form onSubmit={submithandler}>
-        <input type= "text" ref={dataRef} placeholder="Text pushed to Firebase" />
-        <button type = "submit">Save</button>
-        </form>
-    </div>
+    <ChakraProvider>
+      <RouterProvider router = {router}/>
+    </ChakraProvider>
   );
 }
-
-export default App;
