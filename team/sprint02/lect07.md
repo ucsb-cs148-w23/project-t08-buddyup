@@ -9,6 +9,7 @@ Type of meeting: Daily Scrum
 Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore [x], Kaiwen Tang [x], Sergio Colis Chavez [x], Kai Hilbourne [x]
 
 Scribed Discussion: 
+
 Brenna: Obstacle(s): Next Step: 
 
 Kaiwen: Obstacle(s): Next Step: 
