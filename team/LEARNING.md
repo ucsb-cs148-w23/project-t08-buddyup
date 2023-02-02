@@ -17,3 +17,8 @@
 - Each member will watch these two tutorials by end of sprint01 (lab02):
 - https://firebase.google.com/learn
 - https://reactjs.org/tutorial/tutorial.html
+
+**..._help channel tutorial posts:** 
+- Kai Hilbourne, in tech_js-node-react-express_help
+- Brenna Scholte, in tech_js-node-react-express_help
+- Sophia Moore, in tech_js-node-react-express_help
