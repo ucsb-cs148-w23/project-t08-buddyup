@@ -22,7 +22,7 @@ function CreatePostPage() {
         Write some important things about yourself that you want your potential roommates to know.
       </header>
       <form onSubmit={submithandler}>
-        <div className='dropdown'>
+        {/* <div className='dropdown'>
             <button 
                 onClick="dropdownFunc()"
                 className='button'
@@ -37,7 +37,7 @@ function CreatePostPage() {
                 <a href='#5'>5th Year +</a>
                 <a href='#Grad'>Graduate Student</a>
             </div>
-        </div>
+        </div> */}
         <script>
             function dropdownFunc() {
                 document.getElementById("yearDropdown").classList.toggle("show")
