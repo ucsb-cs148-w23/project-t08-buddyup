@@ -8,7 +8,9 @@ Type of meeting: Retro (Sprint Review)
 
 Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore [x], Kaiwen Tang [x], Sergio Colis Chavez [x], Kai Hilbourne [x]
 
-Scribed Discussion: 
+Retro Leader: Kaiwen
+
+## Action Items: 
 
 Start: what activities they want to start doing (because they think it will help)
 - Going to planned weekly meetings (designated work time)
@@ -40,6 +42,10 @@ Continue: what activities they should continue (because they are working well)
 - Learning tech stacks and practicing throughout the project
 - Attending class
 - Creating meeting times outside of class to work on project
+
+## Optional
+
+N/A
 
 ## Retro Assessment
 
