@@ -1,4 +1,4 @@
-import { query } from "firebase/firestore";
+import { doc, query } from "firebase/firestore";
 import { firestore } from "firebase_setup/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 

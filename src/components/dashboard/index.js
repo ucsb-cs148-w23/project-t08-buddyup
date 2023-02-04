@@ -44,8 +44,8 @@ function NewPost() {
 
 
 export default function Dashboard() {
-    const {posts} = usePosts();
-
+    //const {posts} = usePosts();
+    const{posts, isLoading} = usePosts();
     return (
     <>
         <NewPost />

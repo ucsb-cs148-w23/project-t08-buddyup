@@ -1,14 +1,14 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import Avatar from "components/profile/Avatar";
+//import Avatar from "components/profile/Avatar";
 import { useUser } from "hooks/users";
 import { formatDistanceToNow } from "date-fns";
 import UsernameButton from "components/profile/UsernameButton";
 
 export default function Header({ post }) {
-  const { uid, date } = post;
-  const { user, isLoading } = useUser(uid);
+  const { date } = post;//deleted uid
+  //const { user, isLoading } = useUser(uid);
 
-  if (isLoading) return "Loading...";
+  //if (isLoading) return "Loading...";
 
   return (
     <Flex
@@ -18,7 +18,7 @@ export default function Header({ post }) {
       p="3"
       bg="gray.50"
     >
-      <Avatar user={user} size="md" />
+      {/*<Avatar user={user} size="md" />*/}
 
       <Box ml="4">
         <UsernameButton user={user} />

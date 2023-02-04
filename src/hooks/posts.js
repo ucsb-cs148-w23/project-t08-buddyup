@@ -10,7 +10,6 @@ import {
 import { firestore } from "firebase_setup/firebase";
 import {
     useCollectionData,
-    useDocumentData,
   } from "react-firebase-hooks/firestore";
 
 export function useAddPost() {
@@ -28,8 +27,10 @@ export function useAddPost() {
 }
 
 export function usePosts() {
+
     const q = query(collection(firestore, "posts"), orderBy("date", "desc"));
-    const [posts, error] = useCollectionData(q);
+    const [posts,isLoading, error] = useCollectionData(q);
+    
     if (error) throw error;
-    return {posts};
+    return {posts, isLoading}; 
 }
