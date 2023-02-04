@@ -1,6 +1,6 @@
 import {Box, Button, Heading, HStack, Textarea} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
-import { useAddPost } from 'hooks/posts';
+import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 
 function NewPost() {
@@ -44,12 +44,12 @@ function NewPost() {
 
 
 export default function Dashboard() {
-
+    const {posts} = usePosts();
 
     return (
     <>
         <NewPost />
-        <PostsLists posts={[]}/>
+        <PostsLists posts={posts}/>
     </>
     )
 

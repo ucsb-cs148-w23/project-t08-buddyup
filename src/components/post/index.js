@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
-//import Header from "./Header";
-//import Actions from "./Actions";
+import Header from "./Header";
+import Actions from "./Actions";
 
 export default function Post({ post }) {
   const { text } = post;
