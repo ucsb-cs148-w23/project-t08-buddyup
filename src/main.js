@@ -1,5 +1,6 @@
 import React from 'react';
 import {auth} from './firebase_setup/firebase';
+import Profile from './components/profile/index'
   
 const Mainpage = () => {
   
@@ -15,9 +16,14 @@ const Mainpage = () => {
             {
                auth.currentUser.email
             }
+
             <button style={{"marginLeft" : "20px"}} 
             onClick={logout}>
                 Logout
+            </button>
+            <button style={{"marginLeft" : "20px"}} 
+            onClick={Profile}>
+                Profile
             </button>
         </div>
     );

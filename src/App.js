@@ -1,14 +1,12 @@
 import './App.css';
-import {auth} from './firebase_setup/firebase';
-import {useAuthState} from 'react-firebase-hooks/auth';
-import Login from './login';
-import Mainpage from './main';
+import { ChakraProvider } from '@chakra-ui/react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'lib/routes';
 
-function App() {
-  const [user] = useAuthState(auth);
+export default function App() {
   return (
-    user ? <Mainpage/> : <Login/>
+    <ChakraProvider>
+      <RouterProvider router = {router}/>
+    </ChakraProvider>
   );
 }
-  
-export default App;
