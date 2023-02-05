@@ -9,7 +9,7 @@ import {
   } from "firebase/firestore";
 import { firestore } from "firebase_setup/firebase";
 import {
-    useCollectionData,
+    useCollectionData, useDocumentData,
   } from "react-firebase-hooks/firestore";
 
 export function useAddPost() {
@@ -34,3 +34,10 @@ export function usePosts() {
     if (error) throw error;
     return {posts, isLoading}; 
 }
+
+export function usePost(id) {
+    const q = doc(firestore, "posts", id);
+    const [post, isLoading] = useDocumentData(q);
+  
+    return { post, isLoading };
+  }

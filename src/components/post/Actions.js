@@ -44,7 +44,7 @@ export default function Actions({ post }) {
       <Flex alignItems="center" ml="2">
         <IconButton
           as={Link}
-          to={`${PROTECTED}/comments/${id}`}
+          to={`comments/${id}`}
           isLoading={commentsLoading}
           size="md"
           colorScheme="teal"
