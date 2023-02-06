@@ -2,10 +2,15 @@ import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import Avatar from "components/profile/Avatar";
 import { useDeleteComment } from "hooks/comments";
 import { FaTrash } from "react-icons/fa";
+import {useUser} from "hooks/users";
+import { formatDistanceToNow } from "date-fns";
 
 export default function Comment({ comment }) {
-  const { text, uid, date, id } = comment;
+  const { text, testuid, date, id } = comment;
+  const uid = "wMoSqvG7QvTPCmBvgfsjoLBftx32";
+  const { user, isLoading: userLoading } = useUser(uid);
   const { deleteComment, isLoading: deleteLoading } = useDeleteComment(id);
+  
 
 
   return (
@@ -13,19 +18,11 @@ export default function Comment({ comment }) {
       <Flex pb="2">
         <Box flex="1" ml="4">
           <Flex borderBottom="1px solid" borderColor="teal.100" pb="2">
-            {(
-              <IconButton
-                size="sm"
-                ml="auto"
-                icon={<FaTrash />}
-                colorScheme="red"
-                variant="ghost"
-                isRound
-                onClick={deleteComment}
-                isLoading={deleteLoading}
-              />
-            )}
           </Flex>
+          <Text>User Name</Text>
+          <Text fontSize="xs" color="gray.500">
+                {formatDistanceToNow(date)} ago
+              </Text>
           <Box pt="2" fontSize="sm">
             <Text>{text}</Text>
           </Box>

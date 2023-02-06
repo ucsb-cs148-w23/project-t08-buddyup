@@ -3,17 +3,15 @@ import Avatar from "components/profile/Avatar";
 import { useAddComment } from "hooks/comments";
 import { useForm } from "react-hook-form";
 
-export default function NewComment({ post }) {
+export default function NewComment({post}) {
   const { id: postID } = post;
   const { register, handleSubmit, reset } = useForm();
-  const { addComment, isLoading: commentLoading } = useAddComment({
-    postID,
-  });
+  const { addComment, isLoading: commentLoading } = useAddComment({postID});
 
   function handleAddComment(data) {
-    addComment(data.text);
-    reset();
-  }
+   addComment(data.text);
+   reset();
+ }
 
   return (
     <Box maxW="600px" mx="auto" py="6">

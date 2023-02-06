@@ -16,7 +16,7 @@ function NewPost() {
         reset();
     }
 
-    return <Box>
+    return <Box maxW="600px" mx="auto" py="10">
     <form onSubmit={handleSubmit(handleAddPost)}>
         <HStack justify="space-between">
             <Heading>

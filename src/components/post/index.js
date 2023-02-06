@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 //import Header from "./Header";
-//import Actions from "./Actions";
+import Actions from "./Actions";
 
 export default function Post({ post }) {
   const { text } = post;
@@ -17,7 +17,7 @@ export default function Post({ post }) {
           </Text>
         </Box>
 
-       {/*<Actions post={post} />*/}
+       {<Actions post={post} />}
       </Box>
     </Box>
   );

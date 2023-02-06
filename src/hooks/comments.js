@@ -13,14 +13,14 @@ import { firestore } from "firebase_setup/firebase";
 import { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-export function useAddComment({ postID, uid }) {
+export function useAddComment({ postID }) {
   const [isLoading, setLoading] = useState(false);
   const toast = useToast();
-
   async function addComment(text) {
     setLoading(true);
     const id = uuidv4();
     const date = Date.now();
+    const uid = "wMoSqvG7QvTPCmBvgfsjoLBftx32";
     const docRef = doc(firestore, "comments", id);
     await setDoc(docRef, { text, id, postID, date, uid });
 
