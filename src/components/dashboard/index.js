@@ -2,6 +2,7 @@ import {Box, Button, Heading, HStack, Textarea} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
+import { useLogout } from "hooks/auth";
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -44,10 +45,23 @@ function NewPost() {
 
 
 export default function Dashboard() {
-    //const {posts} = usePosts();
+    const {logout, load} = useLogout();
+    const { handleSubmit } = useForm();
+
+    async function handleLogout() {
+        console.log("here");
+        await logout();
+    }
     const{posts, isLoading} = usePosts();
     return (
     <>
+        <form onSubmit={handleSubmit(handleLogout)}>
+                    <Button 
+            type="submit" 
+            >
+                Sign Out
+            </Button>
+            </form>
         <NewPost />
         <PostsLists posts={posts}/>
     </>
