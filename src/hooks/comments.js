@@ -9,7 +9,7 @@ import {
   setDoc,
   where,
 } from "firebase/firestore";
-import { firestore } from "firebase_setup/firebase";
+import { firestore, auth } from "firebase_setup/firebase";
 import { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -20,9 +20,10 @@ export function useAddComment({ postID }) {
     setLoading(true);
     const id = uuidv4();
     const date = Date.now();
-    const uid = "wMoSqvG7QvTPCmBvgfsjoLBftx32";
+    const uid = auth.currentUser.uid;
+    const name = auth.currentUser.displayName;
     const docRef = doc(firestore, "comments", id);
-    await setDoc(docRef, { text, id, postID, date, uid });
+    await setDoc(docRef, { text, id, postID, date, uid, name });
 
     toast({
       title: "Comment added!",

@@ -4,10 +4,11 @@ import { useDeleteComment } from "hooks/comments";
 import { FaTrash } from "react-icons/fa";
 import {useUser} from "hooks/users";
 import { formatDistanceToNow } from "date-fns";
+import { auth } from "firebase_setup/firebase";
 
 export default function Comment({ comment }) {
-  const { text, testuid, date, id } = comment;
-  const uid = "wMoSqvG7QvTPCmBvgfsjoLBftx32";
+  const { text, testuid, date, id, name } = comment;
+  const uid = auth.currentUser.uid;
   const { user, isLoading: userLoading } = useUser(uid);
   const { deleteComment, isLoading: deleteLoading } = useDeleteComment(id);
   
@@ -19,7 +20,7 @@ export default function Comment({ comment }) {
         <Box flex="1" ml="4">
           <Flex borderBottom="1px solid" borderColor="teal.100" pb="2">
           </Flex>
-          <Text>User Name</Text>
+          <Text>{name}</Text>
           <Text fontSize="xs" color="gray.500">
                 {formatDistanceToNow(date)} ago
               </Text>
