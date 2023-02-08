@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
+import { useGoToProfile } from 'hooks/users';
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -47,21 +48,31 @@ function NewPost() {
 export default function Dashboard() {
     const {logout, load} = useLogout();
     const { handleSubmit } = useForm();
+    const { goToProfile, loading  } = useGoToProfile();
 
     async function handleLogout() {
         console.log("here");
         await logout();
     }
+
+    async function handleProfile() {
+        console.log("going to profile");
+        await goToProfile();
+    }
+
     const{posts, isLoading} = usePosts();
     return (
     <>
         <form onSubmit={handleSubmit(handleLogout)}>
-                    <Button 
-            type="submit" 
-            >
+            <Button type="submit" >
                 Sign Out
             </Button>
-            </form>
+        </form>
+        <form onSubmit = {handleSubmit(handleProfile)}>
+            <Button type="submit">
+                Profile
+            </Button>
+        </form>
         <NewPost />
         <PostsLists posts={posts}/>
     </>

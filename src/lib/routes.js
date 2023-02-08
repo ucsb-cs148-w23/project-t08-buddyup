@@ -3,16 +3,22 @@ import Dashboard from "components/dashboard";
 import Comments from "components/comments";
 import Login from "components/auth/Login";
 import Layout from 'components/layout';
+import Profile from 'components/profile';
 
 export const ROOT = "/";
 export const LOGIN = "/login";
 export const DASHBOARD = "/protected/dashboard";
 export const COMMENTS = "/protected/dashboard/comments/:postID";
 export const PROTECTED = "/protected";
+export const PROFILE = "/protected/profile/:userID";
+
+//REMOVE
+// export const PROFILE = "/profile";
 
 export const router = createBrowserRouter ([
     { path: ROOT, element: "Public Root" },
     { path: LOGIN, element: <Login /> },
+    { path: PROFILE, element: <Profile /> },
     
     { path: PROTECTED, element: <Layout />, children: [
         { path: DASHBOARD, element:  <Dashboard />},
