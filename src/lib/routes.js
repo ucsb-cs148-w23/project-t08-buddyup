@@ -16,7 +16,7 @@ export const PROFILE = "/protected/profile/:userID";
 // export const PROFILE = "/profile";
 
 export const router = createBrowserRouter ([
-    { path: ROOT, element: "Public Root" },
+    { path: ROOT, element: <Login /> },
     { path: LOGIN, element: <Login /> },
     { path: PROFILE, element: <Profile /> },
     
