@@ -5,15 +5,24 @@ import { usePosts } from "hooks/posts";
 import { useUser } from "hooks/users";
 import { useGoToDashboard } from "hooks/users";
 import { useForm } from "react-hook-form";
+import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
     // const { posts, isLoading: postsAreLoading } = usePosts(id);
     // const { user, isLoading: userIsLoading } = useUser(id);
-    console.log(id);
+    console.log("on profile page, next up, name:")
+    const uid = auth.currentUser.uid;
+    const name = auth.currentUser.displayName;
+    console.log(name);
+    console.log("above should be a name")
     const { handleSubmit } = useForm();
-    const { posts, isLoading: postsAreLoading } = usePosts("30e721ae-4f16-46ce-b9fc-2f288a3c986a");
-    const { user, isLoading: userIsLoading } = useUser("30e721ae-4f16-46ce-b9fc-2f288a3c986a");
+    // const { posts, isLoading: postsAreLoading } = usePosts(id);
+    // const { user, isLoading: userIsLoading } = useUser(id);
+
+    const { posts, isLoading: postsAreLoading } = usePosts(uid);
+    const { user, isLoading: userIsLoading } = useUser(uid);
+
     const { goToDashboard, loading } = useGoToDashboard();
 
 
@@ -35,7 +44,7 @@ import { useForm } from "react-hook-form";
                 <Stack ml="10">
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Pickle Rick
+                            {name}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
                             3rd Year

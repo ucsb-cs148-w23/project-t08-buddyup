@@ -6,29 +6,36 @@ import {
     orderBy,
     query,
     setDoc,
+    where,
   } from "firebase/firestore";
 import { firestore } from "firebase_setup/firebase";
 import {
     useCollectionData, useDocumentData,
   } from "react-firebase-hooks/firestore";
+import { auth } from "firebase_setup/firebase";
 
 export function useAddPost() {
     //const [isLoading, setLoading] = useState(false);
     async function addPost(post) {
         //setLoading(true);
         const id = uuidv4();
-        await setDoc(doc(firestore, "posts", id), {
+        const uid = auth.currentUser.uid;
+        await setDoc(doc(firestore, "posts", id, uid), {
             ...post, 
             id,
             date: Date.now(),
+            uid,
         })
     }
     return {addPost};
 }
 
-export function usePosts() {
+export function usePosts(uid = null) {
 
-    const q = query(collection(firestore, "posts"), orderBy("date", "desc"));
+    
+    const q = uid
+        ? query(collection(firestore, "posts"), orderBy("date", "desc"), where("id","==",uid))
+        : query(collection(firestore, "posts"), orderBy("date", "desc"));
     const [posts,isLoading, error] = useCollectionData(q);
     
     if (error) throw error;
