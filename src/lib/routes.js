@@ -12,9 +12,6 @@ export const COMMENTS = "/protected/dashboard/comments/:postID";
 export const PROTECTED = "/protected";
 export const PROFILE = "/protected/profile/:userID";
 
-//REMOVE
-// export const PROFILE = "/profile";
-
 export const router = createBrowserRouter ([
     { path: ROOT, element: <Login /> },
     { path: LOGIN, element: <Login /> },
