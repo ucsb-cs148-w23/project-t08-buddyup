@@ -25,8 +25,8 @@ For our project we will be creating a platform for prospective and current UCSB 
 - Administrators (us): delete inappropriate/spam profiles/posts, add new data, make updates to application's functions
 
 **Installation:**
-- Deploy Web App:https://t08-buddy-up.web.app/
-- *See team/MVP_DEMO.md for MVP demo video*
+- Deploy Web App: https://t08-buddy-up.web.app/
+- See team/MVP_DEMO.md for MVP demo video
 
 **Prerequisites**
 *TODO: List what a user needs to have installed before running the installation instructions below (e.g., git, which version(s) of your framework(s) of choice)*
