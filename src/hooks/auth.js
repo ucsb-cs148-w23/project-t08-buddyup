@@ -5,6 +5,7 @@ import { DASHBOARD, LOGIN } from "lib/routes";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useAddUser } from "./users";
 
 export function useAuth() {
     const [authUser, isLoading, error] = useAuthState(auth);
@@ -14,11 +15,13 @@ export function useAuth() {
 
 export function useLogin() {
    const [isLoading, setLoading] = useState(false);
+   const { checkUser } = useAddUser();
    const toast = useToast();
    const navigate = useNavigate();
 
     async function login() {
         setLoading(true);
+        checkUser();
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
         toast({
