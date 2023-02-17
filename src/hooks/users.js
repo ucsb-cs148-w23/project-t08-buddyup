@@ -8,8 +8,9 @@ import { DASHBOARD, PROFILE } from "lib/routes";
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
-    const [user] = useDocumentData(q);
-    return {user};
+    const [user, isLoading, error] = useDocumentData(q);
+    if (error) throw error;
+    return {user, isLoading};
 }
 
 export function useAddUser() {

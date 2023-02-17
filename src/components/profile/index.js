@@ -9,22 +9,11 @@ import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
-    console.log("on profile page, next up, name:")
-    const uid = auth.currentUser.uid;
-    const name = auth.currentUser.displayName;
-    console.log(name);
-    console.log("above should be a name")
+    const { posts, isLoading: postsAreLoading } = usePosts(id);
+    const { user, isLoading: userIsLoading } = useUser(id);
+    
     const { handleSubmit } = useForm();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
-
-    const { posts, isLoading: postsAreLoading } = usePosts(uid);
-    const { user, isLoading: userIsLoading } = useUser(uid);
-
     const { goToDashboard, loading } = useGoToDashboard();
-
 
     async function handleDashboard() {
         console.log("going to dashboard");
@@ -37,29 +26,36 @@ import { auth } from "firebase_setup/firebase";
                 <Image 
                     boxSize={"75px"}
                     borderRadius="full"
-                    src="https://yt3.ggpht.com/a/AATXAJy3vmY5uYuadYbWkzDZ1n7-2c7IJe5xLJw3GQ=s900-c-k-c0xffffffff-no-rj-mo"
-                    alt="Pickle Rick, Alias of Rick Sanchez"
+                    src= { userIsLoading
+                        ? "https://media.tenor.com/1xCNcwOcel4AAAAd/obama-obunga.gif"
+                        : user.pfpURL}
                 >
                 </Image>
                 <Stack ml="10">
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            {name}
+                            { userIsLoading
+                                ? "Name"
+                                : user.name}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            3rd Year
+                            { userIsLoading
+                                ? "Year"
+                                : user.year}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Wants to Live in IV
+                        Wants to Live in { userIsLoading
+                                            ? "Nowhere"
+                                            : user.wantstoLive}
                         </Text>
+                        <form onSubmit = {handleSubmit(handleDashboard)}>
+                            <Button type="submit">
+                                Dashboard
+                            </Button>
+                        </form>
                     </HStack>
                 </Stack>
 
-                <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit">
-                        Dashboard
-                    </Button>
-                </form>
             </Flex>
             <Divider />
             { postsAreLoading 
