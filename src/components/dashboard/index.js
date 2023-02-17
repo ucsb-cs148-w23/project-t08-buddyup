@@ -77,6 +77,7 @@ export default function Dashboard() {
                 Profile
             </Button>
         </form>
+        <NewPost />
         <PostsLists posts={posts}/>
     </>
     )
