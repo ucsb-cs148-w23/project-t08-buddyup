@@ -20,8 +20,6 @@ import { auth } from "firebase_setup/firebase";
         await goToDashboard();
     }
 
-    if(userIsLoading) return "Loading...";
-
     return (
         <Stack spacing="5">
             <Flex p={["4","6"]} pos="relative" align="center" backgroundColor={"purple.200"}>
