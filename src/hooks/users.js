@@ -91,3 +91,25 @@ export function useGoToDashboard() {
  
      return {goToDashboard, isLoading};
 }
+
+export function useEditProfile() {
+    const [isLoading, setLoading] = useState(false);
+    const toast = useToast();
+    const navigate = useNavigate();
+ 
+     async function goToDashboard() {
+         setLoading(true);
+         toast({
+             title: "Now you can edit your Profile",
+             status: "success",
+             isClosable: true,
+             position: "top",
+             duration: 5000,
+         })
+         navigate(PROFILEEDIT);
+         setLoading(false);
+         return true;
+     }
+ 
+     return {goToDashboard, isLoading};
+}

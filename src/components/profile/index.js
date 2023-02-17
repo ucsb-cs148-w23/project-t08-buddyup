@@ -9,16 +9,13 @@ import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
+
     console.log("on profile page, next up, name:")
     const uid = auth.currentUser.uid;
     const name = auth.currentUser.displayName;
     console.log(name);
     console.log("above should be a name")
     const { handleSubmit } = useForm();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
 
     const { posts, isLoading: postsAreLoading } = usePosts(uid);
     const { user, isLoading: userIsLoading } = useUser(uid);
@@ -58,6 +55,11 @@ import { auth } from "firebase_setup/firebase";
                 <form onSubmit = {handleSubmit(handleDashboard)}>
                     <Button type="submit">
                         Dashboard
+                    </Button>
+                </form>
+                <form onSubmit = {handleSubmit(handleEdit)}>
+                    <Button type="submit">
+                        Edit Profile
                     </Button>
                 </form>
             </Flex>
