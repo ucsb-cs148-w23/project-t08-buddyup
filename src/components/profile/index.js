@@ -11,7 +11,7 @@ import { auth } from "firebase_setup/firebase";
     const { id } = useParams();
     const { posts, isLoading: postsAreLoading } = usePosts(id);
     const { user, isLoading: userIsLoading } = useUser(id);
-    
+
     const { handleSubmit } = useForm();
     const { goToDashboard, loading } = useGoToDashboard();
 
@@ -19,6 +19,8 @@ import { auth } from "firebase_setup/firebase";
         console.log("going to dashboard");
         await goToDashboard();
     }
+
+    if(userIsLoading) return "Loading...";
 
     return (
         <Stack spacing="5">

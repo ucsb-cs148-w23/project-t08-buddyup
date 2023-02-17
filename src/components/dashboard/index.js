@@ -1,9 +1,12 @@
-import {Box, Button, Heading, HStack, Textarea} from '@chakra-ui/react';
+import {Box, Button, Heading, HStack, Textarea, Avatar} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
 import { useGoToProfile } from 'hooks/users';
+import { auth } from 'firebase_setup/firebase';
+import { Link } from 'react-router-dom';
+import { PROTECTED } from 'lib/routes';
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -49,7 +52,8 @@ export default function Dashboard() {
     const {logout, load} = useLogout();
     const { handleSubmit } = useForm();
     const { goToProfile, loading  } = useGoToProfile();
-
+    const id = auth.currentUser.uid;
+    
     async function handleLogout() {
         console.log("here");
         await logout();
@@ -57,7 +61,7 @@ export default function Dashboard() {
 
     async function handleProfile() {
         console.log("going to profile");
-        await goToProfile();
+        await goToProfile(id);
     }
 
     const{posts, isLoading} = usePosts();
@@ -73,7 +77,6 @@ export default function Dashboard() {
                 Profile
             </Button>
         </form>
-        <NewPost />
         <PostsLists posts={posts}/>
     </>
     )

@@ -4,7 +4,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { DASHBOARD, PROFILE } from "lib/routes";
+import { DASHBOARD, PROFILE, PROTECTED } from "lib/routes";
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
@@ -54,7 +54,7 @@ export function useGoToProfile() {
     const toast = useToast();
     const navigate = useNavigate();
  
-     async function goToProfile() {
+     async function goToProfile(id=null) {
          setLoading(true);
          toast({
              title: "This is your profile page",
@@ -63,7 +63,7 @@ export function useGoToProfile() {
              position: "top",
              duration: 5000,
          })
-         navigate(PROFILE);
+         navigate(`${PROTECTED}/profile/${id}`);
          setLoading(false);
          return true;
      }
