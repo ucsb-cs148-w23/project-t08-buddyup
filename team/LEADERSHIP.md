@@ -12,5 +12,5 @@
 | Mon 1/30 - Fri 2/10 | Lauren Daniel      | Product Owner for sprint 02                                                            |
 | Mon 2/13 - ?        | Sophia Moore       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 03                  | 
 | Mon 2/13 - ?        | Sergio Colis Chavez| Product Owner for sprint 03                                                            |
-
+| ??                  | Kaiwen Tang        | Will lead second Retro                                                                 | 
  
