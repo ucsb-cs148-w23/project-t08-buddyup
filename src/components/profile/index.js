@@ -9,8 +9,12 @@ import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
-    const { posts, isLoading: postsAreLoading } = usePosts(id);
-    const { user, isLoading: userIsLoading } = useUser(id);
+
+    const uid = auth.currentUser.uid;
+    const name = auth.currentUser.displayName;
+
+    const { posts, isLoading: postsAreLoading } = usePosts(uid);
+    const { user, isLoading: userIsLoading } = useUser(uid);
 
     const { handleSubmit } = useForm();
     const { goToDashboard, loading } = useGoToDashboard();
@@ -48,14 +52,19 @@ import { auth } from "firebase_setup/firebase";
                                             ? "Nowhere"
                                             : user.wantstoLive}
                         </Text>
-                        <form onSubmit = {handleSubmit(handleDashboard)}>
-                            <Button type="submit">
-                                Dashboard
-                            </Button>
-                        </form>
                     </HStack>
                 </Stack>
 
+                <form onSubmit = {handleSubmit(handleDashboard)}>
+                    <Button type="submit">
+                        Dashboard
+                    </Button>
+                </form>
+                <form onSubmit = {handleSubmit(handleEdit)}>
+                    <Button type="submit">
+                        Edit Profile
+                    </Button>
+                </form>
             </Flex>
             <Divider />
             { postsAreLoading 
