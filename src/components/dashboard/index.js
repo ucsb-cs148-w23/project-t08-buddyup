@@ -38,6 +38,11 @@ function NewPost() {
         minRows={3}
         {...register("text", {requred: true})}
         />
+        <Textarea resize="none"  
+        placeholder="Enter your housing preference (on or off campus)"
+        minRows={3}
+        {...register("text", {requred: true})}
+        />
     </form>
 </Box>
 }
