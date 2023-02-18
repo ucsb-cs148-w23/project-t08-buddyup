@@ -13,7 +13,10 @@ function NewPost() {
     function handleAddPost(data) {
         addPost({
             //uid: user.id,
+            title: data.title,
             text: data.text,
+            pref: data.pref
+            
         })
         reset();
     }
@@ -34,16 +37,25 @@ function NewPost() {
         </HStack>
         <Textarea resize="none" 
         mt="5" 
-        placeholder="Create a new post..."
+        placeholder="Title your post"
+        minRows={1}
+        {...register("title", {requred: true})}
+        />
+        <Textarea resize="none" 
+         
+        placeholder="Off campus or on campus"
+        minRows={1}
+        {...register("pref", {requred: true})}
+        />
+        <Textarea resize="none" 
+         
+        placeholder="Create your post..."
         minRows={3}
         {...register("text", {requred: true})}
         />
-        <Textarea resize="none"  
-        placeholder="Enter your housing preference (on or off campus)"
-        minRows={3}
-        {...register("text", {requred: true})}
-        />
+       
     </form>
+    
 </Box>
 }
 
