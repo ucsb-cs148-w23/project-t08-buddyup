@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "hooks/auth";
 //import Navbar from "components/layout/Navbar";
-//import Sidebar from "components/layout/Sidebar";
+import Sidebar from "components/layout/Sidebar";
 import { Box, Flex } from "@chakra-ui/react";
 import { auth } from "firebase_setup/firebase";
 
@@ -25,6 +25,7 @@ export default function Layout() {
         <Box w="900px">
           <Outlet />
         </Box>
+        <Sidebar/>
       </Flex>
     </>
   );
