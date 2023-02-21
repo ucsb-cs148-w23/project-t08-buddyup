@@ -37,62 +37,57 @@ export default function ProfileEdit() {
     }
 
     return (
-        <HStack>
-            <Stack spacing="5" backgroundColor={"purple.200"}>
-                <Flex p={["4","6"]} pos="relative" align="center" backgroundColor={"purple.200"}>
-                    <Image 
-                        boxSize={"75px"}
-                        borderRadius="full"
-                        src= {auth.currentUser.photoURL}
-                        alt="Pickle Rick, Alias of Rick Sanchez"
-                    >
-                    </Image>
-                    <VStack spacing="10" >
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Display Name
-                        </Text>
-                        <Textarea resize="none" 
-                        minRows={1}
-                        placeholder="What name would you like to display?"
-                        {...register("name", {required: true})}
-                        >{name}</Textarea>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                            School Year
-                        </Text>
-                        <Textarea resize="none" 
-                        placeholder="Your school year. If it's summer, the year you will be in the fall."
-                        minRows={1}
-                        {...register("year", {required: true})}
-                        >{year}</Textarea>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Wants to Live:
-                        </Text>
-                        <Textarea resize="none" 
-                        placeholder="Where do you want to live? (IV, University housing, etc.)"
-                        minRows={1}
-                        {...register("location", {required: true})}
-                        >{wantsToLive}</Textarea>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Profile Picture URL:
-                        </Text>
-                        <Textarea resize="none" 
-                        placeholder="A URL that leads to a photo"
-                        minRows={1}
-                        {...register("pfpURL", {required: true})}
-                        >{pfpURL}</Textarea>
-                    </VStack>
-                    <Text color="gray.800" fontSize={["sm","lg"]}>
-                        Bio:
-                    </Text>
-                    <Textarea resize="none"
-                    placeholder="Write a little about yourself. What should potential housemates know about you?"
-                    width="40%"
-                    height="40px"
-                    {...register("bio", {required: true})}
-                    >{bio}</Textarea>
-                </Flex>
-                <Divider />  
-            </Stack>
+        <HStack align="center" backgroundColor={"teal.200"}>
+            <Image 
+                boxSize={"150px"}
+                borderRadius="full"
+                src= {auth.currentUser.photoURL}
+                alt="Pickle Rick, Alias of Rick Sanchez"
+            >
+            </Image>
+            <VStack spacing="3" width="30%">
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Display Name
+                </Text>
+                <Textarea resize="none" 
+                minRows={1}
+                placeholder="What name would you like to display?"
+                {...register("name", {required: true})}
+                >{name}</Textarea>
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    School Year
+                </Text>
+                <Textarea resize="none" 
+                placeholder="Your school year. If it's summer, the year you will be in the fall."
+                minRows={1}
+                {...register("year", {required: true})}
+                >{year}</Textarea>
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Wants to Live:
+                </Text>
+                <Textarea resize="none" 
+                placeholder="Where do you want to live? (IV, University housing, etc.)"
+                minRows={1}
+                {...register("location", {required: true})}
+                >{wantsToLive}</Textarea>
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Profile Picture URL:
+                </Text>
+                <Textarea resize="none" 
+                placeholder="A URL that leads to a photo"
+                minRows={1}
+                {...register("pfpURL", {required: true})}
+                >{pfpURL}</Textarea>
+            </VStack>
+            <Text color="gray.800" fontSize={["sm","lg"]}>
+                Bio:
+            </Text>
+            <Textarea resize="none"
+            placeholder="Write a little about yourself. What should potential housemates know about you?"
+            width="60%"
+            height="40px"
+            {...register("bio", {required: true})}
+            >{bio}</Textarea>
             <VStack spacing="10">
                 <form onSubmit = {handleSubmit(handleSaveProfile)}>
                     <Button type="submit">
