@@ -15,3 +15,9 @@
 | ??                  | Lauren Daniel      | Will lead second Retro                                                                 | 
 | Mon 2/27 - ?        | Anouki Panthagani  | Scribe and leader for daily scrums, team meetings, etc. for Sprint 04                  | 
 | Mon 2/27 - ?        | Brenna Scholte     | Product Owner for sprint 04                                                            |
+| ??                  | Sergio Colis Chavez| Testing/QA Coordinator                                                                 | 
+| ??                  | ??                 | UX Coordinator                                                                         | 
+| ??                  | ??                 | Design Document Coordinator                                                            | 
+| ??                  | ??                 | Deployment Document Coordinator                                                        | 
+| ??                  | ??                 | User Manual Coordinator                                                                | 
+| ??                  | ??                 | Final presentation leader (week 9/10)                                                  | 
