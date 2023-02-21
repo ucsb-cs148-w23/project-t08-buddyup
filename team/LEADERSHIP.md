@@ -13,5 +13,5 @@
 | Mon 2/13 - 2/24     | Sophia Moore       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 03                  | 
 | Mon 2/13 - 2/24     | Sergio Colis Chavez| Product Owner for sprint 03                                                            |
 | ??                  | Lauren Daniel      | Will lead second Retro                                                                 | 
-| Mon 2/27 - ?        | ?       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 04                  | 
-| Mon 2/27 - ?        | ?| Product Owner for sprint 04                                                            |
+| Mon 2/27 - ?        | Anouki Panthagani  | Scribe and leader for daily scrums, team meetings, etc. for Sprint 04                  | 
+| Mon 2/27 - ?        | Brenna Scholte     | Product Owner for sprint 04                                                            |
