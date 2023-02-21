@@ -2,7 +2,7 @@ import { Button, Divider, Flex, HStack, Stack, Text, Image, Box } from "@chakra-
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
-import { useUser } from "hooks/users";
+import { useEditProfile, useUser } from "hooks/users";
 import { useGoToDashboard } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
@@ -21,11 +21,17 @@ import { auth } from "firebase_setup/firebase";
     const { user, isLoading: userIsLoading } = useUser(uid);
 
     const { goToDashboard, loading } = useGoToDashboard();
+    const { goToEdit, oading } = useEditProfile();
 
 
     async function handleDashboard() {
         console.log("going to dashboard");
         await goToDashboard();
+    }
+
+    async function handleEdit() {
+        console.log("going to profile edit");
+        await goToEdit();
     }
 
     return (
