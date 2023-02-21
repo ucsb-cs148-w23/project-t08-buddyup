@@ -62,12 +62,12 @@ import { auth } from "firebase_setup/firebase";
                 </Stack>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit">
+                    <Button type="submit" ml={"5"}>
                         Dashboard
                     </Button>
                 </form>
                 <form onSubmit = {handleSubmit(handleEdit)}>
-                    <Button type="submit">
+                    <Button type="submit" ml={"5"}>
                         Edit Profile
                     </Button>
                 </form>
