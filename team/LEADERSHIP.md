@@ -10,7 +10,8 @@
 | Mon 1/30 - Fri 2/3  | Kaiwen Tang        | Scribe and leader for daily  scrums, team meetings, etc. for first week of Sprint 02   |
 | Mon 2/6 - Fri 2/10  | Kai Hilbourne      | Scribe and leader for daily  scrums, team meetings, etc. for second week of Sprint 02  |
 | Mon 1/30 - Fri 2/10 | Lauren Daniel      | Product Owner for sprint 02                                                            |
-| Mon 2/13 - ?        | Sophia Moore       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 03                  | 
-| Mon 2/13 - ?        | Sergio Colis Chavez| Product Owner for sprint 03                                                            |
+| Mon 2/13 - 2/24     | Sophia Moore       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 03                  | 
+| Mon 2/13 - 2/24     | Sergio Colis Chavez| Product Owner for sprint 03                                                            |
 | ??                  | Lauren Daniel      | Will lead second Retro                                                                 | 
- 
+| Mon 2/27 - ?        | ?       | Scribe and leader for daily scrums, team meetings, etc. for Sprint 04                  | 
+| Mon 2/27 - ?        | ?| Product Owner for sprint 04                                                            |
