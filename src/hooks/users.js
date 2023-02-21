@@ -4,7 +4,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { DASHBOARD, PROFILE, PROTECTED } from "lib/routes";
+import { DASHBOARD, PROTECTED } from "lib/routes";
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
@@ -47,6 +47,24 @@ export function useAddUser() {
 
     return {checkUser};
 
+}
+
+export function useSaveProfile(){
+    async function saveProfile(name,email,pfpURL,bio,year,wantstoLive){
+        const uid = auth.currentUser.uid;
+        await setDoc(doc(firestore, "users", uid), {
+            uid,
+            name,
+            email,
+            pfpURL,
+            bio,
+            year,
+            wantstoLive,
+        })
+        return true;
+    }
+
+    return {saveProfile};
 }
 
 export function useGoToProfile() {
@@ -98,7 +116,7 @@ export function useEditProfile() {
     const toast = useToast();
     const navigate = useNavigate();
  
-     async function goToDashboard() {
+     async function goToEdit() {
          setLoading(true);
          toast({
              title: "Now you can edit your Profile",
@@ -107,10 +125,10 @@ export function useEditProfile() {
              position: "top",
              duration: 5000,
          })
-         navigate(PROFILEEDIT);
+         navigate('${PROTECTED}/profile/${id}');
          setLoading(false);
          return true;
      }
  
-     return {goToDashboard, isLoading};
+     return {goToEdit, isLoading};
 }
