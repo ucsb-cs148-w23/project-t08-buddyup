@@ -27,7 +27,7 @@ import { auth } from "firebase_setup/firebase";
                     boxSize={"75px"}
                     borderRadius="full"
                     src= { userIsLoading
-                        ? "https://media.tenor.com/1xCNcwOcel4AAAAd/obama-obunga.gif"
+                        ? "https://freesvg.org/img/abstract-user-flat-4.png"
                         : user.pfpURL}
                 >
                 </Image>

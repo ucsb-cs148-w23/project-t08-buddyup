@@ -20,23 +20,23 @@ export default function Header({ post }) {
       p="3"
       bg="gray.50"
     >
-      {/*<Avatar user={user} size="md" />*/}
+      <Avatar
+        as={Link}
+        to={user
+            ? `${PROTECTED}/profile/${uid}`
+            : DASHBOARD}
+        name={user
+              ? user.name
+              : "missing" }
+        size="md"
+        src={user
+              ? user.pfpURL
+              : "https://freesvg.org/img/abstract-user-flat-4.png"}
+        
+      />
 
       <Box ml="4">
-        {/* <UsernameButton user={user} /> */}
-        <Avatar
-          as={Link}
-          to={user
-              ? `${PROTECTED}/profile/${uid}`
-              : DASHBOARD}
-          name={user
-                ? user.name
-                : "missing" }
-          size="md"
-          src={user
-                ? user.pfpURL
-                : "https://media.tenor.com/1xCNcwOcel4AAAAd/obama-obunga.gif"}
-        />
+        <Text> {user ? user.name : "Name"} </Text>
         <Text fontSize="sm" color="gray.500">
           {formatDistanceToNow(date)} ago
         </Text>
