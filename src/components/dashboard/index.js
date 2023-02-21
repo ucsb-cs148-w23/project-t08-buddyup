@@ -63,16 +63,18 @@ export default function Dashboard() {
     const{posts, isLoading} = usePosts();
     return (
     <>
-        <form onSubmit={handleSubmit(handleLogout)}>
-            <Button type="submit" >
-                Sign Out
-            </Button>
-        </form>
-        <form onSubmit = {handleSubmit(handleProfile)}>
-            <Button type="submit">
-                Profile
-            </Button>
-        </form>
+        <HStack spacing={"10"}>
+            <form onSubmit={handleSubmit(handleLogout)}>
+                <Button type="submit" >
+                    Sign Out
+                </Button>
+            </form>
+            <form onSubmit = {handleSubmit(handleProfile)}>
+                <Button type="submit">
+                    Profile
+                </Button>
+            </form>
+        </HStack>
         <NewPost />
         <PostsLists posts={posts}/>
     </>

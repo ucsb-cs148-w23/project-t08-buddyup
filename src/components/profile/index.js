@@ -10,11 +10,8 @@ import { auth } from "firebase_setup/firebase";
  export default function Profile() {
     const { id } = useParams();
 
-    console.log("on profile page, next up, name:")
     const uid = auth.currentUser.uid;
     const name = auth.currentUser.displayName;
-    console.log(name);
-    console.log("above should be a name")
     const { handleSubmit } = useForm();
 
     const { posts, isLoading: postsAreLoading } = usePosts(uid);
@@ -59,12 +56,12 @@ import { auth } from "firebase_setup/firebase";
                 </Stack>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit">
+                    <Button type="submit" ml={"5"}>
                         Dashboard
                     </Button>
                 </form>
                 <form onSubmit = {handleSubmit(handleEdit)}>
-                    <Button type="submit">
+                    <Button type="submit" ml={"5"}>
                         Edit Profile
                     </Button>
                 </form>
