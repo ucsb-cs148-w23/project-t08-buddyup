@@ -17,7 +17,7 @@
 | Mon 2/27 - ?        | Brenna Scholte     | Product Owner for sprint 04                                                            |
 | ??                  | Sergio Colis Chavez| Testing/QA Coordinator                                                                 | 
 | ??                  | ??                 | Led third retro                                                                        | 
-| ??                  | Anouki Panthagani. | UX Coordinator                                                                         | 
+| ??                  | Anouki Panthagani  | UX Coordinator                                                                         | 
 | ??                  | ??                 | Design Document Coordinator                                                            | 
 | ??                  | ??                 | Deployment Document Coordinator                                                        | 
 | ??                  | ??                 | User Manual Coordinator                                                                | 
