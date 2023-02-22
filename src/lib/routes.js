@@ -11,8 +11,8 @@ export const LOGIN = "/login";
 export const DASHBOARD = "/protected/dashboard";
 export const COMMENTS = "/protected/dashboard/comments/:postID";
 export const PROTECTED = "/protected";
-export const PROFILE = "/protected/profile/:userID";
-export const PROFILEEDIT = "/protected/profileedit/:userID";
+export const PROFILEEDIT = "/protected/profileedit/:id";
+export const PROFILE = "/protected/profile/:id";
 
 export const router = createBrowserRouter ([
     { path: ROOT, element: <Login /> },

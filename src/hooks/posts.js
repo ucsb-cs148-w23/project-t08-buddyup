@@ -52,3 +52,4 @@ export function usePost(id) {
   
     return { post, isLoading };
   }
+//mock doc function and test usePosts

@@ -10,16 +10,12 @@ import { auth } from "firebase_setup/firebase";
  export default function Profile() {
     const { id } = useParams();
 
-    const uid = auth.currentUser.uid;
-    const name = auth.currentUser.displayName;
+    const { posts, isLoading: postsAreLoading } = usePosts(id);
+    const { user, isLoading: userIsLoading } = useUser(id);
+
     const { handleSubmit } = useForm();
-
-    const { posts, isLoading: postsAreLoading } = usePosts(uid);
-    const { user, isLoading: userIsLoading } = useUser(uid);
-
     const { goToDashboard, loading } = useGoToDashboard();
     const { goToEdit, oading } = useEditProfile();
-
 
     async function handleDashboard() {
         console.log("going to dashboard");
@@ -37,20 +33,27 @@ import { auth } from "firebase_setup/firebase";
                 <Image 
                     boxSize={"75px"}
                     borderRadius="full"
-                    src="https://yt3.ggpht.com/a/AATXAJy3vmY5uYuadYbWkzDZ1n7-2c7IJe5xLJw3GQ=s900-c-k-c0xffffffff-no-rj-mo"
-                    alt="Pickle Rick, Alias of Rick Sanchez"
+                    src= { userIsLoading
+                        ? "https://freesvg.org/img/abstract-user-flat-4.png"
+                        : user.pfpURL}
                 >
                 </Image>
                 <Stack ml="10">
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            {name}
+                            { userIsLoading
+                                ? "Name"
+                                : user.name}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            3rd Year
+                            { userIsLoading
+                                ? "Year"
+                                : user.year}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Wants to Live in IV
+                        Wants to Live in { userIsLoading
+                                            ? "Nowhere"
+                                            : user.wantstoLive}
                         </Text>
                     </HStack>
                 </Stack>
