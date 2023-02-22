@@ -12,13 +12,13 @@
 | Mon 1/30 - Fri 2/10 | Lauren Daniel      | Product Owner for sprint 02                                                            |
 | Mon 2/13 - 2/24     | Sophia Moore       | Scribe and scrum master for Sprint 03                                                  | 
 | Mon 2/13 - 2/24     | Sergio Colis Chavez| Product Owner for sprint 03                                                            |
-| ??                  | Lauren Daniel      | Led second retro                                                                       | 
+| Tues 2/21           | Lauren Daniel      | Led second retro                                                                       | 
 | Mon 2/27 - ?        | Anouki Panthagani  | Scribe and scrum master for Sprint 04                                                  | 
 | Mon 2/27 - ?        | Brenna Scholte     | Product Owner for sprint 04                                                            |
 | ??                  | Sergio Colis Chavez| Testing/QA Coordinator                                                                 | 
-| ??                  | ??                 | Led third retro                                                                        | 
+| ??                  | Sophia Moore       | Led third retro                                                                        | 
 | ??                  | Anouki Panthagani  | UX Coordinator                                                                         | 
-| ??                  | ??                 | Design Document Coordinator                                                            | 
-| ??                  | ??                 | Deployment Document Coordinator                                                        | 
+| ??                  | Brenna Scholte     | Design Document Coordinator                                                            | 
+| ??                  | Lauren Daniel      | Deployment Document Coordinator                                                        | 
 | ??                  | Kai Hilbourne      | User Manual Coordinator                                                                | 
 | ??                  | Kaiwen Tang        | Final presentation leader (week 9/10)                                                  | 
