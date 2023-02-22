@@ -21,4 +21,4 @@
 | ??                  | ??                 | Design Document Coordinator                                                            | 
 | ??                  | ??                 | Deployment Document Coordinator                                                        | 
 | ??                  | ??                 | User Manual Coordinator                                                                | 
-| ??                  | ??                 | Final presentation leader (week 9/10)                                                  | 
+| ??                  | Kaiwen Tang        | Final presentation leader (week 9/10)                                                  | 
