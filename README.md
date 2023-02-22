@@ -25,7 +25,7 @@ For our project we will be creating a platform for prospective and current UCSB 
 - Administrators (us): delete inappropriate/spam profiles/posts, add new data, make updates to application's functions
 
 **Testing**
-- Lab 5 unit test in "src/__tests__/Render_test.js"
+- Lab 5 unit test in Render_test.js file under tests folder in src folder
 - Render test that ensures that the app is able to start
 
 **Installation:**
