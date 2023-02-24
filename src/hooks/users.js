@@ -116,7 +116,7 @@ export function useEditProfile() {
     const toast = useToast();
     const navigate = useNavigate();
  
-     async function goToEdit() {
+     async function goToEdit(id=null) {
          setLoading(true);
          toast({
              title: "Now you can edit your Profile",
@@ -125,7 +125,7 @@ export function useEditProfile() {
              position: "top",
              duration: 5000,
          })
-         navigate('${PROTECTED}/profile/${id}');
+         navigate(`${PROTECTED}/profileedit/${id}`);
          setLoading(false);
          return true;
      }

@@ -22,7 +22,7 @@ import { auth } from "firebase_setup/firebase";
 
     async function handleDashboard() {
         console.log("going to dashboard");
-        await goToDashboard();
+        await goToDashboard(uid);
     }
 
     async function handleEdit() {
