@@ -16,7 +16,7 @@ export default function Layout() {
     if (!isLoading && pathname.startsWith("/protected") && !user) {
       navigate(LOGIN);
     }
-  }, [pathname, user, isLoading, navigate]);
+  }, [pathname, user, isLoading]);
 
 
   return (
