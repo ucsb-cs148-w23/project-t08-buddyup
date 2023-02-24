@@ -9,7 +9,7 @@ import { auth } from "firebase_setup/firebase";
  export default function Profile() {
     const { id } = useParams();
     const uid = auth.currentUser.uid;
-    const isUser = (id == uid) ? true : false;
+    const isUser = (id === uid) ? true : false;
 
     const { posts, isLoading: postsAreLoading } = usePosts(id);
     const { user, isLoading: userIsLoading } = useUser(id);
