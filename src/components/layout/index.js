@@ -9,7 +9,7 @@ import { auth } from "firebase_setup/firebase";
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const { navigate } = useNavigate();
   const { user, isLoading } = useAuth();
 
   useEffect(() => {
