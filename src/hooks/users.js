@@ -68,7 +68,7 @@ export function useSaveProfile(){
 }
 
 export function useGoToProfile() {
-    const [setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const navigate = useNavigate();
  
@@ -86,11 +86,11 @@ export function useGoToProfile() {
          return true;
      }
  
-     return {goToProfile};
+     return {goToProfile, isLoading};
 }
 
 export function useGoToDashboard() {
-    const [setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const navigate = useNavigate();
  
@@ -108,11 +108,11 @@ export function useGoToDashboard() {
          return true;
      }
  
-     return {goToDashboard};
+     return {goToDashboard, isLoading};
 }
 
 export function useEditProfile() {
-    const [setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const navigate = useNavigate();
  
@@ -130,5 +130,5 @@ export function useEditProfile() {
          return true;
      }
  
-     return {goToEdit};
+     return {goToEdit, isLoading};
 }

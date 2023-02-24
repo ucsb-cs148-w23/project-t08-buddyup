@@ -9,7 +9,7 @@ export default function ProfileEdit() {
 
     const { user, isLoading: userIsLoading } = useUser(uid);
     const { saveProfile } = useSaveProfile();
-    const { goToProfile } = useGoToProfile();
+    const { goToProfile, isLoading:profileLoading } = useGoToProfile();
 
     function handleSaveProfile(data){
         console.log(data.name);
