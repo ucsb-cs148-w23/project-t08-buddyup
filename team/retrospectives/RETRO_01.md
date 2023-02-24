@@ -49,7 +49,6 @@ N/A
 
 ## Retro Assessment
 
-* A brief description of what retro outline or process you used.
-* A brief assessment of how it went.
-* What advice would you give to the next person leading a retro
-  based on what you learned today?
+- The retro outline we used was Start/Stop/Continue. We took three minutes initially to jot down what we thought was worth starting, stopping, and continuing. 
+- I think that the retro went smoothly. Everyone had a few items for each category and we have a diverse pool of reflections to learn from. 
+- Next time, give more time for brainstorming ideas to share. Three minutes might not have been enough time to calmly reflect and was a little rushed. 
