@@ -1,3 +1,10 @@
+**Lab 5 Test**
+- Lab 5 unit test in Render_test.js file under tests folder in src folder
+- Render test that ensures that the app is able to start
+
+
+**Lab 5 and 6 Tests**
+
 **1) How you implemented the unit test requirement from the previous lab (which testing library, which part(s) of the code, etc.)**
 
 
