@@ -15,8 +15,8 @@ import { auth } from "firebase_setup/firebase";
     const { user, isLoading: userIsLoading } = useUser(id);
 
     const { handleSubmit } = useForm();
-    const { goToDashboard, loading } = useGoToDashboard();
-    const { goToEdit, oading } = useEditProfile();
+    const { goToDashboard} = useGoToDashboard();
+    const { goToEdit} = useEditProfile();
 
     async function handleDashboard() {
         console.log("going to dashboard");
