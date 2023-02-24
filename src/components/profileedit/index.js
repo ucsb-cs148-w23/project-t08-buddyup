@@ -1,5 +1,4 @@
-import { Button, Divider, Flex, VStack, HStack, Stack, Text, Image, Box, Textarea } from "@chakra-ui/react"
-import { useParams } from "react-router-dom";
+import { Button, VStack, HStack, Text, Image, Textarea } from "@chakra-ui/react"
 import { useUser, useSaveProfile, useGoToProfile } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
@@ -24,11 +23,11 @@ export default function ProfileEdit() {
             data.year,
             data.location
         );
-        goToProfile();
+        goToProfile(uid);
     }
 
     function handleCancel(){
-        goToProfile();
+        goToProfile(uid);
     }
 
     return (

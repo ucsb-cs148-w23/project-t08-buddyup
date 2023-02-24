@@ -75,7 +75,7 @@ export function useGoToProfile() {
      async function goToProfile(id=null) {
          setLoading(true);
          toast({
-             title: "This is your profile page",
+             title: "This is a profile page",
              status: "success",
              isClosable: true,
              position: "top",

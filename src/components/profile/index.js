@@ -2,19 +2,17 @@ import { Button, Divider, Flex, HStack, Stack, Text, Image, Box } from "@chakra-
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
-import { useEditProfile, useUser } from "hooks/users";
-import { useGoToDashboard } from "hooks/users";
+import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
-
     const uid = auth.currentUser.uid;
-    const name = auth.currentUser.displayName;
+    const isUser = (id == uid) ? true : false;
 
-    const { posts, isLoading: postsAreLoading } = usePosts(uid);
-    const { user, isLoading: userIsLoading } = useUser(uid);
+    const { posts, isLoading: postsAreLoading } = usePosts(id);
+    const { user, isLoading: userIsLoading } = useUser(id);
 
     const { handleSubmit } = useForm();
     const { goToDashboard, loading } = useGoToDashboard();
@@ -22,17 +20,12 @@ import { auth } from "firebase_setup/firebase";
 
     async function handleDashboard() {
         console.log("going to dashboard");
-        await goToDashboard(uid);
+        await goToDashboard();
     }
 
     async function handleEdit() {
         console.log("going to profile edit");
-        await goToEdit();
-    }
-
-    async function handleEdit() {
-        console.log("going to profile edit");
-        await goToEdit();
+        await goToEdit(uid);
     }
 
     return (
@@ -71,11 +64,15 @@ import { auth } from "firebase_setup/firebase";
                         Dashboard
                     </Button>
                 </form>
-                <form onSubmit = {handleSubmit(handleEdit)}>
-                    <Button type="submit" ml={"5"}>
-                        Edit Profile
-                    </Button>
-                </form>
+                {isUser 
+                ?   <form onSubmit = {handleSubmit(handleEdit)}>
+                        <Button type="submit" ml={"5"}>
+                            Edit Profile
+                        </Button>
+                    </form>
+                : <></>
+                }
+                
             </Flex>
             <Divider />
             { postsAreLoading 
