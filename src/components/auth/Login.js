@@ -39,6 +39,7 @@ import {
                 w="full"
                 isLoading={isLoading}
                 loadingText="Logging In"
+                className="loginButton"
               >
                 Log In With Google
               </Button>
