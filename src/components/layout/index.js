@@ -1,5 +1,5 @@
 import { LOGIN } from "lib/routes";
-import { useEffect, navigate } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "hooks/auth";
 //import Navbar from "components/layout/Navbar";
@@ -9,14 +9,14 @@ import { auth } from "firebase_setup/firebase";
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const { user, isLoading } = useAuth();
 
   useEffect(() => {
     if (!isLoading && pathname.startsWith("/protected") && !user) {
-      navigator(LOGIN);
+      navigate(LOGIN);
     }
-  }, [pathname, user, isLoading]);
+  }, [pathname, user, isLoading, navigate]);
 
 
   return (
