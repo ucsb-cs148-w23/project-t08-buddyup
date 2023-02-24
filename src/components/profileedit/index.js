@@ -12,7 +12,6 @@ export default function ProfileEdit() {
     const { saveProfile } = useSaveProfile();
     const { goToProfile } = useGoToProfile();
 
-
     function handleSaveProfile(data){
         console.log(data.name);
         console.log(data.year);
