@@ -56,7 +56,6 @@ N/A
 
 ## Retro Assessment
 
-* A brief description of what retro outline or process you used.
-* A brief assessment of how it went.
-* What advice would you give to the next person leading a retro
-  based on what you learned today?
+* We used the Start/Stop/Continue process where everyone came up with things to start doing, stop doing, and continue doing.
+* Overall, the retrospective went pretty well and we were able to generate some good ideas for all the categories (start/stop/continue).
+* It's helpful to have everyone start thinking about what they want to say a day or 2 in advance so their answers are more thought out and relevant.
