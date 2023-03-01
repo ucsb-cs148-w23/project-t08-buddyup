@@ -2,7 +2,6 @@ import { doc, getDoc, query, setDoc } from "firebase/firestore";
 import { firestore, auth } from "firebase_setup/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { DASHBOARD, PROTECTED } from "lib/routes";
 
@@ -69,7 +68,6 @@ export function useSaveProfile(){
 
 export function useGoToProfile() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToProfile(id=null) {

@@ -49,6 +49,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 minRows={1}
                 placeholder="What name would you like to display?"
+                maxLength={48}
                 {...register("name", {required: true})}
                 >{ userIsLoading
                     ? "Name"
@@ -60,6 +61,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 placeholder="Your school year. If it's summer, the year you will be in the fall."
                 minRows={1}
+                maxLength={20}
                 {...register("year", {required: true})}
                 >{ userIsLoading
                     ? "Year"
@@ -71,6 +73,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 placeholder="Where do you want to live? (IV, University housing, etc.)"
                 minRows={1}
+                maxLength={32}
                 {...register("location", {required: true})}
                 >{ userIsLoading
                     ? "Nowhere"
@@ -94,6 +97,7 @@ export default function ProfileEdit() {
             placeholder="Write a little about yourself. What should potential housemates know about you?"
             width="60%"
             height="200px"
+            maxLength={600}
             {...register("bio", {required: true})}
             >{ userIsLoading
                 ? "I eat food and breathe air"

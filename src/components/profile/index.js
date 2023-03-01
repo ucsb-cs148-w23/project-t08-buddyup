@@ -77,8 +77,10 @@ import { auth } from "firebase_setup/firebase";
             </Flex>
             <Divider/>
             <Flex>
-                <Text vertical-align={"center"} color="gray.800" fontSize={"xl"}>Bio:</Text>
-                <Text color="gray.800" fontSize={["sm","lg"]} ml="5" mr="5" mb="5">
+                <Text verticalAlign={"center"} color="gray.800" fontSize={"xl"}>
+                    Bio:
+                </Text>
+                <Text verticalAlign={"center"} color="gray.800" fontSize={["sm","lg"]} ml="5" mr="5" mb="5">
                     {userIsLoading
                     ? "Bio"
                     : user.bio}
