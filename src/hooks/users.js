@@ -74,13 +74,6 @@ export function useGoToProfile() {
  
      async function goToProfile(id=null) {
          setLoading(true);
-         toast({
-             title: "This is a profile page",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(`${PROTECTED}/profile/${id}`);
          setLoading(false);
          return true;
@@ -91,18 +84,10 @@ export function useGoToProfile() {
 
 export function useGoToDashboard() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToDashboard() {
          setLoading(true);
-         toast({
-             title: "This is your Dashboard",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(DASHBOARD);
          setLoading(false);
          return true;
@@ -113,18 +98,10 @@ export function useGoToDashboard() {
 
 export function useEditProfile() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToEdit(id=null) {
          setLoading(true);
-         toast({
-             title: "Now you can edit your Profile",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(`${PROTECTED}/profileedit/${id}`);
          setLoading(false);
          return true;
