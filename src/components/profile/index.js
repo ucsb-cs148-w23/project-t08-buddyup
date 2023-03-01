@@ -76,7 +76,20 @@ import { auth } from "firebase_setup/firebase";
                 
             </Flex>
             <Divider/>
-            <Flex>
+            <Flex p={["4","1"]} pos="relative">
+                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
+                    Pronouns: { userIsLoading
+                        ? "Pronouns"
+                        : user.pronouns}
+                </Text>
+                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
+                    Room Type: { userIsLoading
+                        ? "Room Preference"
+                        : user.roomtype}
+                </Text>
+            </Flex>
+            <Divider/>
+            <Flex p={["4","6"]} pos="relative" align="center">
                 <Text verticalAlign={"center"} color="gray.800" fontSize={"xl"}>
                     Bio:
                 </Text>

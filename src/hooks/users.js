@@ -21,12 +21,16 @@ export function useAddUser() {
         const pfpURL = auth.currentUser.photoURL;
         const bio = "NULL";
         const year = "NULL";
+        const pronouns = "NULL";
+        const roomtype = "NULL";
         const wantstoLive = "NULL";
         await setDoc(doc(firestore, "users", uid), {
             uid,
             name,
             email,
             pfpURL,
+            pronouns,
+            roomtype,
             bio,
             year,
             wantstoLive,
@@ -49,7 +53,7 @@ export function useAddUser() {
 }
 
 export function useSaveProfile(){
-    async function saveProfile(name,email,pfpURL,bio,year,wantstoLive){
+    async function saveProfile(name,email,pfpURL,bio,year,wantstoLive,pronouns,roomtype){
         const uid = auth.currentUser.uid;
         await setDoc(doc(firestore, "users", uid), {
             uid,
@@ -59,6 +63,8 @@ export function useSaveProfile(){
             bio,
             year,
             wantstoLive,
+            pronouns,
+            roomtype,
         })
         return true;
     }
