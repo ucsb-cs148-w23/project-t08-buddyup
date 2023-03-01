@@ -4,7 +4,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { DASHBOARD, PROFILE, PROTECTED } from "lib/routes";
+import { DASHBOARD, PROTECTED } from "lib/routes";
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
@@ -49,6 +49,24 @@ export function useAddUser() {
 
 }
 
+export function useSaveProfile(){
+    async function saveProfile(name,email,pfpURL,bio,year,wantstoLive){
+        const uid = auth.currentUser.uid;
+        await setDoc(doc(firestore, "users", uid), {
+            uid,
+            name,
+            email,
+            pfpURL,
+            bio,
+            year,
+            wantstoLive,
+        })
+        return true;
+    }
+
+    return {saveProfile};
+}
+
 export function useGoToProfile() {
     const [isLoading, setLoading] = useState(false);
     const toast = useToast();
@@ -57,7 +75,7 @@ export function useGoToProfile() {
      async function goToProfile(id=null) {
          setLoading(true);
          toast({
-             title: "This is your profile page",
+             title: "This is a profile page",
              status: "success",
              isClosable: true,
              position: "top",
@@ -91,4 +109,26 @@ export function useGoToDashboard() {
      }
  
      return {goToDashboard, isLoading};
+}
+
+export function useEditProfile() {
+    const [isLoading, setLoading] = useState(false);
+    const toast = useToast();
+    const navigate = useNavigate();
+ 
+     async function goToEdit(id=null) {
+         setLoading(true);
+         toast({
+             title: "Now you can edit your Profile",
+             status: "success",
+             isClosable: true,
+             position: "top",
+             duration: 5000,
+         })
+         navigate(`${PROTECTED}/profileedit/${id}`);
+         setLoading(false);
+         return true;
+     }
+ 
+     return {goToEdit, isLoading};
 }
