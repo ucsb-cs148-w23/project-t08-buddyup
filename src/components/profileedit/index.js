@@ -48,7 +48,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 minRows={1}
                 placeholder="What name would you like to display?"
-                maxLength={48}
+                maxLength={70}
                 {...register("name", {required: true})}
                 >{ userIsLoading
                     ? "Name"
