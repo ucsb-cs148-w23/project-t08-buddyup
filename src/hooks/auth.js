@@ -1,4 +1,4 @@
-import { useAuthState } from "react-firebase-hooks/auth";
+//import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "firebase_setup/firebase";
 import { useState } from "react";
 import { DASHBOARD, LOGIN } from "lib/routes";
@@ -17,7 +17,7 @@ export function useLogin() {
    const [isLoading, setLoading] = useState(false);
    const { checkUser } = useAddUser();
    const toast = useToast();
-   const navigate = useNavigate();
+   //const navigate = useNavigate();
 
     async function login() {
         setLoading(true);
@@ -31,7 +31,7 @@ export function useLogin() {
             position: "top",
             duration: 5000,
         })
-        navigate(DASHBOARD);
+        //navigate(DASHBOARD);
         setLoading(false);
         return true;
     }
