@@ -10,6 +10,11 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [ ], Sophia Moore
 
 Scribed Discussion: 
 
+Team Decisions:
+- Implement profile page for users (name, housing preference, bio, etc.)
+- Implement sidebar to web page
+- Implement comment functionality on posts
+
 Brenna: nothing since yesterday Obstacle(s): nothing atm Next Step: working on sidebar/comment functionality
 
 Kaiwen: worked on dashboard and post functionality Obstacle(s): trying to get it done before saturday Next Step: finishing up dashboard and post functionality
