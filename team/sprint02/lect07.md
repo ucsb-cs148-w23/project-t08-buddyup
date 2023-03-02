@@ -10,6 +10,11 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore
 
 Scribed Discussion: 
 
+Team Decisions:
+- Implement profile page for users (name, housing preference, bio, etc.)
+- Implement sidebar to web page
+- Implement comment functionality on posts
+
 Brenna: Watched tutorials and updated kanban board. Obstacle(s): Overwhelmed with time management and other classes. Next Step: Work with partners on issues. 
 
 Kaiwen: Worked on dashboard and post component. Obstacle(s): How to integrate oauth users with posts. Next Step: Complete dashboard and post system. 
