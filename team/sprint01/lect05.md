@@ -10,6 +10,10 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore
 
 Scribed Discussion: Brenna: Nothing since last meeting. Obstacle(s): Unsure how react and firbebase will coincide. Next Step: Watch tech stack tutorials by Friday.
 
+Team Decisions:
+- Implement Google OAuth
+- Create base template on firebase
+
 Lauren: Did react tutorial, tried to host on firebase. Obstacle(s): Nothing major right now. Next Step: Continue learning tech stacks.
 
 Anouki: Not anything since last meeting. Obstacle(s): Finding time to go through tutorials in-depth and learn tech stacks well. Next Step: Make time and follow through with lab02.
