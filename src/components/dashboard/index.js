@@ -35,11 +35,12 @@ function NewPost() {
         <Textarea resize="none" 
         mt="5" 
         placeholder="Title your post"
+        height={"30px"}
         minRows={1}
         {...register("title", {requred: true})}
         />
         <Textarea resize="none" 
-         
+        height={"30px"}
         placeholder="Off campus or on campus"
         minRows={1}
         {...register("pref", {requred: true})}
