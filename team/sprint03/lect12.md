@@ -10,6 +10,9 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore
 
 Scribed Discussion:
 
+Team Decisions:
+- Add security rule to only allow UCSB students to login
+
 Brenna: Nothing, Obstacle(s): None, Next Step: finish sidebar and assign new issues
 
 Kaiwen: Added post fields, went to office hours, Obstacle(s): Nothing, Next Step: resizing post field text boxes, and merging changes to main
