@@ -5,6 +5,8 @@ import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
 import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
+import { useGoToInformation} from 'hooks/users';
+
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -63,6 +65,7 @@ export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
     const { goToProfile, isLoading:profileLoading} = useGoToProfile();
+    const {goToInformation,isLoading:informationLoading} = useGoToInformation();
     const id = auth.currentUser.uid;
     
     async function handleLogout() {
@@ -73,6 +76,10 @@ export default function Dashboard() {
     async function handleProfile() {
         console.log("going to profile");
         await goToProfile(id);
+    }
+    async function handleInfo() {
+        console.log("going to info");
+        await goToInformation();
     }
 
     const{posts, isLoading} = usePosts();
@@ -87,6 +94,11 @@ export default function Dashboard() {
             <form onSubmit = {handleSubmit(handleProfile)}>
                 <Button type="submit">
                     Profile
+                </Button>
+            </form>
+            <form onSubmit = {handleSubmit(handleInfo)}>
+                <Button type="submit">
+                    UCSB Housing Information
                 </Button>
             </form>
         </HStack>
