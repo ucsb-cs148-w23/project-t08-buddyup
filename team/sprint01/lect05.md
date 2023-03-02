@@ -13,6 +13,7 @@ Scribed Discussion: Brenna: Nothing since last meeting. Obstacle(s): Unsure how 
 Team Decisions:
 - Implement Google OAuth
 - Create base template on firebase
+- Implement dashboard
 - Implement post feature to allow users to make a simple post 
 
 Lauren: Did react tutorial, tried to host on firebase. Obstacle(s): Nothing major right now. Next Step: Continue learning tech stacks.
