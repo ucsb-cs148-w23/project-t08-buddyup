@@ -2,7 +2,7 @@ Project: Buddy Up
 
 Mentors: Mateo, Vivian
 
-Meeting Time: lect 12 - 02/21/23
+Meeting Time: lect 14 - 02/28/23
 
 Type of meeting: Daily Scrum
 
