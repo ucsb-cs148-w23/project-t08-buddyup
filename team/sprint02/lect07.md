@@ -2,7 +2,7 @@
 
 Mentors: Mateo, Vivian
 
-Meeting Time: lect 07 - 2/3/23
+Meeting Time: lect 07 - 2/2/23
 
 Type of meeting: Daily Scrum
 
