@@ -2,13 +2,18 @@
 
 Mentors: Mateo, Vivian
 
-Meeting Time: lect 07 - 2/3/23
+Meeting Time: lect 07 - 2/2/23
 
 Type of meeting: Daily Scrum
 
 Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore [x], Kaiwen Tang [x], Sergio Colis Chavez [x], Kai Hilbourne [x]
 
 Scribed Discussion: 
+
+Team Decisions:
+- Implement profile page for users (name, housing preference, bio, etc.)
+- Implement sidebar to web page
+- Implement comment functionality on posts
 
 Brenna: Watched tutorials and updated kanban board. Obstacle(s): Overwhelmed with time management and other classes. Next Step: Work with partners on issues. 
 

@@ -2,14 +2,14 @@ import { doc, getDoc, query, setDoc } from "firebase/firestore";
 import { firestore, auth } from "firebase_setup/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { DASHBOARD, PROFILE } from "lib/routes";
+import { DASHBOARD, PROTECTED } from "lib/routes";
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
-    const [user] = useDocumentData(q);
-    return {user};
+    const [user, isLoading, error] = useDocumentData(q);
+    if (error) throw error;
+    return {user, isLoading};
 }
 
 export function useAddUser() {
@@ -21,12 +21,16 @@ export function useAddUser() {
         const pfpURL = auth.currentUser.photoURL;
         const bio = "NULL";
         const year = "NULL";
+        const pronouns = "NULL";
+        const roomtype = "NULL";
         const wantstoLive = "NULL";
         await setDoc(doc(firestore, "users", uid), {
             uid,
             name,
             email,
             pfpURL,
+            pronouns,
+            roomtype,
             bio,
             year,
             wantstoLive,
@@ -48,21 +52,33 @@ export function useAddUser() {
 
 }
 
+export function useSaveProfile(){
+    async function saveProfile(name,email,pfpURL,bio,year,wantstoLive,pronouns,roomtype){
+        const uid = auth.currentUser.uid;
+        await setDoc(doc(firestore, "users", uid), {
+            uid,
+            name,
+            email,
+            pfpURL,
+            bio,
+            year,
+            wantstoLive,
+            pronouns,
+            roomtype,
+        })
+        return true;
+    }
+
+    return {saveProfile};
+}
+
 export function useGoToProfile() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
-     async function goToProfile() {
+     async function goToProfile(id=null) {
          setLoading(true);
-         toast({
-             title: "This is your profile page",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
-         navigate(PROFILE);
+         navigate(`${PROTECTED}/profile/${id}`);
          setLoading(false);
          return true;
      }
@@ -72,22 +88,28 @@ export function useGoToProfile() {
 
 export function useGoToDashboard() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToDashboard() {
          setLoading(true);
-         toast({
-             title: "This is your Dashboard",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(DASHBOARD);
          setLoading(false);
          return true;
      }
  
      return {goToDashboard, isLoading};
+}
+
+export function useEditProfile() {
+    const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
+ 
+     async function goToEdit(id=null) {
+         setLoading(true);
+         navigate(`${PROTECTED}/profileedit/${id}`);
+         setLoading(false);
+         return true;
+     }
+ 
+     return {goToEdit, isLoading};
 }

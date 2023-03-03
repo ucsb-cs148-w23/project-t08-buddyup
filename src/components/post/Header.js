@@ -1,14 +1,16 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Avatar } from "@chakra-ui/react";
 //import Avatar from "components/profile/Avatar";
 import { useUser } from "hooks/users";
 import { formatDistanceToNow } from "date-fns";
+import { Link } from "react-router-dom";
+import { DASHBOARD, PROTECTED } from "lib/routes";
 // import UsernameButton from "components/profile/UsernameButton";
 
 export default function Header({ post }) {
-  const { name ,date } = post;//deleted uid
-  //const { user, isLoading } = useUser(uid);
+  const { name ,date, uid } = post;//deleted uid
+  const { user, isLoading } = useUser(uid);
 
-  //if (isLoading) return "Loading...";
+  if (isLoading) return "Loading...";
 
   return (
     <Flex
@@ -18,13 +20,23 @@ export default function Header({ post }) {
       p="3"
       bg="gray.50"
     >
-      {/*<Avatar user={user} size="md" />*/}
+      <Avatar
+        as={Link}
+        to={user
+            ? `${PROTECTED}/profile/${uid}`
+            : DASHBOARD}
+        name={user
+              ? user.name
+              : "missing" }
+        size="md"
+        src={user
+              ? user.pfpURL
+              : "https://freesvg.org/img/abstract-user-flat-4.png"}
+        
+      />
 
       <Box ml="4">
-        {/* <UsernameButton user={user} /> */}
-        <Text fontSize="m" color="black.500">
-          {name}
-        </Text>
+        <Text> {user ? user.name : "Name"} </Text>
         <Text fontSize="sm" color="gray.500">
           {formatDistanceToNow(date)} ago
         </Text>

@@ -2,65 +2,104 @@ import { Button, Divider, Flex, HStack, Stack, Text, Image, Box } from "@chakra-
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
-import { useUser } from "hooks/users";
-import { useGoToDashboard } from "hooks/users";
+import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 
  export default function Profile() {
     const { id } = useParams();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
-    console.log("on profile page, next up, name:")
     const uid = auth.currentUser.uid;
-    const name = auth.currentUser.displayName;
-    console.log(name);
-    console.log("above should be a name")
+    const isUser = (id === uid) ? true : false;
+
+    const { posts, isLoading: postsAreLoading } = usePosts(id);
+    const { user, isLoading: userIsLoading } = useUser(id);
+
     const { handleSubmit } = useForm();
-    // const { posts, isLoading: postsAreLoading } = usePosts(id);
-    // const { user, isLoading: userIsLoading } = useUser(id);
-
-    const { posts, isLoading: postsAreLoading } = usePosts(uid);
-    const { user, isLoading: userIsLoading } = useUser(uid);
-
-    const { goToDashboard, loading } = useGoToDashboard();
-
+    const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
+    const { goToEdit, isLoading: editLoading} = useEditProfile();
 
     async function handleDashboard() {
         console.log("going to dashboard");
         await goToDashboard();
     }
 
+    async function handleEdit() {
+        console.log("going to profile edit");
+        await goToEdit(uid);
+    }
+
     return (
         <Stack spacing="5">
-            <Flex p={["4","6"]} pos="relative" align="center" backgroundColor={"purple.200"}>
+            <Stack spacing = "5" backgroundColor={"purple.200"}>
+            <Flex p={["4","6"]} pos="relative" align="center">
                 <Image 
                     boxSize={"75px"}
                     borderRadius="full"
-                    src="https://yt3.ggpht.com/a/AATXAJy3vmY5uYuadYbWkzDZ1n7-2c7IJe5xLJw3GQ=s900-c-k-c0xffffffff-no-rj-mo"
-                    alt="Pickle Rick, Alias of Rick Sanchez"
+                    src= { userIsLoading
+                        ? "https://freesvg.org/img/abstract-user-flat-4.png"
+                        : user.pfpURL}
                 >
                 </Image>
                 <Stack ml="10">
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            {name}
+                            { userIsLoading
+                                ? "Name"
+                                : user.name}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            3rd Year
+                            { userIsLoading
+                                ? "Year"
+                                : user.year}
                         </Text>
                         <Text color="gray.800" fontSize={["sm","lg"]}>
-                            Wants to Live in IV
+                        Wants to Live in { userIsLoading
+                                            ? "Nowhere"
+                                            : user.wantstoLive}
                         </Text>
                     </HStack>
                 </Stack>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit">
+                    <Button type="submit" ml={"5"}>
                         Dashboard
                     </Button>
                 </form>
+                {isUser 
+                ?   <form onSubmit = {handleSubmit(handleEdit)}>
+                        <Button type="submit" ml={"5"}>
+                            Edit Profile
+                        </Button>
+                    </form>
+                : <></>
+                }
+                
             </Flex>
+            <Divider/>
+            <Flex p={["4","1"]} pos="relative">
+                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
+                    Pronouns: { userIsLoading
+                        ? "Pronouns"
+                        : user.pronouns}
+                </Text>
+                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
+                    Room Type: { userIsLoading
+                        ? "Room Preference"
+                        : user.roomtype}
+                </Text>
+            </Flex>
+            <Divider/>
+            <Flex p={["4","6"]} pos="relative" align="center">
+                <Text verticalAlign={"center"} color="gray.800" fontSize={"xl"}>
+                    Bio:
+                </Text>
+                <Text verticalAlign={"center"} color="gray.800" fontSize={["sm","lg"]} ml="5" mr="5" mb="5">
+                    {userIsLoading
+                    ? "Bio"
+                    : user.bio}
+                </Text>
+            </Flex>
+            </Stack>
             <Divider />
             { postsAreLoading 
                 ? <Text>Posts are loading ...</Text> 

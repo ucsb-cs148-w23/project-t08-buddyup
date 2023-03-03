@@ -16,6 +16,7 @@ export default function Layout() {
     if (!isLoading && pathname.startsWith("/protected") && !user) {
       navigate(LOGIN);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, user, isLoading]);
 
 
