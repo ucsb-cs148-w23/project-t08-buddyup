@@ -12,6 +12,7 @@ import {
   } from "@chakra-ui/react";
   import { useLogin } from "hooks/auth";
   import { useForm } from "react-hook-form";
+  import React, { Component } from 'react';
   
   
   export default function Login() {
@@ -38,6 +39,7 @@ import {
                 w="full"
                 isLoading={isLoading}
                 loadingText="Logging In"
+                className="loginButton"
               >
                 Log In With Google
               </Button>
