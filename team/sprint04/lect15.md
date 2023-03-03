@@ -10,6 +10,9 @@ Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [], Sophia Moore 
 
 Scribed Discussion: 
 
+Team Decisions:
+- Add tags to posts for future filter implementation
+
 Brenna: Design doc and pull requests, Obstacle(s): None, Next Step: Finish design doc, have someone approve pull requests
 
 Kaiwen: Made button for housing information, Obstacle(s): None,  Next Step: Fill in info
