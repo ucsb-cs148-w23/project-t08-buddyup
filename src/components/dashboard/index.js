@@ -1,4 +1,5 @@
-import {Box, Button, Heading, HStack, Textarea, Text} from '@chakra-ui/react';
+import {Box, Button, Heading, HStack, 
+        Textarea, Text, Checkbox, CheckboxGroup} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -39,12 +40,22 @@ function NewPost() {
         minRows={1}
         {...register("title", {requred: true})}
         />
-        <Textarea resize="none" 
-        height={"30px"}
-        placeholder="Off campus or on campus"
-        minRows={1}
-        {...register("pref", {requred: true})}
-        />
+        <CheckboxGroup colorScheme={"purple"} defaultValue={['oncampus']}>
+            <HStack spacing={[1, 5]} direction={['column', 'row']}>
+                <Text fontStyle={"bold"}>Where?</Text>
+                <Checkbox value='oncampus' defaultChecked>University Housing</Checkbox>
+                <Checkbox value='iv'>Isla Vista</Checkbox>
+                <Checkbox value='other'>Other</Checkbox>
+            </HStack>
+        </CheckboxGroup>
+        <CheckboxGroup colorScheme={"purple"} defaultValue={['oncampus']}>
+            <HStack spacing={[1, 5]} direction={['column', 'row']}>
+                <Text fontStyle={"bold"}>I am ...</Text>
+                <Checkbox value='lfhousing' defaultChecked>Looking for housing</Checkbox>
+                <Checkbox value='lfroomates'>Looking for roommates</Checkbox>
+            </HStack>
+        </CheckboxGroup>
+
         <Textarea resize="none" 
          
         placeholder="Create your post..."
