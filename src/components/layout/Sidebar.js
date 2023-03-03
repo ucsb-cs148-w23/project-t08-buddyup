@@ -18,7 +18,7 @@ function ActiveUser() {
           colorScheme="teal"
           w="full"
           as={Link}
-          to={`${PROTECTED}/profile/${user.id}`}
+          to={`${PROTECTED}/profile/${auth.currentUser.uid}`}
         >
           Edit Profile
         </Button>
