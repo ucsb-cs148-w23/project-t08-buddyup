@@ -18,20 +18,41 @@ export function useLogin() {
    const { checkUser } = useAddUser();
    const toast = useToast();
    const navigate = useNavigate();
+   const { user, isLoading2 } = useAuth();
 
     async function login() {
         setLoading(true);
         checkUser();
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
-        toast({
-            title: "You are logged in",
-            status: "success",
-            isClosable: true,
-            position: "top",
-            duration: 5000,
-        })
-        navigate(DASHBOARD);
+        // useEffect(() => {
+            
+        //   }, [user, isLoading2]);
+        var term = auth.currentUser.email;
+        var re = new RegExp(".*@ucsb[.]edu");
+        if (re.test(term)) {
+            toast({
+                title: "You are logged in",
+                status: "success",
+                isClosable: true,
+                position: "top",
+                duration: 5000,
+            })
+            console.log("Valid");
+            navigate(DASHBOARD);
+        } else {
+            toast({
+                title: "Please use a valid UCSB email to log in",
+                status: "error",
+                isClosable: true,
+                position: "top",
+                duration: 5000,
+            })
+            console.log("Invalid");
+            navigate(LOGIN);
+        }
+        //console.log(auth.currentUser.email);
+        
         setLoading(false);
         return true;
     }
