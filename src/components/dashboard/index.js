@@ -1,21 +1,27 @@
-import {Box, Button, Heading, HStack, 
-        Textarea, Text, Checkbox, CheckboxGroup} from '@chakra-ui/react';
+import {Box, Button, Heading, HStack, Stack,
+        Textarea, Text, useCheckboxGroup, Flex} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
 import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
+import { CustomCheckbox } from './CheckBox';
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
     const {addPost} = useAddPost();
+    const { value, getCheckboxProps } = useCheckboxGroup();
+    const { value:value2, getCheckboxProps:getCheckboxProps2 } = useCheckboxGroup();
 
     function handleAddPost(data) {
+        console.log(data.location);
+        console.log(data.looking);
         addPost({
             title: data.title,
             text: data.text,
-            pref: data.pref
+            text: data.looking,
+            text: data.location,
             
         })
         reset();
@@ -38,29 +44,27 @@ function NewPost() {
         placeholder="Title your post"
         height={"30px"}
         minRows={1}
-        {...register("title", {requred: true})}
+        {...register("title")}
         />
-        <CheckboxGroup colorScheme={"purple"} defaultValue={['oncampus']}>
-            <HStack spacing={[1, 5]} direction={['column', 'row']}>
-                <Text fontStyle={"bold"}>Where?</Text>
-                <Checkbox value='oncampus' defaultChecked>University Housing</Checkbox>
-                <Checkbox value='iv'>Isla Vista</Checkbox>
-                <Checkbox value='other'>Other</Checkbox>
-            </HStack>
-        </CheckboxGroup>
-        <CheckboxGroup colorScheme={"purple"} defaultValue={['oncampus']}>
-            <HStack spacing={[1, 5]} direction={['column', 'row']}>
-                <Text fontStyle={"bold"}>I am ...</Text>
-                <Checkbox value='lfhousing' defaultChecked>Looking for housing</Checkbox>
-                <Checkbox value='lfroomates'>Looking for roommates</Checkbox>
-            </HStack>
-        </CheckboxGroup>
+        <Stack>
+            <Text>You are looking for {value.length > 0 ? value.sort().join(' and ') : "nothing"}
+            {value2.length > 0 ? " in " + value2.join(' and ') : ""}</Text>
+            <Flex>
+                <CustomCheckbox {...getCheckboxProps({ value: 'Housemates' })}/>
+                <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
+            </Flex>
+            <Flex {...register("")}>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'Elsewhere' })}/>
+            </Flex>
+        </Stack>
 
         <Textarea resize="none" 
          
         placeholder="Create your post..."
         minRows={3}
-        {...register("text", {requred: true})}
+        {...register("text")}
         />
        
     </form>
@@ -78,12 +82,10 @@ export default function Dashboard() {
     const id = auth.currentUser.uid;
     
     async function handleLogout() {
-        console.log("here");
         await logout();
     }
 
     async function handleProfile() {
-        console.log("going to profile");
         await goToProfile(id);
     }
 
