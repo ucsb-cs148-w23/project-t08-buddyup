@@ -20,8 +20,8 @@ function NewPost() {
         addPost({
             title: data.title,
             text: data.text,
-            text: data.looking,
-            text: data.location,
+            looking: data.looking,
+            location: data.location,
             
         })
         reset();
@@ -49,11 +49,11 @@ function NewPost() {
         <Stack>
             <Text>You are looking for {value.length > 0 ? value.sort().join(' and ') : "nothing"}
             {value2.length > 0 ? " in " + value2.join(' and ') : ""}</Text>
-            <Flex>
+            <Flex {...register("looking")}>
                 <CustomCheckbox {...getCheckboxProps({ value: 'Housemates' })}/>
                 <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
             </Flex>
-            <Flex {...register("")}>
+            <Flex {...register("location")}>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Elsewhere' })}/>
