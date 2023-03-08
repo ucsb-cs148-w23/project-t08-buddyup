@@ -12,12 +12,7 @@
     "date-fns": "^2.29.3",
     "firebase": "^9.17.1",
     "framer-motion": "^9.0.0",
-<<<<<<< HEAD
-    "mockfirebase": "^0.12.0",
-    "react": "^17.0.2",
-=======
     "react": "^18.2.0",
->>>>>>> 29b09bcf040a3a933075bb76e73fabe2b9096b22
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.43.0",
