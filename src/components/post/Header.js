@@ -37,6 +37,7 @@ export default function Header({ post }) {
 
       <Box ml="4">
         <Text> {user ? user.name : "Name"} </Text>
+        <Text> {user ? user.pronouns : "Pronouns"} </Text>
         <Text fontSize="sm" color="gray.500">
           {formatDistanceToNow(date)} ago
         </Text>
