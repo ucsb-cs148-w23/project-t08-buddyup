@@ -15,13 +15,11 @@ function NewPost() {
     const { value:value2, getCheckboxProps:getCheckboxProps2 } = useCheckboxGroup();
 
     function handleAddPost(data) {
-        console.log(data.location);
-        console.log(data.looking);
         addPost({
             title: data.title,
             text: data.text,
-            looking: data.looking,
-            location: data.location,
+            looking: value.join(' and '),
+            location: value2.join(' and '),
             
         })
         reset();
@@ -49,11 +47,11 @@ function NewPost() {
         <Stack>
             <Text>You are looking for {value.length > 0 ? value.sort().join(' and ') : "nothing"}
             {value2.length > 0 ? " in " + value2.join(' and ') : ""}</Text>
-            <Flex {...register("looking")}>
+            <Flex>
                 <CustomCheckbox {...getCheckboxProps({ value: 'Housemates' })}/>
                 <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
             </Flex>
-            <Flex {...register("location")}>
+            <Flex>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Elsewhere' })}/>
