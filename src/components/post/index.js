@@ -15,11 +15,11 @@ export default function Post({ post }) {
             {title}
           </Text>
           <Text wordBreak="break-word" fontSize="sm" fontStyle={"italic"}>
-            {looking != "" 
-            ? "Looking for " + looking + (location != "" 
+            {looking !== "" 
+            ? "Looking for " + looking + (location !== "" 
                                           ? " in " + location 
                                           : "") 
-            : "Housing related post" + (location != "" 
+            : "Housing related post" + (location !== "" 
                                         ? " for " + location 
                                         : "")}
           </Text>
