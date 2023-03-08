@@ -18,8 +18,8 @@ function NewPost() {
         addPost({
             title: data.title,
             text: data.text,
-            looking: value.join(' and '),
-            location: value2.join(' and '),
+            looking: value.sort().join(' and '),
+            location: value2.sort().join(' and '),
             
         })
         reset();
@@ -54,13 +54,13 @@ function NewPost() {
             <Flex>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
-                <CustomCheckbox {...getCheckboxProps2({ value: 'Elsewhere' })}/>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'Goleta' })}/>
             </Flex>
         </Stack>
 
         <Textarea resize="none" 
          
-        placeholder="Create your post..."
+        placeholder="Describe what you are looking for"
         minRows={3}
         {...register("text")}
         />
