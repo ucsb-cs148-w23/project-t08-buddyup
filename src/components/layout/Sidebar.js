@@ -1,18 +1,25 @@
-import { Box, Button, Code, Stack } from "@chakra-ui/react";
-import { useAuth } from "hooks/auth";
+import { Box, Button, Code, Stack, Image } from "@chakra-ui/react";
 import { PROTECTED, USERS } from "lib/routes";
 import { Link } from "react-router-dom";
 import Avatar from "components/profile/Avatar";
 import { auth } from "firebase_setup/firebase";
+import { useUser } from "hooks/users";
 
 function ActiveUser() {
-    const { user, isLoading } = useAuth();
+    const { user, isLoading } = useUser(auth.currentUser.uid);
   
     if (isLoading) return "Loading...";
   
     return (
       <Stack align="center" spacing="5" my="8">
-        {/* <Avatar user={user} /> */}
+        <Image 
+                    boxSize={"75px"}
+                    borderRadius="full"
+                    src= { isLoading
+                      ? "https://freesvg.org/img/abstract-user-flat-4.png"
+                      : user.pfpURL}
+                >
+                </Image>
         <Code>{auth.currentUser.displayName}</Code>
         <Button
           colorScheme="teal"
@@ -45,8 +52,6 @@ export default function Sidebar() {
         <Button
           variant="outline"
           colorScheme="teal"
-        //   as={Link}
-        //   to={USERS}
           mt="4"
           size="sm"
         >
