@@ -24,8 +24,7 @@ export default function Actions({ post }) {
 
   //const { toggleLike, isLoading: likeLoading } = useToggleLike(config);
   //const { deletePost, isLoading: deleteLoading } = useDeletePost(id);
-  //const { comments, isLoading: commentsLoading } = useComments(id);
-  const length = 0;
+  const { comments, isLoading: commentsLoading } = useComments(id);
   return (
     <Flex p="2">
       <Flex alignItems="center" ml="2">
@@ -36,9 +35,10 @@ export default function Actions({ post }) {
           size="md"
           colorScheme="teal"
           variant="ghost"
-          icon={length === 0 ? <FaRegComment /> : <FaComment />}
+          icon={comments?.length === 0 ? <FaRegComment /> : <FaComment />}
           isRound
         />
+        {comments?.length}
       </Flex>
 
     </Flex>

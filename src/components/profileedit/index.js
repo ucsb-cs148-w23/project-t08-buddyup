@@ -12,16 +12,15 @@ export default function ProfileEdit() {
     const { goToProfile, isLoading:profileLoading } = useGoToProfile();
 
     function handleSaveProfile(data){
-        console.log(data.name);
-        console.log(data.year);
-        console.log(data.location);
         saveProfile(
             data.name,
             auth.currentUser.email,
             data.pfpURL,
             data.bio,
             data.year,
-            data.location
+            data.location,
+            data.pronouns,
+            data.roomtype
         );
         goToProfile(uid);
     }
@@ -49,6 +48,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 minRows={1}
                 placeholder="What name would you like to display?"
+                maxLength={70}
                 {...register("name", {required: true})}
                 >{ userIsLoading
                     ? "Name"
@@ -60,6 +60,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 placeholder="Your school year. If it's summer, the year you will be in the fall."
                 minRows={1}
+                maxLength={20}
                 {...register("year", {required: true})}
                 >{ userIsLoading
                     ? "Year"
@@ -71,6 +72,7 @@ export default function ProfileEdit() {
                 <Textarea resize="none" 
                 placeholder="Where do you want to live? (IV, University housing, etc.)"
                 minRows={1}
+                maxLength={32}
                 {...register("location", {required: true})}
                 >{ userIsLoading
                     ? "Nowhere"
@@ -87,19 +89,47 @@ export default function ProfileEdit() {
                     ? "https://freesvg.org/img/abstract-user-flat-4.png"
                     : user.pfpURL}</Textarea>
             </VStack>
-            <Text color="gray.800" fontSize={["sm","lg"]}>
-                Bio:
-            </Text>
-            <Textarea resize="vertical"
-            placeholder="Write a little about yourself. What should potential housemates know about you?"
-            width="60%"
-            height="200px"
-            {...register("bio", {required: true})}
-            >{ userIsLoading
-                ? "I eat food and breathe air"
-                : user.bio
-                }
-            </Textarea>
+            <VStack spacing="3" width="50%">
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Pronouns:
+                </Text>
+                <Textarea resize="none" 
+                placeholder="Your pronouns. Only if you want to share them."
+                minRows={1}
+                width="50%"
+                maxLength={20}
+                {...register("pronouns", {required: true})}
+                >{ userIsLoading
+                    ? "pronouns"
+                    : user.pronouns}
+                </Textarea>
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Room Type:
+                </Text>
+                <Textarea resize="none" 
+                placeholder="single, double, etc."
+                minRows={1}
+                width="50%"
+                maxLength={20}
+                {...register("roomtype", {required: true})}
+                >{ userIsLoading
+                    ? "room type"
+                    : user.roomtype}
+                </Textarea>
+                <Text color="gray.800" fontSize={["sm","lg"]}>
+                    Bio:
+                </Text>
+                <Textarea resize="vertical"
+                placeholder="Write a little about yourself. What should potential housemates know about you?"
+                height="300px"
+                maxLength={600}
+                {...register("bio", {required: true})}
+                >{ userIsLoading
+                    ? "I eat food and breathe air"
+                    : user.bio
+                    }
+                </Textarea>
+            </VStack>
             <VStack spacing="10">
                 <form onSubmit = {handleSubmit(handleSaveProfile)}>
                     <Button type="submit">
