@@ -18,16 +18,12 @@ export function useLogin() {
    const { checkUser } = useAddUser();
    const toast = useToast();
    const navigate = useNavigate();
-   const { user, isLoading2 } = useAuth();
 
     async function login() {
         setLoading(true);
         checkUser();
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
-        // useEffect(() => {
-            
-        //   }, [user, isLoading2]);
         var term = auth.currentUser.email;
         var re = new RegExp(".*@ucsb[.]edu");
         if (re.test(term)) {
@@ -51,7 +47,6 @@ export function useLogin() {
             console.log("Invalid");
             navigate(LOGIN);
         }
-        //console.log(auth.currentUser.email);
         
         setLoading(false);
         return true;
