@@ -7,7 +7,7 @@ import { DASHBOARD, PROTECTED } from "lib/routes";
 // import UsernameButton from "components/profile/UsernameButton";
 
 export default function Header({ post }) {
-  const { name ,date, uid } = post;//deleted uid
+  const { date, uid } = post;
   const { user, isLoading } = useUser(uid);
 
   if (isLoading) return "Loading...";

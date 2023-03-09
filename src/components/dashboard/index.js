@@ -62,7 +62,7 @@ function NewPost() {
 export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
-    const { goToProfile, isLoading:profileLoading} = useGoToProfile();
+    const { goToProfile } = useGoToProfile();
     const id = auth.currentUser.uid;
     
     async function handleLogout() {

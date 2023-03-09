@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, HStack, Stack, Text, Image, Box } from "@chakra-ui/react"
+import { Button, Divider, Flex, HStack, Stack, Text, Image } from "@chakra-ui/react"
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
@@ -15,8 +15,8 @@ import { auth } from "firebase_setup/firebase";
     const { user, isLoading: userIsLoading } = useUser(id);
 
     const { handleSubmit } = useForm();
-    const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
-    const { goToEdit, isLoading: editLoading} = useEditProfile();
+    const { goToDashboard } = useGoToDashboard();
+    const { goToEdit } = useEditProfile();
 
     async function handleDashboard() {
         console.log("going to dashboard");
