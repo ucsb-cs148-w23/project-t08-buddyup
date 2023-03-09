@@ -2,17 +2,11 @@ import {
     Box,
     Button,
     Center,
-    FormControl,
-    FormErrorMessage,
-    FormLabel,
     Heading,
-    Input,
-    Link,
-    Text,
   } from "@chakra-ui/react";
   import { useLogin } from "hooks/auth";
   import { useForm } from "react-hook-form";
-  import React, { Component } from 'react';
+  import React from 'react';
   
   
   export default function Login() {
