@@ -2,13 +2,13 @@
 
 Mentors: Mateo, Vivian
 
-Meeting Time: ??
+Meeting Time: 3/9/23 lect 17
 
 Type of meeting: Retro 3
 
 Team: Brenna Scholte [x], Lauren Daniel [x], Anouki Panthagani [x], Sophia Moore [x], Kaiwen Tang [x], Sergio Colis Chavez [x], Kai Hilbourne [x]
 
-Retro Leader: Lauren Daniel
+Retro Leader: Sophia Moore
 
 ## Action Items: 
 
