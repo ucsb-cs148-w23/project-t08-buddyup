@@ -25,6 +25,7 @@ Start: what activities they want to start doing (because they think it will help
 - Making a prioritized to list
 - Create a schedule for the rest of the quarter
 - Plan out final video
+- Getting through all these issues
 
 Stop: what activites want to stop doing (because they aren’t helpful)
 - Being lazy
@@ -35,6 +36,7 @@ Stop: what activites want to stop doing (because they aren’t helpful)
 - Procrastinating
 - Being lazy about daily scrums
 - Not attending class and not notifying the group ahead of time
+- Making issues that we don't have enough time for
 
 Continue: what activities they should continue (because they are working well)
 - Meeting outside of class
@@ -43,6 +45,7 @@ Continue: what activities they should continue (because they are working well)
 - Working on UX design of website
 - Adding last features
 - Working in subgroups
+- Communicating often in discord
 
 ## Optional
 
