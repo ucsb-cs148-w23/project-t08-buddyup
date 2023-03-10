@@ -90,6 +90,10 @@ export default function Dashboard() {
     const{posts, isLoading} = usePosts();
     return (
     <>
+        <Heading size="2xl" textAlign="center" color="teal">
+              Buddy Up
+        </Heading>
+
         <HStack spacing={"10"}>
             <form onSubmit={handleSubmit(handleLogout)}>
                 <Button type="submit" >
@@ -101,6 +105,7 @@ export default function Dashboard() {
                     Profile
                 </Button>
             </form>
+        
         </HStack>
         <NewPost />
         {isLoading
