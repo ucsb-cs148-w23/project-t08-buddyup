@@ -68,6 +68,8 @@ import {
           </Box>
         </Center>
 
+        <Text fontSize='md' pt="20px" pl="125px" pr="125px" color="teal" textAlign="center">Please login with an official UCSB email address!</Text>
+
         <Text fontSize='sm' pt="165px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
         Brenna Scholte, Kai Hilbourne, Sergio Colis Chavez, Anouki Panthagani, & Kaiwen Tang</Text>
 

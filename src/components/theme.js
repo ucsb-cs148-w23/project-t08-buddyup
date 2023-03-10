@@ -20,7 +20,7 @@ const theme = extendTheme({
       })
     },
     fonts: {
-        heading: `'Clicker Script', cursive`,
+        heading: `'Cormorant Unicase', serif`,
         body: `'Raleway', sans-serif`,
     },
   })
