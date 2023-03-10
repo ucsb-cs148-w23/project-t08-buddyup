@@ -3,7 +3,7 @@ import Header from "./Header";
 import Actions from "./Actions";
 
 export default function Post({ post }) {
-  const { text,pref,title } = post;
+  const { text,looking,location,title } = post;
 
   return (
     <Box p="2" maxW="600px" textAlign="left">
@@ -15,7 +15,13 @@ export default function Post({ post }) {
             {title}
           </Text>
           <Text wordBreak="break-word" fontSize="sm" fontStyle={"italic"}>
-            Housing preference: {pref}
+            {looking !== "" 
+            ? "Looking for " + looking + (location !== "" 
+                                          ? " in " + location 
+                                          : "") 
+            : "Housing related post" + (location !== "" 
+                                        ? " for " + location 
+                                        : "")}
           </Text>
           <Text wordBreak="break-word" fontSize="md">
             {text}

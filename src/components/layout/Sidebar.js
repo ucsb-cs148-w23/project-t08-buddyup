@@ -1,7 +1,6 @@
 import { Box, Button, Code, Stack, Image } from "@chakra-ui/react";
-import { PROTECTED, USERS } from "lib/routes";
+import { PROTECTED } from "lib/routes";
 import { Link } from "react-router-dom";
-import Avatar from "components/profile/Avatar";
 import { auth } from "firebase_setup/firebase";
 import { useUser } from "hooks/users";
 

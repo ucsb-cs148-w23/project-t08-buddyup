@@ -7,7 +7,7 @@ import { DASHBOARD, PROTECTED } from "lib/routes";
 // import UsernameButton from "components/profile/UsernameButton";
 
 export default function Header({ post }) {
-  const { name ,date, uid } = post;//deleted uid
+  const { date, uid } = post;
   const { user, isLoading } = useUser(uid);
 
   if (isLoading) return "Loading...";
@@ -37,6 +37,7 @@ export default function Header({ post }) {
 
       <Box ml="4">
         <Text> {user ? user.name : "Name"} </Text>
+        <Text> {user ? user.pronouns : "Pronouns"} </Text>
         <Text fontSize="sm" color="gray.500">
           {formatDistanceToNow(date)} ago
         </Text>
