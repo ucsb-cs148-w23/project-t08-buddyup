@@ -3,16 +3,13 @@ import {
     Button,
     Center,
     Heading,
-    Input,
-    Image,
-    Link,
     Text,
     Stack,
     ChakraProvider,
   } from "@chakra-ui/react";
   import { useLogin } from "hooks/auth";
   import { useForm } from "react-hook-form";
-  import React, { Component } from 'react';
+  import React from 'react';
   import theme from "components/theme";
 
   
