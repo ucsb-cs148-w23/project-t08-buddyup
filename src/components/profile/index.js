@@ -30,7 +30,7 @@ import { auth } from "firebase_setup/firebase";
 
     return (
         <Stack spacing="5">
-            <Stack spacing = "5" backgroundColor={"purple.200"}>
+            <Stack spacing = "5" backgroundColor={"pink.200"}>
             <Flex p={["4","6"]} pos="relative" align="center">
                 <Image 
                     boxSize={"75px"}
@@ -75,7 +75,7 @@ import { auth } from "firebase_setup/firebase";
                 }
                 
             </Flex>
-            <Divider/>
+            <Divider color={"pink"}/>
             <Flex p={["4","1"]} pos="relative">
                 <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
                     Pronouns: { userIsLoading
@@ -88,7 +88,7 @@ import { auth } from "firebase_setup/firebase";
                         : user.roomtype}
                 </Text>
             </Flex>
-            <Divider/>
+            <Divider color={"pink"}/>
             <Flex p={["4","6"]} pos="relative" align="center">
                 <Text verticalAlign={"center"} color="gray.800" fontSize={"xl"}>
                     Bio:
