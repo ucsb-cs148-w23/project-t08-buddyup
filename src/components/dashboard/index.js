@@ -74,6 +74,7 @@ function NewPost() {
         />
 
         <Button 
+             mt="20px"
             type="submit"
             >
                 Post
@@ -103,7 +104,6 @@ export default function Dashboard() {
     return (
     <>
         <Heading size="2xl" textAlign="center" color="teal">
-
             Buddy Up
         </Heading>
 
