@@ -10,7 +10,8 @@ import {
   import { useLogin } from "hooks/auth";
   import { useForm } from "react-hook-form";
   import React from 'react';
-  import theme from "components/theme";
+  import theme from "components/theme.js";
+  import ReactCurvedText from 'react-curved-text';
 
   
   export default function Login() {
@@ -24,7 +25,23 @@ import {
     return (
       <ChakraProvider theme={theme}>
       <Stack spacing={6}>
-        <Heading mt="60px" size="2xl" textAlign="center" color="#264143">
+        <Heading mt="60px" size="2xl" textAlign="center" color="#264143" >
+            <ReactCurvedText
+                width={400}
+                height={200}
+                cx={180}
+                cy={150}
+                rx={120}
+                ry={80}
+                startOffset={50}
+                reversed={true}
+                text="Buddy Up"
+                textProps={{ style: { fontSize: 60 } }}
+                textPathProps={null}
+                tspanProps={null}
+                ellipseProps={null}
+                svgProps={null}
+            />
               Buddy Up
         </Heading>
 
