@@ -16,7 +16,7 @@ export default function Header({ post }) {
     <Flex
       alignItems="center"
       borderBottom="2px solid"
-      borderColor="teal.100"
+      borderColor="gray.400"
       p="3"
       bg="gray.50"
     >
@@ -36,9 +36,9 @@ export default function Header({ post }) {
       />
 
       <Box ml="4">
-        <Text> {user ? user.name : "Name"} </Text>
-        <Text> {user ? user.pronouns : "Pronouns"} </Text>
-        <Text fontSize="sm" color="gray.500">
+        <Text fontSize="18px" color="#264143" fontWeight="bold"> {user ? user.name : "Name"} </Text>
+        <Text fontSize="15px" color="gray.500"> {user ? user.pronouns : "Pronouns"} </Text>
+        <Text fontSize="15px" color="gray.500">
           {formatDistanceToNow(date)} ago
         </Text>
       </Box>
