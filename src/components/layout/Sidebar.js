@@ -3,6 +3,8 @@ import { PROTECTED } from "lib/routes";
 import { Link } from "react-router-dom";
 import { auth } from "firebase_setup/firebase";
 import { useUser } from "hooks/users";
+import { useLogout } from "hooks/auth";
+import { useForm } from "react-hook-form";
 
 function ActiveUser() {
     const { user, isLoading } = useUser(auth.currentUser.uid);
@@ -33,6 +35,13 @@ function ActiveUser() {
   }
 
 export default function Sidebar() {
+    const {logout} = useLogout();
+    const { handleSubmit } = useForm();;
+    
+    async function handleLogout() {
+        await logout();
+    }
+
     return (
         <Box
         px="6"
@@ -48,7 +57,7 @@ export default function Sidebar() {
         <ActiveUser />
         
         <Box align="center">
-          <Box as="ul" borderBottom="2px solid" borderColor="#264143"/>
+          <Box as="ul" borderBottom="2px solid" borderColor="#264143" pt="5px"/>
           <Button
             variant="outline"
             colorScheme="pink"
@@ -59,16 +68,12 @@ export default function Sidebar() {
           </Button>
         </Box>
 
-        <Box align="center">
-          <Box as="ul" borderColor="#264143"/>
-          <Button
-            // variant="outline"
-            colorScheme="pink"
-            mt="4"
-            size="md"
-          >
-            Sign Out
-          </Button>
+        <Box align="center" paddingTop='30px'>
+        <form onSubmit={handleSubmit(handleLogout)}>
+                <Button type="submit" colorScheme="pink">
+                    Sign Out
+                </Button>
+            </form>
         </Box>
 
 
