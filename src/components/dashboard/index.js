@@ -90,7 +90,7 @@ export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
     const { goToProfile } = useGoToProfile();
-    const id = auth.currentUser.uid;
+    const id = auth.currentUser ? auth.currentUser.uid : null;
     
     async function handleLogout() {
         await logout();
@@ -100,7 +100,10 @@ export default function Dashboard() {
         await goToProfile(id);
     }
 
+    
+
     const{posts, isLoading} = usePosts();
+    if(!(auth.currentUser)) return "Loading..."
     return (
     <>
         <Heading size="2xl" textAlign="center" color="teal">
