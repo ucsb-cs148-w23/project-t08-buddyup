@@ -29,8 +29,8 @@ import { auth } from "firebase_setup/firebase";
     }
 
     return (
-        <Stack spacing="5">
-            <Stack spacing = "5" backgroundColor={"purple.200"}>
+        <Stack spacing = "1px">
+            <Stack spacing = "5" borderColor="gray.500" backgroundColor={"#B3E0DC"}>
             <Flex p={["4","6"]} pos="relative" align="center">
                 <Image 
                     boxSize={"75px"}
@@ -42,32 +42,33 @@ import { auth } from "firebase_setup/firebase";
                 </Image>
                 <Stack ml="10">
                     <HStack spacing="10" >
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
+                        <Text color="gray.800" fontSize="17px">
                             { userIsLoading
                                 ? "Name"
                                 : user.name}
                         </Text>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
+                        <Text color="gray.800" fontSize="17px">
                             { userIsLoading
                                 ? "Year"
                                 : user.year}
                         </Text>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
+                        <Text color="gray.800" fontSize="17px">
                         Wants to Live in { userIsLoading
-                                            ? "Nowhere"
+                                            ? "[Housing]"
                                             : user.wantstoLive}
                         </Text>
                     </HStack>
                 </Stack>
 
-                <form onSubmit = {handleSubmit(handleDashboard)}>
+                {/* <form onSubmit = {handleSubmit(handleDashboard)}>
                     <Button type="submit" ml={"5"}>
                         Dashboard
                     </Button>
                 </form>
+                 */}
                 {isUser 
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml={"5"}>
+                        <Button type="submit" ml="130px">
                             Edit Profile
                         </Button>
                     </form>
@@ -101,6 +102,9 @@ import { auth } from "firebase_setup/firebase";
             </Flex>
             </Stack>
             <Divider />
+
+            <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="teal">Your Posts:</Text>
+            
             { postsAreLoading 
                 ? <Text>Posts are loading ...</Text> 
                 : <PostsLists posts={posts} />

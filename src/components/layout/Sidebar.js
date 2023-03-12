@@ -28,7 +28,7 @@ function ActiveUser() {
           as={Link}
           to={`${PROTECTED}/profile/${auth.currentUser.uid}`}
         >
-          Edit Profile
+          View Profile
         </Button>
       </Stack>
     );
@@ -49,7 +49,7 @@ export default function Sidebar() {
         w="100%"
         maxW="300px"
         borderLeft="1px solid"
-        borderLeftColor="#264143"
+        borderLeftColor="teal"
         position="sticky"
         top="16"
         display={{ base: "none", md: "block" }}
@@ -57,7 +57,7 @@ export default function Sidebar() {
         <ActiveUser />
         
         <Box align="center">
-          <Box as="ul" borderBottom="2px solid" borderColor="#264143" pt="5px"/>
+          <Box as="ul" borderBottom="2px solid" borderColor="teal" pt="5px"/>
           <Button
             variant="outline"
             colorScheme="pink"
