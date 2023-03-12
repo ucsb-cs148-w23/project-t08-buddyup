@@ -22,7 +22,7 @@ export default function Actions({ post }) {
           isRound
         />
         { commentsLoading 
-          ? "X"
+          ? ""
           : comments?.length}
       </Flex>
 

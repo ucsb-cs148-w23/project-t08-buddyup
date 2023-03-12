@@ -1,4 +1,4 @@
-import { Box, Button, Code, Stack, Image } from "@chakra-ui/react";
+import { Box, Button, Stack, Image, Text} from "@chakra-ui/react";
 import { PROTECTED } from "lib/routes";
 import { Link } from "react-router-dom";
 import { auth } from "firebase_setup/firebase";
@@ -19,7 +19,7 @@ function ActiveUser() {
                       : user.pfpURL}
                 >
                 </Image>
-        <Code>{auth.currentUser.displayName}</Code>
+        <Text color="#264143" fontSize="18px" fontWeight="bold">{auth.currentUser.displayName}</Text>
         <Button
           colorScheme="teal"
           w="full"
@@ -40,23 +40,38 @@ export default function Sidebar() {
         w="100%"
         maxW="300px"
         borderLeft="1px solid"
-        borderLeftColor="teal.100"
+        borderLeftColor="#264143"
         position="sticky"
         top="16"
         display={{ base: "none", md: "block" }}
         >
         <ActiveUser />
+        
         <Box align="center">
-        <Box as="ul" borderBottom="2px solid" borderColor="teal.200"/>
-        <Button
-          variant="outline"
-          colorScheme="teal"
-          mt="4"
-          size="sm"
-        >
-          ALL USERS
-        </Button>
+          <Box as="ul" borderBottom="2px solid" borderColor="#264143"/>
+          <Button
+            variant="outline"
+            colorScheme="pink"
+            mt="4"
+            size="md"
+          >
+            Housing Info
+          </Button>
         </Box>
+
+        <Box align="center">
+          <Box as="ul" borderColor="#264143"/>
+          <Button
+            // variant="outline"
+            colorScheme="pink"
+            mt="4"
+            size="md"
+          >
+            Sign Out
+          </Button>
+        </Box>
+
+
         </Box>
     );
 }

@@ -38,8 +38,8 @@ import {
           alt='house'
         /> */}
 
-        <Text fontSize='md' pl="125px" pr="125px" color="teal" textAlign="center">BuddyUp is a platform for prospective 
-        and current UCSB students to meet roommates living on-campus, in IV, or in 
+        <Text fontSize='md' pl="125px" pr="125px" color="teal" textAlign="center">BuddyUp is a platform for 
+        UCSB students to meet roommates living on-campus, in IV, or in 
         the greater SB area. </Text>
 
         <Center w="100%" h="250px">
