@@ -7,10 +7,10 @@ import { useLogout } from "hooks/auth";
 import { useForm } from "react-hook-form";
 
 function ActiveUser() {
-    const { user, isLoading } = useUser(auth.currentUser.uid);
-  
-    if (isLoading) return "Loading...";
-  
+
+    const { user , isLoading} = useUser(auth.currentUser ? auth.currentUser.uid : "pBvdbPyaEi79xLYvgffv"); // uid for non-existent user
+
+    if(!(auth.currentUser)) return "Loading..."
     return (
       <Stack align="center" spacing="5" my="8">
         <Image 
@@ -21,7 +21,7 @@ function ActiveUser() {
                       : user.pfpURL}
                 >
                 </Image>
-        <Text color="#264143" fontSize="18px" fontWeight="bold">{auth.currentUser.displayName}</Text>
+        <Text color="#264143" fontSize="18px" fontWeight="bold">{isLoading ? "unknown user" : user.name}</Text>
         <Button
           colorScheme="teal"
           w="full"
