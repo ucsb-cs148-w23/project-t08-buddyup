@@ -2,12 +2,14 @@ import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading} from "@c
 import { useUser, useSaveProfile, useGoToProfile } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
+import { useParams } from "react-router-dom";
 
 export default function ProfileEdit() {
-    const uid = auth.currentUser.uid;
+    const { id } = useParams();
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
     const { register, handleSubmit } = useForm();
 
-    const { user, isLoading: userIsLoading } = useUser(uid);
+    const { user, isLoading: userIsLoading } = useUser(id);
     const { saveProfile } = useSaveProfile();
     const { goToProfile } = useGoToProfile();
 
@@ -22,13 +24,13 @@ export default function ProfileEdit() {
             data.pronouns,
             data.roomtype
         );
-        goToProfile(uid);
+        goToProfile(id);
     }
 
     function handleCancel(){
-        goToProfile(uid);
+        goToProfile(id);
     }
-
+    if(!auth.currentUser) return "Loading..."
     return (
         userIsLoading
         ? <Text fontSize={"xl"}> Loading . . .</Text>
