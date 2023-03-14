@@ -25,24 +25,23 @@ import {
     return (
       <ChakraProvider theme={theme}>
       <Stack spacing={6}>
-        <Heading mt="60px" size="2xl" textAlign="center" color="#264143" >
+        <Heading size="2xl" textAlign="center" color="#264143" >
             <ReactCurvedText
-                width={400}
+                width={1000}
                 height={200}
-                cx={180}
-                cy={150}
-                rx={120}
-                ry={80}
-                startOffset={50}
+                cx={575}
+                cy={185}
+                rx={110}
+                ry={90}
+                startOffset={30}
                 reversed={true}
                 text="Buddy Up"
-                textProps={{ style: { fontSize: 60 } }}
-                textPathProps={null}
+                textProps={{ style: { fontSize: 60, textAlign:"center" } }}
+                textPathProps={{ fill: "#264143"}}
                 tspanProps={null}
                 ellipseProps={null}
                 svgProps={null}
             />
-              Buddy Up
         </Heading>
 
         {/* <Image
@@ -57,7 +56,7 @@ import {
         the greater SB area. </Text>
 
         <Center w="100%" h="250px">
-          <Box mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="lg">
+          <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="lg">
             <Heading mb="4" size="md" color="#264143" textAlign="center">
               Welcome!
             </Heading>

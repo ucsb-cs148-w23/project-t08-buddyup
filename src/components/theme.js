@@ -12,17 +12,17 @@ const config = {
 
 // 3. extend the theme
 const theme = extendTheme({
-    // config,
-    // styles: {
-    //   global: (props) => ({
-    //     body: {
-    //       bg: "white",
-    //     }
-    //   })
-    // },
+    config,
+    styles: {
+      global: (props) => ({
+        body: {
+          bg: "#FCE8E1",
+        }
+      })
+    },
     fonts: {
         heading: `'Alata', sans-serif`,
-        body: `'Raleway', sans-serif`,
+        body: `'Alata', sans-serif`,
     },
   })
 
