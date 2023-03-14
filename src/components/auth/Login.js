@@ -6,7 +6,6 @@ import {
     Text,
     Stack,
     ChakraProvider,
-    HStack
   } from "@chakra-ui/react";
   import { useLogin } from "hooks/auth";
   import { useForm } from "react-hook-form";
@@ -49,14 +48,6 @@ import {
           </Center>
         </Heading>
 
-        {/* <HStack spacing='24px'>
-    <Box w='600px' h='10' bg='teal.500' />
-    <Box w='170px' h='10' bg='teal.500' ></Box>
-    <Box w='180px' h='10' bg='teal.500' />
-  </HStack> */}
-
-
-
         <Center>
 
           <Box mx="1" maxW="xs" maxH="xs" p="9" borderRadius="xs">
@@ -66,15 +57,6 @@ import {
             <Text as='b' mb="0" fontSize="md" color="teal" textAlign="left">
               Please login with an official UCSB email address!
             </Text>
-            {/* <Text mb="0" fontSize="md" color="teal" textAlign="left">
-            UCSB students to meet roommates living
-            </Text>
-            <Text mb="4" fontSize="md" color="teal" textAlign="left">
-            on-campus, in IV, or in the greater SB area. 
-            </Text>
-            <Text as='b' mb="4" fontSize="md" color="teal" textAlign="left">
-              Please login with an official UCSB email address!
-            </Text> */}
           </Box>
           
           <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="xs">
@@ -97,7 +79,6 @@ import {
               </Button>
             </form>
           </Box>
-
 
         </Center>
 
