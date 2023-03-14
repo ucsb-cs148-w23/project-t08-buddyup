@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, HStack, Stack, Text, Image } from "@chakra-ui/react"
+import { Button, Divider, Flex, HStack, Stack, Text, Image, Heading } from "@chakra-ui/react"
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
@@ -6,9 +6,9 @@ import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 
- export default function Profile() {
+export default function Profile() {
     const { id } = useParams();
-    const uid = auth.currentUser.uid;
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
     const isUser = (id === uid) ? true : false;
 
     const { posts, isLoading: postsAreLoading } = usePosts(id);
@@ -28,10 +28,16 @@ import { auth } from "firebase_setup/firebase";
         await goToEdit(uid);
     }
 
+    if(!auth.currentUser) return "Loading...";
     return (
-        <Stack spacing="5">
-            <Stack spacing = "5" backgroundColor={"pink.200"}>
-            <Flex p={["4","6"]} pos="relative" align="center">
+
+        <Stack spacing = "1px">
+            <Heading size="2xl" pb="30px" textAlign="center" color="teal">
+                Buddy Up
+            </Heading>
+
+            <Stack spacing = "5" borderColor="gray.500" backgroundColor={"#B3E0DC"}>
+            <Flex pt="20px" pl="20px" pos="relative" align="center">
                 <Image 
                     boxSize={"75px"}
                     borderRadius="full"
@@ -42,32 +48,28 @@ import { auth } from "firebase_setup/firebase";
                 </Image>
                 <Stack ml="10">
                     <HStack spacing="10" >
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
+                        <Text color="teal" fontWeight="bold" fontSize="22px">
                             { userIsLoading
                                 ? "Name"
                                 : user.name}
                         </Text>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                            { userIsLoading
-                                ? "Year"
-                                : user.year}
-                        </Text>
-                        <Text color="gray.800" fontSize={["sm","lg"]}>
-                        Wants to Live in { userIsLoading
-                                            ? "Nowhere"
-                                            : user.wantstoLive}
-                        </Text>
+            
                     </HStack>
+                    <HStack spacing="10" >
+                        {/* <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
+                            Pronouns:
+                        </Text> */}
+                        <Text color="gray.800" fontSize="15px">
+                            { userIsLoading
+                            ? "Pronouns"
+                            : user.pronouns}
+                        </Text>
+                        </HStack>
                 </Stack>
 
-                <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit" ml={"5"}>
-                        Dashboard
-                    </Button>
-                </form>
                 {isUser 
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml={"5"}>
+                        <Button type="submit" ml="450px">
                             Edit Profile
                         </Button>
                     </form>
@@ -75,25 +77,39 @@ import { auth } from "firebase_setup/firebase";
                 }
                 
             </Flex>
-            <Divider color={"pink"}/>
-            <Flex p={["4","1"]} pos="relative">
-                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
-                    Pronouns: { userIsLoading
-                        ? "Pronouns"
-                        : user.pronouns}
+            <Divider/>
+            <Flex pl="25px" pr="4" pos="relative">
+                <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px" pl="20px">
+                    Housing Preference:
                 </Text>
-                <Text color="gray.800" fontSize={["sm","lg"]} ml="15px">
-                    Room Type: { userIsLoading
+                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="90px">
+                        { userIsLoading
+                        ? "[Housing]"
+                        : user.wantstoLive}
+                </Text>  
+                <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
+                    Room Type:
+                </Text>
+                <Text verticalAlign={"center"} color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="80px">
+                    { userIsLoading
                         ? "Room Preference"
                         : user.roomtype}
                 </Text>
+                <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
+                    Quarter/Year:
+                </Text>
+                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px">
+                            { userIsLoading
+                                ? "Year"
+                                : user.year}
+                 </Text> 
             </Flex>
-            <Divider color={"pink"}/>
-            <Flex p={["4","6"]} pos="relative" align="center">
-                <Text verticalAlign={"center"} color="gray.800" fontSize={"xl"}>
+            <Divider/>
+            <Flex pl="25px" pr="4" pos="relative" align="center">
+                <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px" pb="20px">
                     Bio:
                 </Text>
-                <Text verticalAlign={"center"} color="gray.800" fontSize={["sm","lg"]} ml="5" mr="5" mb="5">
+                <Text verticalAlign={"center"} color="gray.800" fontSize="15px"  ml="5" mr="5" mb="20px">
                     {userIsLoading
                     ? "Bio"
                     : user.bio}
@@ -101,6 +117,17 @@ import { auth } from "firebase_setup/firebase";
             </Flex>
             </Stack>
             <Divider />
+
+            <HStack spacing="525px" pt="30px">
+                <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="teal">Your Posts:</Text>
+
+                <form onSubmit = {handleSubmit(handleDashboard)}>
+                        <Button type="submit" ml={"5"}>
+                            Return to Dashboard
+                        </Button>
+                </form>
+            </HStack>
+
             { postsAreLoading 
                 ? <Text>Posts are loading ...</Text> 
                 : <PostsLists posts={posts} />

@@ -1,5 +1,5 @@
 import {Box, Button, Heading, HStack, Stack,
-        Textarea, Text, useCheckboxGroup, Flex} from '@chakra-ui/react';
+        Textarea, Text, useCheckboxGroup, Flex, Spacer} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -7,6 +7,7 @@ import { useLogout } from "hooks/auth";
 import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
 import { CustomCheckbox } from './CheckBox';
+import ReactCurvedText from 'react-curved-text';
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -25,45 +26,59 @@ function NewPost() {
         reset();
     }
 
-    return <Box maxW="600px" mx="auto" py="10">
+    return <Box maxW="750px" mx="auto" pt="30px">
+    
+        
     <form onSubmit={handleSubmit(handleAddPost)}>
         <HStack justify="space-between">
-            <Heading>
-                New Post
+            <Heading color="#264143" size="lg">
+                Get Started
             </Heading>
-            <Button 
+            {/* <Button 
             type="submit"
             >
                 Post
-            </Button>
+            </Button> */}
         </HStack>
-        <Textarea resize="none" 
+        <Textarea 
+        minH="unset"
+        fontSize='15px'
+        resize="none" 
         mt="5" 
         placeholder="Title your post"
-        height={"30px"}
+        height={"35px"}
         minRows={1}
         {...register("title")}
         />
         <Stack>
-            <Text>You are looking for {value.length > 0 ? value.sort().join(' and ') : "nothing"}
+            <Text pt="10px" fontSize='15px' >You are looking for {value.length > 0 ? value.sort().join(' and ') : "..."}
             {value2.length > 0 ? " in " + value2.join(' and ') : ""}</Text>
-            <Flex>
-                <CustomCheckbox {...getCheckboxProps({ value: 'Housemates' })}/>
+            <HStack spacing="10px" fontSize='15px'>
+                <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
                 <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
-            </Flex>
-            <Flex>
-                <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
+            </HStack>
+            <HStack spacing="10px" fontSize='15px' pb = "12px">
                 <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Goleta' })}/>
-            </Flex>
+                <CustomCheckbox {...getCheckboxProps2({ value: 'Downtown SB' })}/>
+            </HStack>
         </Stack>
 
-        <Textarea resize="none" 
-         
-        placeholder="Describe what you are looking for"
+        <Textarea 
+        fontSize='15px'
+        resize="none" 
+        placeholder="What are you looking for?"
         minRows={3}
         {...register("text")}
         />
+
+        <Button 
+             mt="20px"
+            type="submit"
+            >
+                Post
+        </Button>
        
     </form>
     
@@ -71,13 +86,11 @@ function NewPost() {
 }
 
 
-
-
 export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
     const { goToProfile } = useGoToProfile();
-    const id = auth.currentUser.uid;
+    const id = auth.currentUser ? auth.currentUser.uid : null;
     
     async function handleLogout() {
         await logout();
@@ -87,14 +100,17 @@ export default function Dashboard() {
         await goToProfile(id);
     }
 
+    
+
     const{posts, isLoading} = usePosts();
+    if(!(auth.currentUser)) return "Loading..."
     return (
     <>
         <Heading size="2xl" textAlign="center" color="teal">
-              Buddy Up
+            Buddy Up
         </Heading>
 
-        <HStack spacing={"10"}>
+        {/* <HStack spacing={"10"}>
             <form onSubmit={handleSubmit(handleLogout)}>
                 <Button type="submit" >
                     Sign Out
@@ -106,7 +122,8 @@ export default function Dashboard() {
                 </Button>
             </form>
         
-        </HStack>
+        </HStack> */}
+
         <NewPost />
         {isLoading
         ? <Text>Posts are loading ...</Text>

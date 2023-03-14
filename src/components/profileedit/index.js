@@ -1,13 +1,15 @@
-import { Button, VStack, HStack, Text, Image, Textarea } from "@chakra-ui/react"
+import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading} from "@chakra-ui/react"
 import { useUser, useSaveProfile, useGoToProfile } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
+import { useParams } from "react-router-dom";
 
 export default function ProfileEdit() {
-    const uid = auth.currentUser.uid;
+    const { id } = useParams();
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
     const { register, handleSubmit } = useForm();
 
-    const { user, isLoading: userIsLoading } = useUser(uid);
+    const { user, isLoading: userIsLoading } = useUser(id);
     const { saveProfile } = useSaveProfile();
     const { goToProfile } = useGoToProfile();
 
@@ -22,30 +24,39 @@ export default function ProfileEdit() {
             data.pronouns,
             data.roomtype
         );
-        goToProfile(uid);
+        goToProfile(id);
     }
 
     function handleCancel(){
-        goToProfile(uid);
+        goToProfile(id);
     }
-
+    if(!auth.currentUser) return "Loading..."
     return (
         userIsLoading
         ? <Text fontSize={"xl"}> Loading . . .</Text>
         :
-        <HStack align="center" backgroundColor={"teal.200"}>
+        <Stack spacing = "1px">
+            <Heading size="2xl" pb="30px" textAlign="center" color="teal">
+                Buddy Up
+            </Heading>
+        <HStack align="center" backgroundColor="#B3E0DC" pb="100px">
             <Image 
-                boxSize={"75px"}
+                ml="20px"
+                boxSize={"80px"}
                 borderRadius="full"
                 src= { userIsLoading
                     ? "https://freesvg.org/img/abstract-user-flat-4.png"
                     : user.pfpURL}
             />
-            <VStack spacing="3" width="30%">
-                <Text color="gray.800" fontSize={["sm","lg"]}>
-                    Display Name
+            <VStack pl="20px" spacing="3" width="30%">
+                <Text color="gray.800" fontWeight="bold" fontSize="17px" pt="35px">
+                    Display Name:
                 </Text>
-                <Textarea resize="none" 
+                <Textarea 
+                borderColor="teal"
+                fontSize="15px"
+                width="250px"
+                resize="none" 
                 minRows={1}
                 placeholder="What name would you like to display?"
                 maxLength={70}
@@ -54,11 +65,15 @@ export default function ProfileEdit() {
                     ? "Name"
                     : user.name}
                 </Textarea>
-                <Text color="gray.800" fontSize={["sm","lg"]}>
-                    School Year
+                <Text color="gray.800" fontWeight="bold" fontSize="17px">
+                    School Quarter/Year:
                 </Text>
-                <Textarea resize="none" 
-                placeholder="Your school year. If it's summer, the year you will be in the fall."
+                <Textarea 
+                width="250px"
+                borderColor="teal"
+                fontSize="15px"
+                resize="none" 
+                placeholder="If it's summer, the year you will be in the fall."
                 minRows={1}
                 maxLength={20}
                 {...register("year", {required: true})}
@@ -66,23 +81,30 @@ export default function ProfileEdit() {
                     ? "Year"
                     : user.year}
                 </Textarea>
-                <Text color="gray.800" fontSize={["sm","lg"]}>
-                    Wants to Live:
+                <Text color="gray.800" fontWeight="bold" fontSize="17px">
+                    Housing Preference:
                 </Text>
-                <Textarea resize="none" 
-                placeholder="Where do you want to live? (IV, University housing, etc.)"
+                <Textarea 
+                borderColor="teal"
+                width="250px"
+                fontSize="15px"
+                resize="none" 
+                placeholder="Isla Vista, university housing, etc."
                 minRows={1}
                 maxLength={32}
                 {...register("location", {required: true})}
                 >{ userIsLoading
                     ? "Nowhere"
                     : user.wantstoLive}</Textarea>
-                <Text color="gray.800" fontSize={["sm","lg"]}>
+                <Text color="gray.800" fontWeight="bold" fontSize="17px">
                     Profile Picture URL:
                 </Text>
-                <Textarea resize="none" 
-                height="150px"
-                placeholder="A URL that leads to a photo"
+                <Textarea 
+                borderColor="teal"
+                fontSize="15px"
+                resize="none" 
+                height="125px"
+                placeholder="Enter a photo's image address to upload a profile photo."
                 minRows={1}
                 {...register("pfpURL", {required: true})}
                 >{ userIsLoading
@@ -90,11 +112,14 @@ export default function ProfileEdit() {
                     : user.pfpURL}</Textarea>
             </VStack>
             <VStack spacing="3" width="50%">
-                <Text color="gray.800" fontSize={["sm","lg"]}>
+                <Text color="gray.800" fontWeight="bold" fontSize="17px" pt="13px">
                     Pronouns:
                 </Text>
-                <Textarea resize="none" 
-                placeholder="Your pronouns. Only if you want to share them."
+                <Textarea 
+                borderColor="teal"
+                fontSize="15px"
+                resize="none" 
+                placeholder="Your pronouns (optional)."
                 minRows={1}
                 width="50%"
                 maxLength={20}
@@ -103,11 +128,14 @@ export default function ProfileEdit() {
                     ? "pronouns"
                     : user.pronouns}
                 </Textarea>
-                <Text color="gray.800" fontSize={["sm","lg"]}>
+                <Text color="gray.800" fontWeight="bold" fontSize="17px">
                     Room Type:
                 </Text>
-                <Textarea resize="none" 
-                placeholder="single, double, etc."
+                <Textarea 
+                borderColor="teal"
+                fontSize="15px"
+                resize="none" 
+                placeholder="Single, double, etc."
                 minRows={1}
                 width="50%"
                 maxLength={20}
@@ -116,12 +144,16 @@ export default function ProfileEdit() {
                     ? "room type"
                     : user.roomtype}
                 </Textarea>
-                <Text color="gray.800" fontSize={["sm","lg"]}>
+                <Text color="gray.800" fontWeight="bold" fontSize="17px">
                     Bio:
                 </Text>
-                <Textarea resize="vertical"
-                placeholder="Write a little about yourself. What should potential housemates know about you?"
-                height="300px"
+                <Textarea 
+                borderColor="teal"
+                fontSize="15px"
+                resize="vertical"
+                placeholder="Write a short bio about yourself. What should potential housemates know about you?"
+                height="250px"
+                width="350px"
                 maxLength={600}
                 {...register("bio", {required: true})}
                 >{ userIsLoading
@@ -130,7 +162,7 @@ export default function ProfileEdit() {
                     }
                 </Textarea>
             </VStack>
-            <VStack spacing="10">
+            <VStack spacing="8" pr="20px">
                 <form onSubmit = {handleSubmit(handleSaveProfile)}>
                     <Button type="submit">
                         Save
@@ -143,5 +175,6 @@ export default function ProfileEdit() {
                 </form>
             </VStack>
         </HStack>
+        </Stack>
     )
 };
