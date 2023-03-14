@@ -1,5 +1,5 @@
 import {Box, Button, Heading, HStack, Stack,
-        Textarea, Text, useCheckboxGroup, Flex, Spacer} from '@chakra-ui/react';
+        Textarea, Text, useCheckboxGroup, ChakraProvider, Flex, Spacer} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -8,6 +8,8 @@ import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
 import { CustomCheckbox } from './CheckBox';
 import ReactCurvedText from 'react-curved-text';
+import theme from "components/theme";
+import "@fontsource/alata";
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -34,13 +36,9 @@ function NewPost() {
             <Heading color="#264143" size="lg">
                 Get Started
             </Heading>
-            {/* <Button 
-            type="submit"
-            >
-                Post
-            </Button> */}
         </HStack>
         <Textarea 
+        bg="white"
         minH="unset"
         fontSize='15px'
         resize="none" 
@@ -66,6 +64,7 @@ function NewPost() {
         </Stack>
 
         <Textarea 
+        bg="white"
         fontSize='15px'
         resize="none" 
         placeholder="What are you looking for?"
@@ -74,8 +73,9 @@ function NewPost() {
         />
 
         <Button 
-             mt="20px"
+            mt="20px"
             type="submit"
+            colorScheme="pink"
             >
                 Post
         </Button>
@@ -106,29 +106,16 @@ export default function Dashboard() {
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
+        <ChakraProvider theme={theme}>
         <Heading size="2xl" textAlign="center" color="teal">
             Buddy Up
         </Heading>
-
-        {/* <HStack spacing={"10"}>
-            <form onSubmit={handleSubmit(handleLogout)}>
-                <Button type="submit" >
-                    Sign Out
-                </Button>
-            </form>
-            <form onSubmit = {handleSubmit(handleProfile)}>
-                <Button type="submit">
-                    Profile
-                </Button>
-            </form>
-        
-        </HStack> */}
 
         <NewPost />
         {isLoading
         ? <Text>Posts are loading ...</Text>
         : <PostsLists posts={posts}/>}
-        
+        </ChakraProvider>
     </>
     )
 

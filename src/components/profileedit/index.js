@@ -1,8 +1,9 @@
-import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading} from "@chakra-ui/react"
+import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading, ChakraProvider} from "@chakra-ui/react"
 import { useUser, useSaveProfile, useGoToProfile } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 import { useParams } from "react-router-dom";
+import theme from "components/theme";
 
 export default function ProfileEdit() {
     const { id } = useParams();
@@ -32,14 +33,12 @@ export default function ProfileEdit() {
     }
     if(!auth.currentUser) return "Loading..."
     return (
-        userIsLoading
-        ? <Text fontSize={"xl"}> Loading . . .</Text>
-        :
+        <ChakraProvider theme={theme}>
         <Stack spacing = "1px">
-            <Heading size="2xl" pb="30px" textAlign="center" color="teal">
+            <Heading size="2xl" pb="30px" textAlign="center" color="#264143">
                 Buddy Up
             </Heading>
-        <HStack align="center" backgroundColor="#B3E0DC" pb="100px">
+        <HStack align="center" backgroundColor="#CCE6EC" pb="100px">
             <Image 
                 ml="20px"
                 boxSize={"80px"}
@@ -62,7 +61,7 @@ export default function ProfileEdit() {
                 maxLength={70}
                 {...register("name", {required: true})}
                 >{ userIsLoading
-                    ? "Name"
+                    ? ""
                     : user.name}
                 </Textarea>
                 <Text color="gray.800" fontWeight="bold" fontSize="17px">
@@ -78,7 +77,7 @@ export default function ProfileEdit() {
                 maxLength={20}
                 {...register("year", {required: true})}
                 >{ userIsLoading
-                    ? "Year"
+                    ? ""
                     : user.year}
                 </Textarea>
                 <Text color="gray.800" fontWeight="bold" fontSize="17px">
@@ -94,7 +93,7 @@ export default function ProfileEdit() {
                 maxLength={32}
                 {...register("location", {required: true})}
                 >{ userIsLoading
-                    ? "Nowhere"
+                    ? ""
                     : user.wantstoLive}</Textarea>
                 <Text color="gray.800" fontWeight="bold" fontSize="17px">
                     Profile Picture URL:
@@ -108,7 +107,7 @@ export default function ProfileEdit() {
                 minRows={1}
                 {...register("pfpURL", {required: true})}
                 >{ userIsLoading
-                    ? "https://freesvg.org/img/abstract-user-flat-4.png"
+                    ? ""
                     : user.pfpURL}</Textarea>
             </VStack>
             <VStack spacing="3" width="50%">
@@ -119,13 +118,13 @@ export default function ProfileEdit() {
                 borderColor="teal"
                 fontSize="15px"
                 resize="none" 
-                placeholder="Your pronouns (optional)."
+                placeholder="Your pronouns."
                 minRows={1}
                 width="50%"
                 maxLength={20}
                 {...register("pronouns", {required: true})}
                 >{ userIsLoading
-                    ? "pronouns"
+                    ? ""
                     : user.pronouns}
                 </Textarea>
                 <Text color="gray.800" fontWeight="bold" fontSize="17px">
@@ -141,7 +140,7 @@ export default function ProfileEdit() {
                 maxLength={20}
                 {...register("roomtype", {required: true})}
                 >{ userIsLoading
-                    ? "room type"
+                    ? ""
                     : user.roomtype}
                 </Textarea>
                 <Text color="gray.800" fontWeight="bold" fontSize="17px">
@@ -157,7 +156,7 @@ export default function ProfileEdit() {
                 maxLength={600}
                 {...register("bio", {required: true})}
                 >{ userIsLoading
-                    ? "I eat food and breathe air"
+                    ? ""
                     : user.bio
                     }
                 </Textarea>
@@ -176,5 +175,6 @@ export default function ProfileEdit() {
             </VStack>
         </HStack>
         </Stack>
+        </ChakraProvider>
     )
 };

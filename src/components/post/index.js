@@ -7,11 +7,11 @@ export default function Post({ post }) {
 
   return (
     <Box pt = "35px" maxW="750px" textAlign="left">
-      <Box border="2px solid" borderColor="gray.100" borderRadius="md">
+      <Box border="2px solid" borderColor="gray.300" borderRadius="md">
         <Header post={post} />
 
-        <Box p="10px" minH="100px">
-          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="teal" pb = "1px">
+        <Box bg="white" p="10px" minH="100px">
+          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="pink.500" pb = "1px">
             {title}
           </Text>
           <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pb = "25px">

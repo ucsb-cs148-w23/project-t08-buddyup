@@ -10,7 +10,7 @@ export default function Actions({ post }) {
   const { id } = post;
   const { comments, isLoading: commentsLoading } = useComments(id);
   return (
-    <Flex p="2">
+    <Flex bg="gray.100" p="2">
       <Flex alignItems="center" ml="2">
         <IconButton
           as={Link}
