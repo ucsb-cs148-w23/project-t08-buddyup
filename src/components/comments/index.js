@@ -24,16 +24,27 @@ export default function Comments() {
   return (
     <ChakraProvider theme={theme}>
 
-    <Box>
+    {/* <Box>
       <form onSubmit = {handleSubmit(handleDashboard)}>
         <Button type="submit" ml="50px" >
+            Return to Dashboard
+        </Button>
+      </form>
+    </Box> */}
+
+    <Box align="center">
+      <Post post={post}/>
+    </Box>
+
+    <Box>
+      <form onSubmit = {handleSubmit(handleDashboard)}>
+        <Button type="submit" ml="670px" mt="20px">
             Return to Dashboard
         </Button>
       </form>
     </Box>
 
     <Box align="center">
-      <Post post={post}/>
       <NewComment post={post} />
       <CommentList post={post}/>
     </Box>
