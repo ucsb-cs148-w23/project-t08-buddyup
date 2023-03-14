@@ -6,9 +6,9 @@ import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 
- export default function Profile() {
+export default function Profile() {
     const { id } = useParams();
-    const uid = auth.currentUser.uid;
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
     const isUser = (id === uid) ? true : false;
 
     const { posts, isLoading: postsAreLoading } = usePosts(id);
@@ -28,6 +28,7 @@ import { auth } from "firebase_setup/firebase";
         await goToEdit(uid);
     }
 
+    if(!auth.currentUser) return "Loading...";
     return (
         <Stack spacing = "1px">
             <Heading size="2xl" pb="30px" textAlign="center" color="teal">
