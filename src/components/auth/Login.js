@@ -31,7 +31,7 @@ import {
               <ReactCurvedText
                     width={1135}
                     height={207}
-                    cx={575}
+                    cx={550}
                     cy={230}
                     rx={105}
                     ry={90}
@@ -50,16 +50,7 @@ import {
 
         <Center>
 
-          <Box mx="1" maxW="xs" maxH="xs" p="9" borderRadius="xs">
-            <Text mb="4" fontSize="md" color="teal" textAlign="left">
-              BuddyUp is a platform for prospective and current UCSB students to meet roommates on-campus, in IV, or in the greater SB area. 
-            </Text>
-            <Text as='b' mb="0" fontSize="md" color="teal" textAlign="left">
-              Please login with an official UCSB email address!
-            </Text>
-          </Box>
-          
-          <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="xs">
+        <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="xs">
             <Heading mb="4" size="md" color="#264143" textAlign="center">
               Welcome!
             </Heading>
@@ -80,10 +71,21 @@ import {
             </form>
           </Box>
 
+          <Box mx="1" maxW="xs" maxH="xs" p="9" borderRadius="xs">
+            <Text mb="4" fontSize="md" color="teal" textAlign="left">
+              BuddyUp is a platform for UCSB students to meet roommates for housing on-campus or in IV.
+            </Text>
+            <Text as='b' mb="0" fontSize="md" color="teal" textAlign="left">
+              Please login with an official UCSB email address!
+            </Text>
+          </Box>
+          
+
+
         </Center>
 
 
-        <Text fontSize='sm' pt="125px" pb="20px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
+        <Text fontSize='sm' pt="170px" pb="20px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
         Brenna Scholte, Kai Hilbourne, Sergio Colis Chavez, Anouki Panthagani, & Kaiwen Tang</Text>
 
       </Stack>
