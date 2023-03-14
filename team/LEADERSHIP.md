@@ -16,7 +16,7 @@
 | Mon 2/27 - ??       | Anouki Panthagani  | Scribe and scrum master for Sprint 04                                                  | 
 | Mon 2/27 - ??       | Brenna Scholte     | Product Owner for sprint 04                                                            |
 | Fri 2/24 - 3/17     | Sergio Colis Chavez| Testing/QA Coordinator                                                                 | 
-| ??                  | Sophia Moore       | Led third retro                                                                        | 
+| Thurs 3/9           | Sophia Moore       | Led third retro                                                                        | 
 | Fri 2/24 - 3/17     | Anouki Panthagani  | UX Coordinator                                                                         | 
 | Fri 2/24 - 3/17     | Brenna Scholte     | Design Document Coordinator                                                            | 
 | Fri 2/24 - 3/17     | Lauren Daniel      | Deployment Document Coordinator                                                        | 

@@ -1,4 +1,12 @@
-**User Feedback Needs:**
+User Feedback for Tues Lecture:
+
 1. User satisfaction with the post fields and tag options (housing pref,location, etc.)
+- Students will access our deployed website: https://t08-buddy-up.web.app/
+- They should login and view the dashboard, which is where they'll see the post fields
+
 2. User preference between having separate buttons for two separate information pages about on campus vs off-campus housing or just having all the information on one page (one button)
+- Will attach two screenshots
+- Have student choose their preference
+
 3. Overall opinion on design choices of our application (color/style/fonts, location/accessibility of buttons)
+- Have different screenshots that students can rate and comment their feedback on
