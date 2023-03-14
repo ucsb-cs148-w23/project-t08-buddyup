@@ -1,4 +1,3 @@
-```js
 import {Box, Button, Heading, HStack, Textarea, Text, Spacer, List, UnorderedList, ListItem, Link} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
@@ -53,4 +52,4 @@ export default function Information() {
             <ListItem>Look through and make a post on our app BuddyUp to find roommates and housing listings. :)</ListItem>
         </UnorderedList>
     </Box>
-}```
+}
