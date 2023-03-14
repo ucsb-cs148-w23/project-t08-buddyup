@@ -1,19 +1,38 @@
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, Button } from "@chakra-ui/react";
 import Post from "components/post";
 import { useParams } from "react-router-dom";
 import { usePost } from "hooks/posts";
 import NewComment from "./NewComment";
 import CommentList from "./CommentList";
+import { useForm } from "react-hook-form";
+import { useGoToDashboard } from "hooks/users";
 import theme from "components/theme.js";
 
 export default function Comments() {
   const { postID } = useParams();
   const { post, isLoading } = usePost(postID);
+
+  const { handleSubmit } = useForm();
+  const { goToDashboard } = useGoToDashboard();
+
+  async function handleDashboard() {
+    console.log("going to dashboard");
+    await goToDashboard();
+  }
+
   if (isLoading) return "Loading...";
   return (
     <ChakraProvider theme={theme}>
 
-    <Box align="center" pt="50">
+    <Box>
+      <form onSubmit = {handleSubmit(handleDashboard)}>
+        <Button type="submit" ml="50px" >
+            Return to Dashboard
+        </Button>
+      </form>
+    </Box>
+
+    <Box align="center">
       <Post post={post}/>
       <NewComment post={post} />
       <CommentList post={post}/>

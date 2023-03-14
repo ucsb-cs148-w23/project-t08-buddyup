@@ -1,4 +1,4 @@
-import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading, ChakraProvider} from "@chakra-ui/react"
+import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading, Box, ChakraProvider} from "@chakra-ui/react"
 import { useUser, useSaveProfile, useGoToProfile, useGoToDashboard} from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
@@ -47,11 +47,13 @@ export default function ProfileEdit() {
                 Buddy Up
             </Heading>
 
-            <form onSubmit = {handleSubmit(handleDashboard)}>
-                <Button type="submit" ml="50px" mb="20px">
-                    Return to Dashboard
-                </Button>
-            </form>
+            <Box>
+                <form onSubmit = {handleSubmit(handleDashboard)}>
+                    <Button type="submit" ml="50px" mb="20px">
+                        Return to Dashboard
+                    </Button>
+                </form>
+            </Box>
 
         <HStack align="center" backgroundColor="#CCE6EC" pb="100px">
             <Image 
