@@ -64,7 +64,19 @@ export default function Sidebar() {
             mt="4"
             size="md"
           >
-            Housing Info
+            On-Campus Housing Info
+          </Button>
+        </Box>
+
+        <Box align="center">
+          <Box as="ul" borderColor="teal" pt="5px"/>
+          <Button
+            variant="outline"
+            colorScheme="pink"
+            mt="4"
+            size="md"
+          >
+            Off-Campus Housing Info
           </Button>
         </Box>
 
