@@ -30,9 +30,9 @@ import {
             <Box>
               <ReactCurvedText
                     width={1135}
-                    height={207}
+                    height={260}
                     cx={550}
-                    cy={230}
+                    cy={280}
                     rx={105}
                     ry={90}
                     startOffset={24}
@@ -79,13 +79,11 @@ import {
               Please login with an official UCSB email address!
             </Text>
           </Box>
-          
-
 
         </Center>
 
 
-        <Text fontSize='sm' pt="170px" pb="20px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
+        <Text fontSize='sm' pt="120px" pb="20px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
         Brenna Scholte, Kai Hilbourne, Sergio Colis Chavez, Anouki Panthagani, & Kaiwen Tang</Text>
 
       </Stack>
