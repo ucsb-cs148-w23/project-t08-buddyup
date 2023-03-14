@@ -27,11 +27,11 @@ export default function Header({ post }) {
             : DASHBOARD}
         name={user
               ? user.name
-              : "missing" }
+              : "" }
         size="md"
         src={user
               ? user.pfpURL
-              : "https://freesvg.org/img/abstract-user-flat-4.png"}
+              : ""}
         
       />
 

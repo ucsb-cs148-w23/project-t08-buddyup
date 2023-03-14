@@ -19,9 +19,6 @@ export default function Post({ post }) {
             ? "Looking for: " + looking + (location !== "" 
                                           ? " in " + location 
                                           : "") 
-            // : "Housing related post" + (location !== "" 
-            //                             ? " for " + location 
-            //                             : "")}
             : ""}
           </Text>
           <Text wordBreak="break-word" fontSize="15px" textIndent={20}>

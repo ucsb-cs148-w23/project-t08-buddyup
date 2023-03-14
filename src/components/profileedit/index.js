@@ -1,5 +1,5 @@
 import { Button, VStack, HStack, Text, Image, Textarea, Stack, Heading, ChakraProvider} from "@chakra-ui/react"
-import { useUser, useSaveProfile, useGoToProfile } from "hooks/users";
+import { useUser, useSaveProfile, useGoToProfile, useGoToDashboard} from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
 import { useParams } from "react-router-dom";
@@ -10,9 +10,16 @@ export default function ProfileEdit() {
     const uid = auth.currentUser ? auth.currentUser.uid : null;
     const { register, handleSubmit } = useForm();
 
+    const { goToDashboard } = useGoToDashboard();
+
     const { user, isLoading: userIsLoading } = useUser(id);
     const { saveProfile } = useSaveProfile();
     const { goToProfile } = useGoToProfile();
+
+    async function handleDashboard() {
+        console.log("going to dashboard");
+        await goToDashboard();
+    }
 
     function handleSaveProfile(data){
         saveProfile(
@@ -31,6 +38,7 @@ export default function ProfileEdit() {
     function handleCancel(){
         goToProfile(id);
     }
+
     if(!auth.currentUser) return "Loading..."
     return (
         <ChakraProvider theme={theme}>
@@ -38,6 +46,13 @@ export default function ProfileEdit() {
             <Heading size="2xl" pb="30px" textAlign="center" color="#264143">
                 Buddy Up
             </Heading>
+
+            <form onSubmit = {handleSubmit(handleDashboard)}>
+                <Button type="submit" ml="50px" mb="20px">
+                    Return to Dashboard
+                </Button>
+            </form>
+
         <HStack align="center" backgroundColor="#CCE6EC" pb="100px">
             <Image 
                 ml="20px"
@@ -48,7 +63,7 @@ export default function ProfileEdit() {
                     : user.pfpURL}
             />
             <VStack pl="20px" spacing="3" width="30%">
-                <Text color="gray.800" fontWeight="bold" fontSize="17px" pt="35px">
+                <Text color="gray.800" fontWeight="bold" fontSize="17px" pt="25px">
                     Display Name:
                 </Text>
                 <Textarea 
@@ -174,6 +189,7 @@ export default function ProfileEdit() {
                 </form>
             </VStack>
         </HStack>
+    
         </Stack>
         </ChakraProvider>
     )

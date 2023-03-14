@@ -33,7 +33,7 @@ function NewPost() {
         
     <form onSubmit={handleSubmit(handleAddPost)}>
         <HStack justify="space-between">
-            <Heading color="#264143" size="lg">
+            <Heading color="teal" size="lg">
                 Get Started
             </Heading>
         </HStack>
@@ -44,7 +44,7 @@ function NewPost() {
         resize="none" 
         mt="5" 
         placeholder="Title your post"
-        height={"35px"}
+        height={"40px"}
         minRows={1}
         {...register("title")}
         />
@@ -66,7 +66,6 @@ function NewPost() {
         <Textarea 
         bg="white"
         fontSize='15px'
-        resize="none" 
         placeholder="What are you looking for?"
         minRows={3}
         {...register("text")}
@@ -100,14 +99,13 @@ export default function Dashboard() {
         await goToProfile(id);
     }
 
-    
 
     const{posts, isLoading} = usePosts();
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
         <ChakraProvider theme={theme}>
-        <Heading size="2xl" textAlign="center" color="teal">
+        <Heading size="2xl" textAlign="center" color="#264143">
             Buddy Up
         </Heading>
 

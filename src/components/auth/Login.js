@@ -26,37 +26,40 @@ export default function Login() {
     <ChakraProvider theme={theme}>
     <Stack spacing={6}>
       <Heading size="2xl" textAlign="center" color="#264143" >
-          <ReactCurvedText
-              width={1000}
-              height={200}
-              cx={575}
-              cy={185}
-              rx={110}
-              ry={90}
-              startOffset={30}
-              reversed={true}
-              text="Buddy Up"
-              textProps={{ style: { fontSize: 60 } }}
-              textPathProps={{ fill: "#264143"}}
-              tspanProps={null}
-              ellipseProps={null}
-              svgProps={null}
-          />
+        <Center>
+          <Box>
+            <ReactCurvedText
+                  width={1135}
+                  height={207}
+                  cx={575}
+                  cy={230}
+                  rx={105}
+                  ry={90}
+                  startOffset={24}
+                  reversed={true}
+                  text="Buddy Up"
+                  textProps={{ style: { fontSize: 60, textAlign:"center" } }}
+                  textPathProps={{ fill: "#264143"}}
+                  tspanProps={null}
+                  ellipseProps={null}
+                  svgProps={null}
+              />
+          </Box>
+        </Center>
       </Heading>
 
-      {/* <Image
-        boxSize='125px'
-        objectFit='cover'
-        src='https://png.pngitem.com/pimgs/s/143-1435945_house-building-outline-hd-png-download.png'
-        alt='house'
-      /> */}
+      <Center>
 
-      <Text fontSize='md' pl="125px" pr="125px" color="teal" textAlign="center">BuddyUp is a platform for prospective 
-      and current UCSB students to meet roommates living on-campus, in IV, or in 
-      the greater SB area. </Text>
-
-      <Center w="100%" h="250px">
-        <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="lg">
+        <Box mx="1" maxW="xs" maxH="xs" p="9" borderRadius="xs">
+          <Text mb="4" fontSize="md" color="teal" textAlign="left">
+            BuddyUp is a platform for prospective and current UCSB students to meet roommates on-campus, in IV, or in the greater SB area. 
+          </Text>
+          <Text as='b' mb="0" fontSize="md" color="teal" textAlign="left">
+            Please login with an official UCSB email address!
+          </Text>
+        </Box>
+        
+        <Box bg="gray.100" mx="1" maxW="md" p="9" borderWidth="5px" borderRadius="xs">
           <Heading mb="4" size="md" color="#264143" textAlign="center">
             Welcome!
           </Heading>
@@ -76,9 +79,10 @@ export default function Login() {
             </Button>
           </form>
         </Box>
+
+
       </Center>
 
-      <Text fontSize='md' pt="20px" pl="125px" pr="125px" color="teal" textAlign="center">Please login with an official UCSB email address!</Text>
 
       <Text fontSize='sm' pt="125px" pb="20px" pl="125px" pr="125px" color="#264143" textAlign="center">Created By: Lauren Daniel, Sophia Moore, 
       Brenna Scholte, Kai Hilbourne, Sergio Colis Chavez, Anouki Panthagani, & Kaiwen Tang</Text>

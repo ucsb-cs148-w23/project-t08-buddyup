@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, HStack, Stack, Text, Image, Heading, ChakraProvider } from "@chakra-ui/react"
+import { Button, Divider, Flex, HStack, Stack, Text, Image, Heading, ChakraProvider} from "@chakra-ui/react"
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
@@ -123,9 +123,9 @@ export default function Profile() {
                 <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="#264143">Your Posts:</Text>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                        <Button type="submit" ml={"5"}>
-                            Return to Dashboard
-                        </Button>
+                    <Button type="submit" ml={"5"}>
+                        Return to Dashboard
+                    </Button>
                 </form>
             </HStack>
 
