@@ -34,11 +34,12 @@ function NewPost() {
             <Heading color="#264143" size="lg">
                 Get Started
             </Heading>
-            {/* <Button 
+            <Button 
             type="submit"
-            >
-                Post
-            </Button> */}
+            as={Link}
+            to={`${PROTECTED}/`}>
+                Filter Posts
+            </Button>
         </HStack>
         <Textarea 
         minH="unset"
@@ -87,21 +88,6 @@ function NewPost() {
 
 
 export default function Dashboard() {
-    const {logout} = useLogout();
-    const { handleSubmit } = useForm();
-    const { goToProfile } = useGoToProfile();
-    const id = auth.currentUser ? auth.currentUser.uid : null;
-    
-    async function handleLogout() {
-        await logout();
-    }
-
-    async function handleProfile() {
-        await goToProfile(id);
-    }
-
-    
-
     const{posts, isLoading} = usePosts();
     if(!(auth.currentUser)) return "Loading..."
     return (
@@ -109,20 +95,6 @@ export default function Dashboard() {
         <Heading size="2xl" textAlign="center" color="teal">
             Buddy Up
         </Heading>
-
-        {/* <HStack spacing={"10"}>
-            <form onSubmit={handleSubmit(handleLogout)}>
-                <Button type="submit" >
-                    Sign Out
-                </Button>
-            </form>
-            <form onSubmit = {handleSubmit(handleProfile)}>
-                <Button type="submit">
-                    Profile
-                </Button>
-            </form>
-        
-        </HStack> */}
 
         <NewPost />
         {isLoading
