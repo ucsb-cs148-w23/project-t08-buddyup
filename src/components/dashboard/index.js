@@ -19,8 +19,8 @@ function NewPost() {
         addPost({
             title: data.title,
             text: data.text,
-            looking: value.sort().join(' and '),
-            location: value2.sort().join(' and '),
+            looking: value.sort(),
+            location: value2.sort(),
             
         })
         reset();
