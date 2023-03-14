@@ -30,6 +30,7 @@ export default function Profile() {
 
     if(!auth.currentUser) return "Loading...";
     return (
+
         <Stack spacing = "1px">
             <Heading size="2xl" pb="30px" textAlign="center" color="teal">
                 Buddy Up
