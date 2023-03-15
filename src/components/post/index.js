@@ -22,6 +22,8 @@ export default function Post({ post }) {
             // : "Housing related post" + (location !== "" 
             //                             ? " for " + location 
             //                             : "")}
+            :(location && location.length !== 0)
+            ? "Looking for: ... in " + location
             : ""}
           </Text>
           <Text wordBreak="break-word" fontSize="15px" textIndent={20}>

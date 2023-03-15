@@ -135,7 +135,7 @@ export default function Dashboard() {
         : 
         <Stack >
             <Box px="20" align="left" >
-                <Text>Post Filtering:</Text>
+                <Text>Post Tags:</Text>
                 <HStack align="center" spacing="5px" fontSize='12px'>
                     <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
                     <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
