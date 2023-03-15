@@ -4,6 +4,8 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { DASHBOARD, INFORMATION, PROTECTED } from "lib/routes";
+import { useToast } from '@chakra-ui/react'
+
 
 export function useUser(id) {
     const q = query(doc( firestore, "users", id));
