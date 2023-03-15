@@ -34,11 +34,12 @@ export function useAddPost() {
     return {addPost};
 }
 
-export function usePosts(uid = null) {
+export function usePosts(uid = null, filters = []) {
 
-    
     const q = uid
         ? query(collection(firestore, "posts"), orderBy("date", "desc"), where("uid","==",uid))
+        : filters.length
+        ? query(collection(firestore, "posts"), orderBy("date", "desc"), where("tags", "array-contains-any", filters))
         : query(collection(firestore, "posts"), orderBy("date", "desc"));
     const [posts,isLoading, error] = useCollectionData(q);
     

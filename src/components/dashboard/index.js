@@ -21,7 +21,7 @@ function NewPost() {
             text: data.text,
             looking: value.sort(),
             location: value2.sort(),
-            
+            tags: [...value, ...value2],
         })
         reset();
     }
