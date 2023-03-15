@@ -1,5 +1,5 @@
 import {Box, Button, Heading, HStack, Stack,
-        Textarea, Text, useCheckboxGroup, Flex, Spacer} from '@chakra-ui/react';
+        Textarea, Text, useCheckboxGroup, Flex, Spacer, Divider} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -8,6 +8,8 @@ import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
 import { CustomCheckbox } from './CheckBox';
 import ReactCurvedText from 'react-curved-text';
+
+var theTags = [];
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -25,8 +27,9 @@ function NewPost() {
         })
         reset();
     }
+    theTags = value2;
 
-    return <Box maxW="750px" mx="auto" pt="30px">
+    return <Box maxW="750px" mx="auto" pt="30px" paddingBottom="15">
     
         
     <form onSubmit={handleSubmit(handleAddPost)}>
@@ -64,7 +67,6 @@ function NewPost() {
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Downtown SB' })}/>
             </HStack>
         </Stack>
-
         <Textarea 
         fontSize='15px'
         resize="none" 
@@ -89,6 +91,7 @@ function NewPost() {
 export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
+    const { value, getCheckboxProps } = useCheckboxGroup();
     const { goToProfile } = useGoToProfile();
     const id = auth.currentUser ? auth.currentUser.uid : null;
     
@@ -102,7 +105,7 @@ export default function Dashboard() {
 
     
 
-    const{posts, isLoading} = usePosts();
+    const{posts, isLoading} = usePosts(null, value);
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
@@ -126,8 +129,24 @@ export default function Dashboard() {
 
         <NewPost />
         {isLoading
-        ? <Text>Posts are loading ...</Text>
-        : <PostsLists posts={posts}/>}
+        ? <Stack>
+            <Text>Posts are loading ...</Text>
+        </Stack> 
+        : 
+        <Stack >
+            <Box px="20" align="left" >
+                <Text>Post Filtering:</Text>
+                <HStack align="center" spacing="5px" fontSize='12px'>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'University Housing' })}/>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'Isla Vista' })}/>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'Goleta' })}/>
+                    <CustomCheckbox {...getCheckboxProps({ value: 'Downtown SB' })}/>
+                </HStack>
+            </Box>
+            <PostsLists posts={posts}/>
+        </Stack> }
         
     </>
     )
