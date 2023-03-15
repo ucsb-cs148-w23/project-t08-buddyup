@@ -3,11 +3,33 @@ import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
-import { useGoToProfile } from 'hooks/users';
+import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { auth } from 'firebase_setup/firebase';
 
+
+//const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
+
+
+
 export default function Information() {
+    const { handleSubmit } = useForm();
+    const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
+
+    async function handleDashboard() {
+        console.log("going to dashboard");
+        await goToDashboard();
+    }
+
     return <Box maxW="600px" mx="auto" py="10">
+        
+        <form onSubmit = {handleSubmit(handleDashboard)}>
+            <Button type="submit" ml={"5"}>
+                Dashboard
+            </Button>
+        </form>
+
+
+
         <Heading size='xl'>
             UCSB Housing Information
         </Heading>
