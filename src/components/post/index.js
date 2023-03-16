@@ -11,17 +11,17 @@ export default function Post({ post }) {
         <Header post={post} />
 
         <Box bg="white" p="10px" minH="100px">
-          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="pink.500" pb = "1px">
+          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="pink.500" pl="10px" pb = "1px">
             {title}
           </Text>
-          <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pb = "25px">
+          <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pl="10px" pb = "25px">
             {looking !== "" 
-            ? "Looking for: " + looking + (location !== "" 
+            ? "Looking for: " + looking + (location !== " " 
                                           ? " in " + location 
                                           : "") 
             : ""}
           </Text>
-          <Text wordBreak="break-word" fontSize="15px" textIndent={20}>
+          <Text wordBreak="break-word" fontSize="15px" pl="10px" textIndent={20}>
             {text}
           </Text>
 

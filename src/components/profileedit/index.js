@@ -47,13 +47,14 @@ export default function ProfileEdit() {
                 Buddy Up
             </Heading>
 
-            <Box>
+            {/* Button doesn't work, so commenting out for now */}
+            {/* <Box>
                 <form onSubmit = {handleSubmit(handleDashboard)}>
                     <Button type="submit" ml="50px" mb="20px">
                         Return to Dashboard
                     </Button>
                 </form>
-            </Box>
+            </Box> */}
 
         <HStack align="center" backgroundColor="#CCE6EC" pb="100px">
             <Image 

@@ -130,7 +130,8 @@ export default function Profile() {
             </HStack>
 
             { postsAreLoading 
-                ? <Text>Posts are loading ...</Text> 
+                // ? <Text>Posts are loading ...</Text> 
+                ? <Text></Text>
                 : <PostsLists posts={posts} />
             }   
         </Stack>

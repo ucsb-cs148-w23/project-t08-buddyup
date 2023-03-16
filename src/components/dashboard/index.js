@@ -111,7 +111,8 @@ export default function Dashboard() {
 
         <NewPost />
         {isLoading
-        ? <Text>Posts are loading ...</Text>
+        // ? <Text>Posts are loading ...</Text>
+        ? <Text> </Text>
         : <PostsLists posts={posts}/>}
         </ChakraProvider>
     </>
