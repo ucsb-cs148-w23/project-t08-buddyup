@@ -30,12 +30,12 @@ export default function Login() {
           <Box>
             <ReactCurvedText
                   width={1135}
-                  height={260}
+                  height={265}
                   cx={550}
                   cy={280}
                   rx={105}
                   ry={90}
-                  startOffset={24}
+                  startOffset={22}
                   reversed={true}
                   text="Buddy Up"
                   textProps={{ style: { fontSize: 60, textAlign:"center" } }}
