@@ -41,7 +41,9 @@ export default function ProfileEdit() {
 
     if(!auth.currentUser) return "Loading..."
     return (
-        <ChakraProvider theme={theme}>
+        userIsLoading
+        ? <Text></Text>
+        : <ChakraProvider theme={theme}>
         <Stack spacing = "1px">
             <Heading size="2xl" pb="30px" textAlign="center" color="#264143">
                 Buddy Up
