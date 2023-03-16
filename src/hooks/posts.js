@@ -7,6 +7,7 @@ import {
     query,
     setDoc,
     where,
+    deleteDoc,
   } from "firebase/firestore";
 import { firestore } from "firebase_setup/firebase";
 import {
@@ -21,8 +22,6 @@ export function useAddPost() {
         const id = uuidv4();
         const uid = auth.currentUser.uid;
         const name = auth.currentUser.displayName;
-        console.log("UID:");
-        console.log(uid);
         await setDoc(doc(firestore, "posts", id), {
             ...post, 
             id,
@@ -53,3 +52,16 @@ export function usePost(id) {
     return { post, isLoading };
   }
 //mock doc function and test usePosts
+
+export function useDeletePost() {
+    async function deletePost(id){
+        const res = window.confirm("Are you sure you want to delete this post?");
+        if(res){
+            await deleteDoc(doc(firestore,"posts",id));
+            return true;
+        }
+        return false;
+    }
+
+    return {deletePost};
+}
