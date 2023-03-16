@@ -24,6 +24,7 @@ export function useAddUser() {
         const pronouns = "NULL";
         const roomtype = "NULL";
         const wantstoLive = "NULL";
+        const admin = "False"
         await setDoc(doc(firestore, "users", uid), {
             uid,
             name,
@@ -34,6 +35,7 @@ export function useAddUser() {
             bio,
             year,
             wantstoLive,
+            admin,
         })
         return true;
     }
