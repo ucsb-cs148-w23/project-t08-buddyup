@@ -106,7 +106,7 @@ export default function Dashboard() {
 
     
 
-    const{posts, isLoading} = usePosts(null, [value.sort().join(' and '), ...value2]);
+    const{posts, isLoading} = usePosts(null, [value.sort().join(' and '), ...value, ...value2]);
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
@@ -136,7 +136,6 @@ export default function Dashboard() {
                         <AccordionButton>
                             <Box as="span" flex='1' textAlign='left'>
                                 Post Search Tags
-                                {[value.sort().join(' and '), ...value2]}
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>

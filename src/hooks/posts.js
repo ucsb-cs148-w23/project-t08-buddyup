@@ -40,7 +40,7 @@ export function usePosts(uid = null, filters = []) {
                 ? query(collection(firestore, "posts"), orderBy("date", "desc"), where("uid","==",uid))
                 : (filters.length === 0) || (filters.length === 1 && filters[0] === "")
                     ? query(collection(firestore, "posts"), orderBy("date", "desc"))
-                    : (filters[0] === "Housemate(s)" || filters[0] === "Housemate(s) and Housing" || filters[0] === "Housing")
+                    : (filters[0] === "Housemate(s)" || filters[0] === "Housing")
                         ? query(collection(firestore, "posts"), orderBy("date", "desc"), where("looking", "==", filters[0]), where("tags", "array-contains-any", filters))
                         : query(collection(firestore, "posts"), orderBy("date", "desc"), where("tags", "array-contains-any", filters)) 
 
