@@ -1,5 +1,6 @@
 import {Box, Button, Heading, HStack, Stack,
-        Textarea, Text, useCheckboxGroup, ChakraProvider, Flex, Spacer} from '@chakra-ui/react';
+        Textarea, Text, useCheckboxGroup, ChakraProvider, Flex, Spacer, Divider, 
+        Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -10,6 +11,8 @@ import { CustomCheckbox } from './CheckBox';
 import ReactCurvedText from 'react-curved-text';
 import theme from "components/theme";
 import "@fontsource/alata";
+
+var theTags = [];
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();
@@ -22,13 +25,14 @@ function NewPost() {
             title: data.title,
             text: data.text,
             looking: value.sort().join(' and '),
-            location: value2.sort().join(' and '),
-            
+            location: value2.sort(),
+            tags: [value.sort().join(' and '), ...value, ...value2],
         })
         reset();
     }
+    theTags = value2;
 
-    return <Box maxW="750px" mx="auto" pt="30px">
+    return <Box maxW="750px" mx="auto" pt="30px" paddingBottom="15">
     
         
     <form onSubmit={handleSubmit(handleAddPost)}>
@@ -62,7 +66,6 @@ function NewPost() {
                 <CustomCheckbox {...getCheckboxProps2({ value: 'Downtown SB' })}/>
             </HStack>
         </Stack>
-
         <Textarea 
         bg="white"
         fontSize='15px'
@@ -88,6 +91,8 @@ function NewPost() {
 export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
+    const { value, getCheckboxProps } = useCheckboxGroup();
+    const { value:value2, getCheckboxProps:getCheckboxProps2 } = useCheckboxGroup();
     const { goToProfile } = useGoToProfile();
     const id = auth.currentUser ? auth.currentUser.uid : null;
     
@@ -100,7 +105,7 @@ export default function Dashboard() {
     }
 
 
-    const{posts, isLoading} = usePosts();
+    const{posts, isLoading} = usePosts(null, [value.sort().join(' and '), ...value, ...value2]);
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
@@ -110,6 +115,30 @@ export default function Dashboard() {
         </Heading>
 
         <NewPost />
+        <Box px="20" align="left" paddingTop={5} >
+                <Accordion allowToggle>
+                    <AccordionItem>
+                        <h2>
+                        <AccordionButton>
+                            <Box as="span" flex='1' textAlign='left'>
+                                Post Search Tags
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                        </h2>
+                        <AccordionPanel>
+                                <HStack align="center" spacing="4px" fontSize='11px'>
+                                    <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
+                                    <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Goleta' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Downtown SB' })}/>
+                                </HStack>
+                        </AccordionPanel>
+                    </AccordionItem>
+                </Accordion>
+            </Box>
         {isLoading
         // ? <Text>Posts are loading ...</Text>
         ? <Text> </Text>
