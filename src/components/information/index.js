@@ -1,10 +1,12 @@
-import {Box, Button, Heading, HStack, Textarea, Text, Spacer, List, UnorderedList, ListItem, Link} from '@chakra-ui/react';
+import {Box, Button, Heading, HStack, Textarea, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
 import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { auth } from 'firebase_setup/firebase';
+import theme from "components/theme";
+
 
 
 //const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
@@ -21,25 +23,29 @@ export default function Information() {
     }
 
     return <Box maxW="600px" mx="auto" py="10">
-        
+
         <form onSubmit = {handleSubmit(handleDashboard)}>
             <Button type="submit" ml={"5"}>
                 Dashboard
             </Button>
         </form>
-
-
-
-        <Heading size='xl'>
+        
+        <Stack spacing ={6}> 
+        <ChakraProvider theme={theme}>
+        <Heading size='xl'textAlign="center" color="#264143">
             UCSB Housing Information
         </Heading>
+        </ChakraProvider>
+     
         <Text>
         Housing as a UCSB student is infamous for being difficult to find, unreliable, and expensive. The goal of this information page is to help students efficiently navigate the living options offered by UCSB and private landlords. 
         </Text>
     
-        <Heading size='lg'>
+        
+        <Heading size='lg' paddingTop='30px'>
         Off-campus housing
         </Heading>
+       
         <Text>
         Key facts to know about private housing options:
         </Text>
@@ -73,10 +79,11 @@ export default function Information() {
             <ListItem>Beware of scams. If a housing offer seems too good to be true, it probably is. </ListItem>
             <ListItem>Look through and make a post on our app BuddyUp to find roommates and housing listings. :)</ListItem>
         </UnorderedList>
-    
+        
         <Heading size='lg'>
         On-campus housing
         </Heading>
+        </Stack>
         <Text>
         Take note of on-campus housing application deadlines {' '} 
         <Link color='teal.500' href='https://www.housing.ucsb.edu/quick-link/important-dates'>
@@ -396,6 +403,7 @@ export default function Information() {
         <Text>
         Building Type: 2-Story Apartment
         </Text>
+    
 
     </Box>
 }
