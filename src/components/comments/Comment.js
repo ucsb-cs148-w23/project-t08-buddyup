@@ -12,7 +12,6 @@ export default function Comment({ comment }) {
   const { handleSubmit } = useForm();
 
   async function handleDeleteComment(){
-    console.log("umuhh please delete comment?")
     deleteComment();
   }
   
