@@ -15,13 +15,15 @@ export default function Post({ post }) {
             {title}
           </Text>
           <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pb = "25px">
-            {looking !== "" 
-            ? "Looking for: " + looking + (location !== "" 
+            {(looking && looking.length !== 0)
+            ? "Looking for: " + looking + ((location && location.length !== 0)
                                           ? " in " + location 
                                           : "") 
             // : "Housing related post" + (location !== "" 
             //                             ? " for " + location 
             //                             : "")}
+            :(location && location.length !== 0)
+            ? "Looking for: ... in " + location
             : ""}
           </Text>
           <Text wordBreak="break-word" fontSize="15px" textIndent={20}>
