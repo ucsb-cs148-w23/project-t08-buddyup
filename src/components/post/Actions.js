@@ -23,12 +23,15 @@ export default function Actions({ post }) {
 
 
   async function handleDeletePost() {
-    if(deletePost(id)){
+    const res = window.confirm("Are you sure you want to delete this post?");
+    if(res){
+      await goToDashboard();
+      await deletePost(id);
       for (let i = 0; i < comments.length; i++){
         deleteCommentUnsafe(comments[i].id);
       }
     }
-    await goToDashboard();
+    
   }
 
 
