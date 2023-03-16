@@ -115,19 +115,19 @@ export default function Dashboard() {
         </Heading>
 
         <NewPost />
-        <Box px="20" align="left" paddingTop={5} >
-                <Accordion allowToggle>
+        <Box px="20" align="left" pt="10px">
+                <Accordion allowToggle rounded='lg' bg='gray.100' borderWidth="1px" borderLeftWidth="2px" borderRightWidth="2px" borderColor="teal.300">
                     <AccordionItem>
                         <h2>
                         <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left'>
-                                Post Search Tags
+                            <Box as="span"  flex='1' textAlign='left'>
+                                Filter Posts
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                         </h2>
                         <AccordionPanel>
-                                <HStack align="center" spacing="4px" fontSize='11px'>
+                                <HStack align="center" spacing="10px" fontSize='11px'>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
                                     <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>

@@ -17,7 +17,7 @@ export default function Post({ post }) {
           <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pl="10px" pb = "25px">
             {looking !== "" 
             ? "Looking for: " + looking + (location !== " " 
-                                          ? " in " + location 
+                                          ? " in " + location.sort().join(', ') 
                                           : "") 
             : ""}
           </Text>
