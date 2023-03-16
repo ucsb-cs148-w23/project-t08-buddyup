@@ -8,11 +8,11 @@ import { FaTrash } from "react-icons/fa";
 export default function Comment({ comment }) {
   const { text, date, name, uid, id } = comment;
   const { user } = useAuth();
-  const { deleteComment } = useDeleteComment(id);
+  const { deleteComment } = useDeleteComment();
   const { handleSubmit } = useForm();
 
   async function handleDeleteComment(){
-    deleteComment();
+    deleteComment(id);
   }
   
 

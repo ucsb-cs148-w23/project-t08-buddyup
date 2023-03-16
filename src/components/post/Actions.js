@@ -15,7 +15,7 @@ export default function Actions({ post }) {
   const { id , uid } = post;
   const { comments, isLoading: commentsLoading } = useComments(id);
   const { deletePost } = useDeletePost();
-  const { deleteComment } = useDeleteComment();
+  const { deleteCommentUnsafe } = useDeleteComment();
   const { user } = useAuth();
   const { handleSubmit } = useForm();
   
@@ -25,7 +25,7 @@ export default function Actions({ post }) {
   async function handleDeletePost() {
     if(deletePost(id)){
       for (let i = 0; i < comments.length; i++){
-        deleteComment(comments[i].id);
+        deleteCommentUnsafe(comments[i].id);
       }
     }
     await goToDashboard();

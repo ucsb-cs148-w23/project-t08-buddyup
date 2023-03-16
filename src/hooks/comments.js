@@ -42,10 +42,10 @@ export function useComments(postID) {
   return { comments, isLoading };
 }
 
-export function useDeleteComment(id) {
+export function useDeleteComment() {
   const [isLoading, setLoading] = useState(false);
 
-  async function deleteComment() {
+  async function deleteComment(id) {
     const res = window.confirm("Are you sure you want to delete this comment?");
 
     if (res) {
@@ -57,5 +57,13 @@ export function useDeleteComment(id) {
     }
   }
 
-  return { deleteComment, isLoading };
+  async function deleteCommentUnsafe(id) {
+    setLoading(true);
+    const docRef = doc(firestore, "comments", id);
+    await deleteDoc(docRef);
+    
+    setLoading(false);
+  }
+
+  return { deleteComment, deleteCommentUnsafe, isLoading };
 }
