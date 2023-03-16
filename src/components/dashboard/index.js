@@ -21,9 +21,9 @@ function NewPost() {
         addPost({
             title: data.title,
             text: data.text,
-            looking: value.sort(),
+            looking: value.sort().join(' and '),
             location: value2.sort(),
-            tags: [...value, ...value2],
+            tags: [value.sort().join(' and '), ...value, ...value2],
         })
         reset();
     }
@@ -92,6 +92,7 @@ export default function Dashboard() {
     const {logout} = useLogout();
     const { handleSubmit } = useForm();
     const { value, getCheckboxProps } = useCheckboxGroup();
+    const { value:value2, getCheckboxProps:getCheckboxProps2 } = useCheckboxGroup();
     const { goToProfile } = useGoToProfile();
     const id = auth.currentUser ? auth.currentUser.uid : null;
     
@@ -105,14 +106,14 @@ export default function Dashboard() {
 
     
 
-    const{posts, isLoading} = usePosts(null, value);
+    const{posts, isLoading} = usePosts(null, [value.sort().join(' and '), ...value2]);
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
         <Heading size="2xl" textAlign="center" color="teal">
             Buddy Up
         </Heading>
-
+    
         {/* <HStack spacing={"10"}>
             <form onSubmit={handleSubmit(handleLogout)}>
                 <Button type="submit" >
@@ -135,6 +136,7 @@ export default function Dashboard() {
                         <AccordionButton>
                             <Box as="span" flex='1' textAlign='left'>
                                 Post Search Tags
+                                {[value.sort().join(' and '), ...value2]}
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
@@ -143,10 +145,10 @@ export default function Dashboard() {
                                 <HStack align="center" spacing="4px" fontSize='11px'>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
-                                    <CustomCheckbox {...getCheckboxProps({ value: 'University Housing' })}/>
-                                    <CustomCheckbox {...getCheckboxProps({ value: 'Isla Vista' })}/>
-                                    <CustomCheckbox {...getCheckboxProps({ value: 'Goleta' })}/>
-                                    <CustomCheckbox {...getCheckboxProps({ value: 'Downtown SB' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Isla Vista' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Goleta' })}/>
+                                    <CustomCheckbox {...getCheckboxProps2({ value: 'Downtown SB' })}/>
                                 </HStack>
                         </AccordionPanel>
                     </AccordionItem>
