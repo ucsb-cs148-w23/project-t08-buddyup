@@ -27,7 +27,7 @@ export default function Post({ post }) {
             : ""}
           </Text>
           <Text wordBreak="break-word" fontSize="15px" textIndent={20}>
-            {text}
+            {text.split('\n').map(e => <p>{e}</p>)}
           </Text>
 
         </Box>
