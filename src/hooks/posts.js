@@ -1,5 +1,4 @@
 import { uuidv4 } from "@firebase/util";
-//import { useState } from "react";
 import {
     collection,
     doc,
@@ -16,9 +15,7 @@ import {
 import { auth } from "firebase_setup/firebase";
 
 export function useAddPost() {
-    //const [isLoading, setLoading] = useState(false);
     async function addPost(post) {
-        //setLoading(true);
         const id = uuidv4();
         const uid = auth.currentUser.uid;
         const name = auth.currentUser.displayName;

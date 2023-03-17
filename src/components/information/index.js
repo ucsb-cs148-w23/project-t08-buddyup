@@ -1,15 +1,11 @@
-import {Box, Button, Heading, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem, Image, Center} from '@chakra-ui/react';
+import {Box, Button, Heading, Stack, Text, Link, ChakraProvider, Divider, Grid, GridItem, Image, Center} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
-import { useAddPost, usePosts } from 'hooks/posts';
-import PostsLists from "components/post/PostsLists"
-import { useLogout } from "hooks/auth";
-import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
-import { auth } from 'firebase_setup/firebase';
+import { useGoToDashboard } from "hooks/users";
 import theme from "components/theme";
 
 export default function Information() {
     const { handleSubmit } = useForm();
-    const { goToDashboard, isLoading: dashboardLoading} = useGoToDashboard();
+    const { goToDashboard } = useGoToDashboard();
 
     async function handleDashboard() {
         console.log("going to dashboard");
