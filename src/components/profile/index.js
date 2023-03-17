@@ -48,11 +48,16 @@ export default function Profile() {
                 >
                 </Image>
                 <Stack ml="10">
-                    <HStack spacing="10" >
+                    <HStack spacing="5" >
                         <Text color="teal" fontWeight="bold" fontSize="22px">
                             { userIsLoading
                                 ? "Name"
                                 : user.name}
+                        </Text>
+                        <Text color="gray.800" fontSize="15px">
+                            { userIsLoading
+                            ? "Pronouns"
+                            : user.pronouns}
                         </Text>
             
                     </HStack>
@@ -62,10 +67,10 @@ export default function Profile() {
                         </Text> */}
                         <Text color="gray.800" fontSize="15px">
                             { userIsLoading
-                            ? "Pronouns"
-                            : user.pronouns}
+                            ? "Email"
+                            : user.email}
                         </Text>
-                        </HStack>
+                    </HStack>
                 </Stack>
 
                 {isUser 
@@ -113,7 +118,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontSize="15px"  ml="5" mr="5" mb="20px">
                     {userIsLoading
                     ? "Bio"
-                    : user.bio}
+                    : user.bio.split('\n').map(e => <p>{e}</p>)}
                 </Text>
             </Flex>
             </Stack>
