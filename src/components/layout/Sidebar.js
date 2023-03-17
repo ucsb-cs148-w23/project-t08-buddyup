@@ -2,7 +2,7 @@ import { Box, Button, Stack, Image, Text} from "@chakra-ui/react";
 import { PROTECTED } from "lib/routes";
 import { Link } from "react-router-dom";
 import { auth } from "firebase_setup/firebase";
-import { useUser } from "hooks/users";
+import { useGoToInformation2, useUser } from "hooks/users";
 import { useLogout } from "hooks/auth";
 import { useGoToInformation } from 'hooks/users';
 import { useForm } from "react-hook-form";
@@ -43,6 +43,8 @@ export default function Sidebar() {
   const { handleSubmit } = useForm();
     const {logout} = useLogout();
     const {goToInformation,isLoading:informationLoading} = useGoToInformation();
+    const {goToInformation2,isLoading:informationLoading2} = useGoToInformation2();
+
 
     async function handleLogout() {
         await logout();
@@ -51,6 +53,11 @@ export default function Sidebar() {
     async function handleInfo() {
       console.log("going to info");
       await goToInformation();
+      }
+
+    async function handleInfo2() {
+        console.log("going to info2");
+        await goToInformation2();
       }
 
     return (
@@ -78,7 +85,20 @@ export default function Sidebar() {
             mr="5px"
             size="md"
           >
-            Housing Info
+            On-Campus Housing Info
+          </Button>
+          </form>
+
+          <form onSubmit={handleSubmit(handleInfo2)}> 
+          <Button
+            type="submit"
+            variant="outline"
+            colorScheme="pink"
+            mt="4"
+            mr="5px"
+            size="md"
+          >
+            Off-Campus Housing Info
           </Button>
           </form>
         </Box>
