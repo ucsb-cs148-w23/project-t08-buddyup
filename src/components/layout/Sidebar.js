@@ -53,6 +53,11 @@ export default function Sidebar() {
       await goToInformation();
       }
 
+    async function handleInfo2() {
+        console.log("going to info");
+        await goToInformation();
+      }
+
     return (
         <Box
         px="6"
@@ -78,7 +83,20 @@ export default function Sidebar() {
             mr="5px"
             size="md"
           >
-            Housing Info
+            On-Campus Housing Info
+          </Button>
+          </form>
+
+          <form onSubmit={handleSubmit(handleInfo2)}> 
+          <Button
+            type="submit"
+            variant="outline"
+            colorScheme="pink"
+            mt="4"
+            mr="5px"
+            size="md"
+          >
+            Off-Campus Housing Info
           </Button>
           </form>
         </Box>
