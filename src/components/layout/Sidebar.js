@@ -7,6 +7,8 @@ import { useLogout } from "hooks/auth";
 import { useGoToInformation } from 'hooks/users';
 import { useForm } from "react-hook-form";
 
+import ReactCurvedText from 'react-curved-text';
+
 
 
 function ActiveUser() {
