@@ -14,6 +14,7 @@ export default function Profile() {
 
     const { posts, isLoading: postsAreLoading } = usePosts(id);
     const { user, isLoading: userIsLoading } = useUser(id);
+    //const { user: admin, isLoading: adminIsLoading } = useUser(auth.currentUser ? auth.currentUser.uid : "pBvdbPyaEi79xLYvgffv");
 
     const { handleSubmit } = useForm();
     const { goToDashboard } = useGoToDashboard();
@@ -73,7 +74,7 @@ export default function Profile() {
                     </HStack>
                 </Stack>
 
-                {isUser 
+                {isUser
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
                         <Button type="submit" ml="450px" mr="50px">
                             Edit Profile
