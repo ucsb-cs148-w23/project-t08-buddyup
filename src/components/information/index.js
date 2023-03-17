@@ -22,13 +22,26 @@ export default function Information() {
         await goToDashboard();
     }
 
-    return <Box maxW="600px" mx="auto" py="10">
-
-        <form onSubmit = {handleSubmit(handleDashboard)}>
+    <form onSubmit = {handleSubmit(handleDashboard)}>
             <Button type="submit" ml={"5"}>
                 Dashboard
             </Button>
-        </form>
+    </form>
+
+    return <Box maxW="600px" mx="auto" py="10">
+        <HStack spacing='auto'>
+        <Box w='40px' h='40px' >
+        </Box>
+        
+        <Box w='auto' h='auto' >
+            <form onSubmit = {handleSubmit(handleDashboard)}>
+                <Button type="submit" ml={"5"}>
+                    Return to Dashboard
+                </Button>
+            </form>
+        </Box>
+        </HStack>
+        
         
         <Stack spacing ={6}> 
         <ChakraProvider theme={theme}>
