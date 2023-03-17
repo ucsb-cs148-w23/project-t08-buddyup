@@ -54,13 +54,18 @@ export default function Profile() {
                                 ? "Name"
                                 : user.name}
                         </Text>
+                        <Text color="gray.800" fontSize="15px">
+                            { userIsLoading
+                            ? "Pronouns"
+                            : user.pronouns}
+                        </Text>
             
                     </HStack>
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize="15px" maxWidth={"50%"}>
                             { userIsLoading
-                            ? "Pronouns"
-                            : user.pronouns}
+                            ? "Email"
+                            : user.email}
                         </Text>
                     </HStack>
                 </Stack>
@@ -110,7 +115,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontSize="15px"  ml="5" mr="5" mb="20px" maxWidth={"90%"}>
                     {userIsLoading
                     ? "Bio"
-                    : user.bio}
+                    : user.bio.split('\n').map(e => <p>{e}</p>)}
                 </Text>
             </Flex>
             </Stack>
