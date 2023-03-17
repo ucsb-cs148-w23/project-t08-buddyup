@@ -7,26 +7,21 @@ export default function Post({ post }) {
 
   return (
     <Box pt = "35px" maxW="750px" textAlign="left">
-      <Box border="2px solid" borderColor="gray.100" borderRadius="md">
+      <Box border="2px solid" borderColor="gray.300" borderRadius="md">
         <Header post={post} />
 
-        <Box p="10px" minH="100px">
-          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="teal" pb = "1px">
+        <Box bg="white" p="10px" minH="100px">
+          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="pink.500" pl="10px" pb = "1px">
             {title}
           </Text>
-          <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pb = "25px">
-            {(looking && looking.length !== 0)
-            ? "Looking for: " + looking + ((location && location.length !== 0)
-                                          ? " in " + location 
+          <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pl="10px" pb = "25px">
+            {looking !== "" 
+            ? "Looking for: " + looking + (location !== " " 
+                                          ? " in " + location.sort().join(', ') 
                                           : "") 
-            // : "Housing related post" + (location !== "" 
-            //                             ? " for " + location 
-            //                             : "")}
-            :(location && location.length !== 0)
-            ? "Looking for: ... in " + location
             : ""}
           </Text>
-          <Text wordBreak="break-word" fontSize="15px" textIndent={20}>
+          <Text wordBreak="break-word" fontSize="15px" pl="10px" textIndent={20}>
             {text.split('\n').map(e => <p>{e}</p>)}
           </Text>
 

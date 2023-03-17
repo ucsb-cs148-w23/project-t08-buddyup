@@ -15,13 +15,15 @@ const theme = extendTheme({
     styles: {
       global: (props) => ({
         body: {
-          bg: "white",
+          // bg: "white",
+          bg: "#FCE8E1",
         }
       })
     },
     fonts: {
-        heading: `'Cormorant Unicase', serif`,
-        body: `'Raleway', sans-serif`,
+        heading: `'Alata',  sans-serif`,
+        // body: `'Raleway', sans-serif`,
+        body: `'Alata', sans-serif`,
     },
   })
 
