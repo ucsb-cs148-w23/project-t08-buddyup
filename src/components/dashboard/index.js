@@ -33,21 +33,37 @@ function NewPost() {
     }
     theTags = value2;
 
-    return <Box maxW="750px" mx="auto" pt="30px" paddingBottom="15">
+    return <Box maxW="750px" mx="auto" pt="10px" paddingBottom="15">
     
         
     <form onSubmit={handleSubmit(handleAddPost)}>
         <HStack justify="space-between">
-            <Heading color="teal" size="lg">
+            <ReactCurvedText
+                    width={1135}
+                    height={40}
+                    cx={70}
+                    cy={110}
+                    rx={85}
+                    ry={95}
+                    startOffset={79}
+                    reversed={true}
+                    text="Get Started!"
+                    textProps={{ style: { fontSize: 22, fontWeight:'800', textAlign:"center" } }}
+                    textPathProps={{ fill: "#2C7A7B"}}
+                    tspanProps={null}
+                    ellipseProps={null}
+                    svgProps={null}
+            />
+            {/* <Heading color="teal" size="lg">
                 Get Started
-            </Heading>
+            </Heading> */}
         </HStack>
         <Textarea 
         bg="white"
         minH="unset"
         fontSize='15px'
         resize="none" 
-        mt="5" 
+        mt="2" 
         placeholder="Title your post"
         height={"40px"}
         minRows={1}

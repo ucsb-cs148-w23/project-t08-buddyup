@@ -23,21 +23,25 @@ export default function Actions({ post }) {
 
 
   async function handleDeletePost() {
-    if(deletePost(id)){
+    const res = window.confirm("Are you sure you want to delete this post?");
+    if(res){
+      await goToDashboard();
+      await deletePost(id);
       for (let i = 0; i < comments.length; i++){
         deleteCommentUnsafe(comments[i].id);
       }
     }
-    await goToDashboard();
+    
   }
 
+  const pathname = window.location.pathname;
 
   return (
     <Flex bg="gray.100" p="2">
       <Flex alignItems="center" ml="2">
         <IconButton
           as={Link}
-          to={`comments/${id}`}
+          to={ pathname.includes("comments") ? pathname : `comments/${id}`}
           aria-label="Comments"
           size="md"
           colorScheme="teal"

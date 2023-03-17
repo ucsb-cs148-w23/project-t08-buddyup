@@ -55,17 +55,12 @@ export function usePost(id) {
     const [post, isLoading] = useDocumentData(q);
   
     return { post, isLoading };
-  }
-//mock doc function and test usePosts
+}
 
 export function useDeletePost() {
     async function deletePost(id){
-        const res = window.confirm("Are you sure you want to delete this post?");
-        if(res){
-            await deleteDoc(doc(firestore,"posts",id));
-            return true;
-        }
-        return false;
+        await deleteDoc(doc(firestore,"posts",id));
+        return true;
     }
 
     return {deletePost};

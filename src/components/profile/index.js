@@ -59,7 +59,6 @@ export default function Profile() {
                             ? "Pronouns"
                             : user.pronouns}
                         </Text>
-            
                     </HStack>
                     <HStack spacing="10" >
                         <Text color="gray.800" fontSize="15px" maxWidth={"100%"}>
