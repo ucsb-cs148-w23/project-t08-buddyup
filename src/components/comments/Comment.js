@@ -16,12 +16,13 @@ export default function Comment({ comment }) {
   }
   
   return (
-    <Box px="4" py="2" maxW="600px" mx="auto" textAlign="left">
+    <Box px="4" py="2" maxW="600px" mx="auto" textAlign="left" >
       <Flex pb="2">
-        <Box flex="1" ml="4">
-          <Flex borderBottom="1px solid" borderColor="teal.100" pb="2">
+        <Box flex="1" ml="4" borderWidth="2px" borderColor="gray.200">
+
+          <Flex borderBottom="2px solid" borderColor="gray.600" bg="gray.200" pl="15px" py="10px">
             <Text>{name}</Text>
-            <Text fontSize="xs" color="gray.500" ml={"10px"} mt={"4px"}>
+            <Text fontSize="12px" color="gray.500" ml="20px" mt="4px">
                 {formatDistanceToNow(date)} ago
               </Text>
             { user.uid === uid
@@ -30,6 +31,7 @@ export default function Comment({ comment }) {
                 aria-label="Delete Comment"
                 type="submit"
                 size="xs"
+                pl="10px"
                 colorScheme="red"
                 variant="ghost"
                 icon={<FaTrash/>}
@@ -39,8 +41,9 @@ export default function Comment({ comment }) {
             : ""
             }
           </Flex>
-          <Box pt="2" fontSize="sm">
-            <Text>{text}</Text>
+
+          <Box pt="10px" pl="15px" fontSize="15px" bg="white">
+            <Text pb="15px">{text}</Text>
           </Box>
         </Box>
 

@@ -5,10 +5,12 @@ import Login from "components/auth/Login";
 import Layout from 'components/layout';
 import Profile from 'components/profile';
 import ProfileEdit from 'components/profileedit';
+import Information from 'components/information';
 
 export const ROOT = "/";
 export const LOGIN = "/login";
 export const DASHBOARD = "/protected/dashboard";
+export const INFORMATION = "/protected/information";
 export const COMMENTS = "/protected/dashboard/comments/:postID";
 export const COMMENTS2 = "/protected/profile/:id/comments/:postID";
 export const PROTECTED = "/protected";
@@ -26,5 +28,6 @@ export const router = createBrowserRouter ([
         { path: COMMENTS2, element: <Comments />},
         { path: PROFILE, element: <Profile /> },
         { path: PROFILEEDIT, element: <ProfileEdit /> },
+        { path: INFORMATION, element:  <Information />}
     ]},
 ]);
