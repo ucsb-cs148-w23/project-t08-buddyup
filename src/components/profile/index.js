@@ -48,9 +48,9 @@ export default function Profile() {
                         : user.pfpURL}
                 >
                 </Image>
-                <Stack ml="10">
-                    <HStack spacing="5" >
-                        <Text color="teal" fontWeight="bold" fontSize="22px">
+                <Stack ml="10" maxWidth="50%">
+                    <HStack spacing="10" >
+                        <Text color="teal" fontWeight="bold" fontSize="22px" maxWidth={"100%"}>
                             { userIsLoading
                                 ? "Name"
                                 : user.name}
@@ -60,13 +60,9 @@ export default function Profile() {
                             ? "Pronouns"
                             : user.pronouns}
                         </Text>
-            
                     </HStack>
                     <HStack spacing="10" >
-                        {/* <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
-                            Pronouns:
-                        </Text> */}
-                        <Text color="gray.800" fontSize="15px">
+                        <Text color="gray.800" fontSize="15px" maxWidth={"100%"}>
                             { userIsLoading
                             ? "Email"
                             : user.email}
@@ -76,7 +72,7 @@ export default function Profile() {
 
                 {isUser
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml="450px" mr="50px">
+                        <Button type="submit" ml="100%" mr="50px">
                             Edit Profile
                         </Button>
                     </form>
@@ -89,7 +85,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px" pl="20px">
                     Housing Preference:
                 </Text>
-                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="90px">
+                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="90px" maxWidth={"30%"}>
                         { userIsLoading
                         ? "[Housing]"
                         : user.wantstoLive}
@@ -97,7 +93,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
                     Room Type:
                 </Text>
-                <Text verticalAlign={"center"} color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="80px">
+                <Text verticalAlign={"center"} color="gray.800" fontSize="15px" ml="15px" pt="2px" pr="80px" maxWidth={"20%"}>
                     { userIsLoading
                         ? "Room Preference"
                         : user.roomtype}
@@ -105,7 +101,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px">
                     Quarter/Year:
                 </Text>
-                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px">
+                <Text color="gray.800" fontSize="15px" ml="15px" pt="2px" maxWidth={"10%"}>
                             { userIsLoading
                                 ? "Year"
                                 : user.year}
@@ -116,7 +112,7 @@ export default function Profile() {
                 <Text verticalAlign={"center"} color="gray.800" fontWeight="bold" fontSize="17px" pb="20px">
                     Bio:
                 </Text>
-                <Text verticalAlign={"center"} color="gray.800" fontSize="15px"  ml="5" mr="5" mb="20px">
+                <Text verticalAlign={"center"} color="gray.800" fontSize="15px"  ml="5" mr="5" mb="20px" maxWidth={"90%"}>
                     {userIsLoading
                     ? "Bio"
                     : user.bio.split('\n').map(e => <p>{e}</p>)}
@@ -135,8 +131,7 @@ export default function Profile() {
                 </form>
             </HStack>
 
-            { postsAreLoading 
-                // ? <Text>Posts are loading ...</Text> 
+            { postsAreLoading
                 ? <Text></Text>
                 : <PostsLists posts={posts} />
             }   

@@ -1,10 +1,8 @@
 import { Box, Flex, Text, Avatar } from "@chakra-ui/react";
-//import Avatar from "components/profile/Avatar";
 import { useUser } from "hooks/users";
 import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 import { DASHBOARD, PROTECTED } from "lib/routes";
-// import UsernameButton from "components/profile/UsernameButton";
 
 export default function Header({ post }) {
   const { date, uid } = post;
@@ -36,8 +34,8 @@ export default function Header({ post }) {
       />
 
       <Box ml="4">
-        <Text fontSize="18px" color="teal" fontWeight="bold"> {user ? user.name : "Name"} </Text>
-        <Text fontSize="15px" color="gray.600"> {user ? user.pronouns : "Pronouns"} </Text>
+        <Text fontSize="18px" color="teal" fontWeight="bold" maxWidth={"80%"}> {user ? user.name : "Name"} </Text>
+        <Text fontSize="15px" color="gray.600" maxWidth={"80%"}> {user ? user.pronouns : "Pronouns"} </Text>
         <Text fontSize="15px" color="gray.600">
           {formatDistanceToNow(date)} ago
         </Text>
