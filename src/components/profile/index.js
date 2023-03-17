@@ -1,10 +1,11 @@
-import { Button, Divider, Flex, HStack, Stack, Text, Image, Heading } from "@chakra-ui/react"
+import { Button, Divider, Flex, HStack, Stack, Text, Image, Heading, ChakraProvider} from "@chakra-ui/react"
 import PostsLists from "components/post/PostsLists";
 import { useParams } from "react-router-dom";
 import { usePosts } from "hooks/posts";
 import { useGoToDashboard, useEditProfile, useUser } from "hooks/users";
 import { useForm } from "react-hook-form";
 import { auth } from "firebase_setup/firebase";
+import theme from "components/theme";
 
 export default function Profile() {
     const { id } = useParams();
@@ -31,12 +32,13 @@ export default function Profile() {
 
     if(!auth.currentUser) return "Loading...";
     return (
+        <ChakraProvider theme={theme}>
         <Stack spacing = "1px">
-            <Heading size="2xl" pb="30px" textAlign="center" color="teal">
+            <Heading size="2xl" pb="30px" textAlign="center" color="#264143">
                 Buddy Up
             </Heading>
 
-            <Stack spacing = "5" borderColor="gray.500" backgroundColor={"#B3E0DC"}>
+            <Stack spacing = "5" borderColor="gray.500" backgroundColor={"#CCE6EC"}>
             <Flex pt="20px" pl="20px" pos="relative" align="center">
                 <Image 
                     boxSize={"75px"}
@@ -69,7 +71,7 @@ export default function Profile() {
 
                 {isUser
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml="450px">
+                        <Button type="submit" ml="450px" mr="50px">
                             Edit Profile
                         </Button>
                     </form>
@@ -119,19 +121,21 @@ export default function Profile() {
             <Divider />
 
             <HStack spacing="525px" pt="30px">
-                <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="teal">Your Posts:</Text>
+                <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="#264143">Your Posts:</Text>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                        <Button type="submit" ml={"5"}>
-                            Return to Dashboard
-                        </Button>
+                    <Button type="submit" mr="50px">
+                        Return to Dashboard
+                    </Button>
                 </form>
             </HStack>
 
             { postsAreLoading 
-                ? <Text>Posts are loading ...</Text> 
+                // ? <Text>Posts are loading ...</Text> 
+                ? <Text></Text>
                 : <PostsLists posts={posts} />
             }   
         </Stack>
+        </ChakraProvider>
      )
  };
