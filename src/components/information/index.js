@@ -1,4 +1,4 @@
-import {Box, Button, Heading, HStack, Textarea, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem} from '@chakra-ui/react';
+import {Box, Button, Heading, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem, Image} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -65,6 +65,10 @@ export default function Information() {
             <ListItem>IV leasing companies usually open applications between November and January, although some companies vary year by year. </ListItem>
             <ListItem>Most Goleta and Santa Barbara leases are available after the IV housing cycle</ListItem>
         </UnorderedList>
+
+        <Box textAlign="center" >
+            <Image boxSize='500px' objectFit='cover' src='https://www.news.ucsb.edu/sites/default/files/images/2018/uc-santa-barbara-aerial-beach-ocean-road-isla-vista.jpg' alt='iv' />
+        </Box>
 
         <Text fontSize="23px" fontWeight="bold" pl="20px" paddingTop='20px'>
             Isla Vista
