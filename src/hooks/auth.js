@@ -34,7 +34,6 @@ export function useLogin() {
                 position: "top",
                 duration: 5000,
             })
-            console.log("Valid");
             navigate(DASHBOARD);
         } else {
             toast({
@@ -44,7 +43,6 @@ export function useLogin() {
                 position: "top",
                 duration: 5000,
             })
-            console.log("Invalid");
             navigate(LOGIN);
         }
         

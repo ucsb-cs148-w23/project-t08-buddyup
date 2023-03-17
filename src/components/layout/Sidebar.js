@@ -44,8 +44,8 @@ function ActiveUser() {
 export default function Sidebar() {
   const { handleSubmit } = useForm();
     const {logout} = useLogout();
-    const {goToInformation,isLoading:informationLoading} = useGoToInformation();
-    const {goToInformation2,isLoading:informationLoading2} = useGoToInformation2();
+    const {goToInformation} = useGoToInformation();
+    const {goToInformation2} = useGoToInformation2();
 
 
     async function handleLogout() {
