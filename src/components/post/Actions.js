@@ -33,7 +33,7 @@ export default function Actions({ post }) {
 
 
   return (
-    <Flex p="2">
+    <Flex bg="gray.100" p="2">
       <Flex alignItems="center" ml="2">
         <IconButton
           as={Link}

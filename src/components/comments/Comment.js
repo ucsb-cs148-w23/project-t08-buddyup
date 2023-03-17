@@ -15,8 +15,6 @@ export default function Comment({ comment }) {
     deleteComment(id);
   }
   
-
-
   return (
     <Box px="4" py="2" maxW="600px" mx="auto" textAlign="left">
       <Flex pb="2">
@@ -45,6 +43,7 @@ export default function Comment({ comment }) {
             <Text>{text}</Text>
           </Box>
         </Box>
+
       </Flex>
     </Box>
   );

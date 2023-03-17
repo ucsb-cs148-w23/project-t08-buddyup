@@ -16,9 +16,9 @@ export default function Header({ post }) {
     <Flex
       alignItems="center"
       borderBottom="2px solid"
-      borderColor="gray.400"
+      borderColor="gray.600"
       p="3"
-      bg="gray.50"
+      bg="gray.300"
     >
       <Avatar
         as={Link}
@@ -27,18 +27,18 @@ export default function Header({ post }) {
             : DASHBOARD}
         name={user
               ? user.name
-              : "missing" }
+              : "" }
         size="md"
         src={user
               ? user.pfpURL
-              : "https://freesvg.org/img/abstract-user-flat-4.png"}
+              : ""}
         
       />
 
       <Box ml="4">
-        <Text fontSize="18px" color="#264143" fontWeight="bold"> {user ? user.name : "Name"} </Text>
-        <Text fontSize="15px" color="gray.500"> {user ? user.pronouns : "Pronouns"} </Text>
-        <Text fontSize="15px" color="gray.500">
+        <Text fontSize="18px" color="teal" fontWeight="bold"> {user ? user.name : "Name"} </Text>
+        <Text fontSize="15px" color="gray.600"> {user ? user.pronouns : "Pronouns"} </Text>
+        <Text fontSize="15px" color="gray.600">
           {formatDistanceToNow(date)} ago
         </Text>
       </Box>

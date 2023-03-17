@@ -1,5 +1,6 @@
 import {Box, Button, Heading, HStack, Stack,
-        Textarea, Text, useCheckboxGroup, Flex, Spacer, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon} from '@chakra-ui/react';
+        Textarea, Text, useCheckboxGroup, ChakraProvider, Flex, Spacer, Divider, 
+        Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -8,6 +9,8 @@ import { useGoToProfile } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
 import { CustomCheckbox } from './CheckBox';
 import ReactCurvedText from 'react-curved-text';
+import theme from "components/theme";
+import "@fontsource/alata";
 
 var theTags = [];
 
@@ -34,22 +37,18 @@ function NewPost() {
         
     <form onSubmit={handleSubmit(handleAddPost)}>
         <HStack justify="space-between">
-            <Heading color="#264143" size="lg">
+            <Heading color="teal" size="lg">
                 Get Started
             </Heading>
-            {/* <Button 
-            type="submit"
-            >
-                Post
-            </Button> */}
         </HStack>
         <Textarea 
+        bg="white"
         minH="unset"
         fontSize='15px'
         resize="none" 
         mt="5" 
         placeholder="Title your post"
-        height={"35px"}
+        height={"40px"}
         minRows={1}
         {...register("title")}
         />
@@ -68,16 +67,17 @@ function NewPost() {
             </HStack>
         </Stack>
         <Textarea 
+        bg="white"
         fontSize='15px'
-        resize="none" 
         placeholder="What are you looking for?"
         minRows={3}
         {...register("text")}
         />
 
         <Button 
-             mt="20px"
+            mt="20px"
             type="submit"
+            colorScheme="pink"
             >
                 Post
         </Button>
@@ -104,44 +104,30 @@ export default function Dashboard() {
         await goToProfile(id);
     }
 
-    
 
     const{posts, isLoading} = usePosts(null, [value.sort().join(' and '), ...value, ...value2]);
     if(!(auth.currentUser)) return "Loading..."
     return (
     <>
-        <Heading size="2xl" textAlign="center" color="teal">
+        <ChakraProvider theme={theme}>
+        <Heading size="2xl" textAlign="center" color="#264143">
             Buddy Up
         </Heading>
-    
-        {/* <HStack spacing={"10"}>
-            <form onSubmit={handleSubmit(handleLogout)}>
-                <Button type="submit" >
-                    Sign Out
-                </Button>
-            </form>
-            <form onSubmit = {handleSubmit(handleProfile)}>
-                <Button type="submit">
-                    Profile
-                </Button>
-            </form>
-        
-        </HStack> */}
 
         <NewPost />
-        <Box px="20" align="left" paddingTop={5} >
-                <Accordion allowToggle>
+        <Box px="20" align="left" pt="10px">
+                <Accordion allowToggle rounded='lg' bg='gray.100' borderWidth="1px" borderLeftWidth="2px" borderRightWidth="2px" borderColor="teal.300">
                     <AccordionItem>
                         <h2>
                         <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left'>
-                                Post Search Tags
+                            <Box as="span"  flex='1' textAlign='left'>
+                                Filter Posts
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                         </h2>
                         <AccordionPanel>
-                                <HStack align="center" spacing="4px" fontSize='11px'>
+                                <HStack align="center" spacing="10px" fontSize='11px'>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housemate(s)' })}/>
                                     <CustomCheckbox {...getCheckboxProps({ value: 'Housing' })}/>
                                     <CustomCheckbox {...getCheckboxProps2({ value: 'University Housing' })}/>
@@ -154,14 +140,10 @@ export default function Dashboard() {
                 </Accordion>
             </Box>
         {isLoading
-        ? <Stack>
-            <Text>Posts are loading ...</Text>
-        </Stack> 
-        : 
-        <Stack >
-            <PostsLists posts={posts}/>
-        </Stack> }
-        
+        // ? <Text>Posts are loading ...</Text>
+        ? <Text> </Text>
+        : <PostsLists posts={posts}/>}
+        </ChakraProvider>
     </>
     )
 
