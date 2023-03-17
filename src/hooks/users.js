@@ -3,7 +3,7 @@ import { firestore, auth } from "firebase_setup/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { DASHBOARD, INFORMATION, PROTECTED } from "lib/routes";
+import { DASHBOARD, INFORMATION, INFORMATION2, PROTECTED } from "lib/routes";
 import { useToast } from '@chakra-ui/react'
 
 
@@ -111,19 +111,27 @@ export function useGoToInformation() {
  
      async function goToInformation() {
          setLoading(true);
-         toast({
-             title: "This is your info page",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(INFORMATION);
          setLoading(false);
          return true;
      }
  
      return {goToInformation, isLoading};
+}
+
+export function useGoToInformation2() {
+    const [isLoading, setLoading] = useState(false);
+    const toast = useToast();
+    const navigate = useNavigate();
+ 
+     async function goToInformation2() {
+         setLoading(true);
+         navigate(INFORMATION2);
+         setLoading(false);
+         return true;
+     }
+ 
+     return {goToInformation2, isLoading};
 }
 
 export function useEditProfile() {
