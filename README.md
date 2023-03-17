@@ -54,7 +54,7 @@ To run through firebase project:
 - Run *firebase deploy* to deploy 
 - Click deployed link
 
-**Functionality**
+**Functionality:**
 This is the Buddy Up web app MVP. This web app is a platform for prospective and current UCSB students to meet roommates living on-campus, in IV, or in the greater SB area. 
 
 When you first click on the URL you will be directed to the login page. If you click on the login button, a pop-up window will appear and you’ll be able to login with Google. To sign out, just click the sign out button in the top left corner. Take note that the current URL is protected/dashboard. Once you sign out, if you attempt to go back to the dashboard, it will not allow you to, and will instead redirect you to the login page.

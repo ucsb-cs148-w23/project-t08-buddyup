@@ -1,5 +1,4 @@
-import { Box, Button, Flex, Input } from "@chakra-ui/react";
-import Avatar from "components/profile/Avatar";
+import { Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
 import { useAddComment } from "hooks/comments";
 import { useForm } from "react-hook-form";
 
@@ -20,19 +19,29 @@ export default function NewComment({post}) {
           <form onSubmit={handleSubmit(handleAddComment)}>
             <Box>
               <Input
-                size="sm"
+                pl="15px"
                 variant="flushed"
+                minRows={3}
                 placeholder="Write comment..."
+                bg = "white"
                 autoComplete="off"
                 {...register("text", { required: true })}
               />
+
+              {/* <Textarea 
+                bg="white"
+                pl="15px"
+                placeholder="Write comment..."
+                minRows={3}
+                {...register("text")}
+                /> */}
             </Box>
             <Flex pt="2">
               <Button
                 isLoading={commentLoading}
                 type="submit"
                 colorScheme="teal"
-                size="xs"
+                size="sm"
                 ml="auto"
               >
                 Add Comment
