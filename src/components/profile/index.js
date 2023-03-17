@@ -70,7 +70,7 @@ export default function Profile() {
 
                 {isUser 
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml="450px">
+                        <Button type="submit" ml="450px" mr="50px">
                             Edit Profile
                         </Button>
                     </form>
@@ -123,7 +123,7 @@ export default function Profile() {
                 <Text pt="20px" pl="25px" fontWeight="bold" fontSize="22px" color="#264143">Your Posts:</Text>
 
                 <form onSubmit = {handleSubmit(handleDashboard)}>
-                    <Button type="submit" ml={"5"}>
+                    <Button type="submit" mr="50px">
                         Return to Dashboard
                     </Button>
                 </form>

@@ -7,17 +7,13 @@ import PostsLists from "components/post/PostsLists"
 import { useLogout } from "hooks/auth";
 import { useGoToProfile, useGoToInformation } from 'hooks/users';
 import { auth } from 'firebase_setup/firebase';
-<<<<<<< HEAD
-import { useGoToInformation} from 'hooks/users';
 
-=======
 import { CustomCheckbox } from './CheckBox';
 import ReactCurvedText from 'react-curved-text';
 import theme from "components/theme";
 import "@fontsource/alata";
 
 var theTags = [];
->>>>>>> 5062dc009a510fb8acce3223b4fc5857c64e3393
 
 function NewPost() {
     const {register, handleSubmit, reset} = useForm();

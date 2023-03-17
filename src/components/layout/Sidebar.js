@@ -28,6 +28,7 @@ function ActiveUser() {
         <Text color="#264143" fontSize="18px" fontWeight="bold">{isLoading ? "" : user.name}</Text>
         <Button
           colorScheme="teal"
+          mr="5px"
           w="full"
           as={Link}
           to={`${PROTECTED}/profile/${auth.currentUser.uid}`}
@@ -68,39 +69,27 @@ export default function Sidebar() {
         
         <Box align="center">
           <Box as="ul" borderBottom="2px solid" borderColor="teal" pt="5px"/>
-        <form onSubmit={handleSubmit(handleInfo)}>
+          <form onSubmit={handleSubmit(handleInfo)}> 
           <Button
             type="submit"
             variant="outline"
             colorScheme="pink"
             mt="4"
+            mr="5px"
             size="md"
           >
-            On-Campus Housing Info
+            Housing Info
           </Button>
-        </Box>
-
-        <Box align="center">
-          <Box as="ul" borderColor="teal" pt="5px"/>
-          <Button
-            variant="outline"
-            colorScheme="pink"
-            mt="4"
-            size="md"
-          >
-            Off-Campus Housing Info
-          </Button>
-        </form>
+          </form>
         </Box>
 
         <Box align="center" paddingTop='30px'>
         <form onSubmit={handleSubmit(handleLogout)}>
-                <Button type="submit" colorScheme="pink">
+                <Button type="submit" colorScheme="pink" mr="5px">
                     Sign Out
                 </Button>
             </form>
         </Box>
-
 
         </Box>
     );
