@@ -70,3 +70,6 @@ All in all, our app will be a service for UCSB students to easily find roommates
 
 **Contributing**
 - No outside contribution at this time
+
+#Deployment
+- Live testable version of Buddy Up: https://t08-buddy-up.web.app/
