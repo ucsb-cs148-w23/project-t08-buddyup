@@ -4,7 +4,6 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { DASHBOARD, INFORMATION, INFORMATION2, PROTECTED } from "lib/routes";
-import { useToast } from '@chakra-ui/react'
 
 
 export function useUser(id) {
@@ -106,7 +105,6 @@ export function useGoToDashboard() {
 
 export function useGoToInformation() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToInformation() {
@@ -121,7 +119,6 @@ export function useGoToInformation() {
 
 export function useGoToInformation2() {
     const [isLoading, setLoading] = useState(false);
-    const toast = useToast();
     const navigate = useNavigate();
  
      async function goToInformation2() {

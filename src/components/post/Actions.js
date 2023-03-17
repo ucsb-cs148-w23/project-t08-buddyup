@@ -21,7 +21,7 @@ export default function Actions({ post }) {
   
   const { goToDashboard } = useGoToDashboard();
 
-  const { user: user2, isLoading } = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
+  const { user: user2 } = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
 
 
   async function handleDeletePost() {

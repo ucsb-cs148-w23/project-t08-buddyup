@@ -15,7 +15,7 @@ export default function Comment({ comment }) {
   async function handleDeleteComment(){
     deleteComment(id);
   }
-  const { user: user2, isLoading } = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
+  const { user: user2} = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
 
 
   return (
