@@ -2,6 +2,7 @@
 
 // 1. import `extendTheme` function
 import { extendTheme } from '@chakra-ui/react'
+import "@fontsource/alata"
 
 // 2. Add your color mode config
 const config = {
