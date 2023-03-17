@@ -9,7 +9,7 @@ import { useComments, useDeleteComment } from "hooks/comments";
 import { useDeletePost } from "hooks/posts";
 import { useAuth } from "hooks/auth";
 import { useForm } from "react-hook-form";
-import { useGoToDashboard } from "hooks/users";
+import { useGoToDashboard, useUser } from "hooks/users";
 
 export default function Actions({ post }) {
   const { id , uid } = post;
@@ -20,6 +20,8 @@ export default function Actions({ post }) {
   const { handleSubmit } = useForm();
   
   const { goToDashboard } = useGoToDashboard();
+
+  const { user: user2, isLoading } = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
 
 
   async function handleDeletePost() {
@@ -48,7 +50,7 @@ export default function Actions({ post }) {
         { commentsLoading 
           ? ""
           : comments?.length}
-        { user.uid === uid
+        { (user.uid === uid || (user2 ? user2.admin : "False") === "True")
           ? <form onSubmit={handleSubmit(handleDeletePost)}>
               <IconButton
               aria-label="Delete Post"
