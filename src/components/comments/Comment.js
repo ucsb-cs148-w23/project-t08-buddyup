@@ -16,9 +16,9 @@ export default function Comment({ comment }) {
   }
   
   return (
-    <Box px="4" py="2" maxW="600px" mx="auto" textAlign="left" >
+    <Box px="4" py="2" maxW="100%"  textAlign="left" >
       <Flex pb="2">
-        <Box flex="1" ml="4" borderWidth="2px" borderColor="gray.200">
+        <Box flex="1" ml="4" borderWidth="2px" borderColor="gray.200" maxWidth={"95%"}>
 
           <Flex borderBottom="2px solid" borderColor="gray.600" bg="gray.200" pl="15px" py="10px">
             <Text>{name}</Text>
@@ -42,8 +42,8 @@ export default function Comment({ comment }) {
             }
           </Flex>
 
-          <Box pt="10px" pl="15px" fontSize="15px" bg="white">
-            <Text pb="15px">{text}</Text>
+          <Box pt="10px" pl="15px" fontSize="15px" bg="white" maxWidth={"100%"}>
+            <Text pb="15px" maxWidth={"100%"}>{text}</Text>
           </Box>
         </Box>
 

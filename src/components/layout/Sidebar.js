@@ -25,7 +25,7 @@ function ActiveUser() {
                       : user.pfpURL}
                 >
                 </Image>
-        <Text color="#264143" fontSize="18px" fontWeight="bold">{isLoading ? "" : user.name}</Text>
+        <Text color="#264143" fontSize="18px" fontWeight="bold" maxWidth="80%">{isLoading ? "" : user.name}</Text>
         <Button
           colorScheme="teal"
           mr="5px"
