@@ -1,4 +1,4 @@
-import {Box, Button, Heading, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem, Image} from '@chakra-ui/react';
+import {Box, Button, Heading, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem, Image, Center} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -51,7 +51,7 @@ export default function Information() {
 
         <Divider orientation='horizontal' borderWidth='3px' borderColor="teal"/>
             
-        <Text fontSize="23px" fontWeight="bold" paddingTop='20px'>
+        <Text fontSize="23px" fontWeight="bold" pt='20px'>
             On-Campus Housing:
         </Text>
 
@@ -63,7 +63,13 @@ export default function Information() {
         . Make sure that you are up to date on all required vaccinations and documents and are a full-time UCSB student (12 units) to make sure that you are eligible to live on campus. Select residence halls and undergraduate apartments are primarily for freshmen and sophomores, whereas others have a greater number of upperclassmen.
         </Text>
 
-        <Text fontSize="23px" fontWeight="bold" pl="20px" pt='10px' pb="20px">
+        <Box >
+            <Center>
+            <Image width="400px" src='https://www.independent.com/wp-content/uploads/2021/08/tenaya-towers-ucsb-san-joaquin-villages-california-som-bruce-damonte_dezeen_2364_col_5.jpeg' alt='dorm' />
+            </Center>
+        </Box>
+
+        <Text fontSize="23px" fontWeight="bold" pl="20px" pt='20px' pb="20px">
             Undergraduate Dorms
         </Text>
 

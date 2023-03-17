@@ -109,13 +109,6 @@ export function useGoToInformation() {
  
      async function goToInformation() {
          setLoading(true);
-         toast({
-             title: "This is your info page",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(INFORMATION);
          setLoading(false);
          return true;
@@ -131,13 +124,6 @@ export function useGoToInformation2() {
  
      async function goToInformation2() {
          setLoading(true);
-         toast({
-             title: "This is your info 2 page",
-             status: "success",
-             isClosable: true,
-             position: "top",
-             duration: 5000,
-         })
          navigate(INFORMATION2);
          setLoading(false);
          return true;

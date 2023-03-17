@@ -1,4 +1,4 @@
-import {Box, Button, Heading, HStack, Textarea, Stack, Text, Spacer, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem} from '@chakra-ui/react';
+import {Box, Button, Heading, Stack, Text, Image, UnorderedList, Center, ListItem, Link, ChakraProvider, Divider, Grid, GridItem} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -55,17 +55,23 @@ export default function Information2() {
             Off-Campus Housing:
         </Text>
        
-        <Text fontSize="16px" px="20px">
+        <Text fontSize="16px" px="20px" pt="10px">
             Key facts to know about private housing options:
         </Text>
 
-        <UnorderedList fontSize="16px" spacing="5px" pl="50px" pr="20px">
+        <UnorderedList fontSize="16px" spacing="5px" pl="50px" pr="20px" pb="20px">
             <ListItem> Students usually live in either Isla Vista (IV), Goleta, or Santa Barbara</ListItem>
             <ListItem>IV housing is the most popular and competitive to secure</ListItem>
             <ListItem>IV leasing companies usually open applications between November and January, although some companies vary year by year. </ListItem>
             <ListItem>Most Goleta and Santa Barbara leases are available after the IV housing cycle</ListItem>
         </UnorderedList>
 
+        <Box >
+            <Center>
+            <Image width="400px"  src='https://s.hdnux.com/photos/01/26/07/70/22576665/4/rawImage.jpg' alt='isla vista' />
+            </Center>
+        </Box>
+        
         <Text fontSize="23px" fontWeight="bold" pl="20px" paddingTop='20px'>
             Isla Vista
         </Text>
