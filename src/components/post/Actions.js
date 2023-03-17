@@ -31,13 +31,14 @@ export default function Actions({ post }) {
     await goToDashboard();
   }
 
+  const pathname = window.location.pathname;
 
   return (
     <Flex bg="gray.100" p="2">
       <Flex alignItems="center" ml="2">
         <IconButton
           as={Link}
-          to={`comments/${id}`}
+          to={ pathname.includes("comments") ? pathname : `comments/${id}`}
           aria-label="Comments"
           size="md"
           colorScheme="teal"
