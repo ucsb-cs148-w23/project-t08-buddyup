@@ -48,13 +48,13 @@ export default function Profile() {
                 >
                 </Image>
                 <Stack ml="10" maxWidth="50%">
-                    <HStack spacing="10" >
+                    <HStack spacing="15px" >
                         <Text color="teal" fontWeight="bold" fontSize="22px" maxWidth={"100%"}>
                             { userIsLoading
                                 ? "Name"
                                 : user.name}
                         </Text>
-                        <Text color="gray.800" fontSize="15px">
+                        <Text color="gray.500" fontSize="15px" pt="5px">
                             { userIsLoading
                             ? "Pronouns"
                             : user.pronouns}
@@ -71,7 +71,7 @@ export default function Profile() {
 
                 {isUser
                 ?   <form onSubmit = {handleSubmit(handleEdit)}>
-                        <Button type="submit" ml="100%" mr="50px">
+                        <Button type="submit" ml="375px" mr="30px">
                             Edit Profile
                         </Button>
                     </form>
