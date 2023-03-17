@@ -62,7 +62,7 @@ export default function Profile() {
             
                     </HStack>
                     <HStack spacing="10" >
-                        <Text color="gray.800" fontSize="15px" maxWidth={"50%"}>
+                        <Text color="gray.800" fontSize="15px" maxWidth={"100%"}>
                             { userIsLoading
                             ? "Email"
                             : user.email}
