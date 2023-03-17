@@ -34,7 +34,6 @@ export default function Comment({ comment }) {
                 aria-label="Delete Comment"
                 type="submit"
                 size="xs"
-                pl="10px"
                 colorScheme="red"
                 variant="ghost"
                 icon={<FaTrash/>}

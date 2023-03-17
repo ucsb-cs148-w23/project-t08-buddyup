@@ -1,4 +1,4 @@
-import {Box, Button, Heading, Stack, Text, Image, UnorderedList, Center, ListItem, Link, ChakraProvider, Divider, Grid, GridItem} from '@chakra-ui/react';
+import {Box, Button, Heading, Stack, Text, Spacer, HStack, List, UnorderedList, ListItem, Link, ChakraProvider, Divider, Grid, GridItem, Image, Center} from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
 import { useAddPost, usePosts } from 'hooks/posts';
 import PostsLists from "components/post/PostsLists"
@@ -6,6 +6,7 @@ import { useLogout } from "hooks/auth";
 import { useGoToDashboard, useGoToInformation2, useEditProfile, useUser } from "hooks/users";
 import { auth } from 'firebase_setup/firebase';
 import theme from "components/theme";
+import ReactCurvedText from 'react-curved-text';
 
 export default function Information2() {
     const { handleSubmit } = useForm();
@@ -26,9 +27,29 @@ export default function Information2() {
         <Box maxW="800px" ml="70px" mr="70px">
         <ChakraProvider theme={theme}>
         <Stack spacing={1}> 
-        <Heading size="2xl" pb="30px" textAlign="center" color="#264143">
+        <Heading size="2xl" pb="10px" textAlign="center" color="#264143">
             Buddy Up
         </Heading>
+
+        <HStack spacing="5px">
+        <Box>
+        <ReactCurvedText
+                  width={600}
+                  height={65}
+                  cx={90}
+                  cy={115}
+                  rx={100}
+                  ry={90}
+                  startOffset={64}
+                  reversed={true}
+                  text="Housing Info"
+                  textProps={{ style: { fontSize: '30px', fontWeight:'900', textAlign:"center" } }}
+                  textPathProps={{ fill: "#2C7A7B"}}
+                  tspanProps={null}
+                  ellipseProps={null}
+                  svgProps={null}
+              />
+        </Box>
 
         <Box>
             <form onSubmit = {handleSubmit(handleDashboard)}>
@@ -37,15 +58,12 @@ export default function Information2() {
                 </Button>
             </form>
         </Box>
-
-        <Heading fontSize="28px" textAlign="center" color="teal" pt="25px">
-            UCSB Housing Information
-        </Heading>
+        </HStack>
      
-        <Text fontSize="16px" textIndent="25px" pt="10px" px="20px" pb="20px">
+        <Text fontSize="16px" textIndent="25px" px="20px" pb="20px">
             Housing as a UCSB student is infamous for being difficult to find, 
             unreliable, and expensive. The goal of this information page is to help 
-            students efficiently navigate the living options offered by UCSB and 
+            students efficiently navigate the living options offered by leasing companies and
             private landlords. 
         </Text>
 
