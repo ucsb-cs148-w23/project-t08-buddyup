@@ -6,24 +6,22 @@ export default function Post({ post }) {
   const { text,looking,location,title } = post;
 
   return (
-    <Box p="2" maxW="600px" textAlign="left">
-      <Box border="2px solid" borderColor="gray.100" borderRadius="md">
+    <Box pt = "35px" maxW="750px" textAlign="left">
+      <Box border="2px solid" borderColor="gray.300" borderRadius="md">
         <Header post={post} />
 
-        <Box p="2" minH="100px">
-          <Text wordBreak="break-word" fontSize="lg" fontWeight='bold'>
+        <Box bg="white" p="10px" minH="100px">
+          <Text wordBreak="break-word" fontSize="18px" fontWeight="bold" color="pink.500" pl="10px" pb = "1px">
             {title}
           </Text>
-          <Text wordBreak="break-word" fontSize="sm" fontStyle={"italic"}>
+          <Text wordBreak="break-word" fontSize="14px" fontStyle={"italic"} pl="10px" pb = "25px">
             {looking !== "" 
-            ? "Looking for " + looking + (location !== "" 
-                                          ? " in " + location 
+            ? "Looking for: " + looking + (location !== " " 
+                                          ? " in " + location.sort().join(', ') 
                                           : "") 
-            : "Housing related post" + (location !== "" 
-                                        ? " for " + location 
-                                        : "")}
+            : ""}
           </Text>
-          <Text wordBreak="break-word" fontSize="md">
+          <Text wordBreak="break-word" fontSize="15px" pl="10px" textIndent={20}>
             {text}
           </Text>
 

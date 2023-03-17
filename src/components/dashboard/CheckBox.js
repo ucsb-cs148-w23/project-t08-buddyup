@@ -12,9 +12,9 @@ export function CustomCheckbox(props) {
         alignItems='center'
         gridColumnGap={2}
         maxW='40'
-        bg='purple.50'
+        bg='gray.100'
         border='1px solid'
-        borderColor='purple.200'
+        borderColor='teal.300'
         rounded='lg'
         px={3}
         py={1}
@@ -26,12 +26,12 @@ export function CustomCheckbox(props) {
         alignItems='center'
         justifyContent='center'
         border='2px solid'
-        borderColor='purple.200'
+        borderColor='teal.500'
         w={4}
         h={4}
         {...getCheckboxProps()}
         >
-        {state.isChecked && <Box w={2} h={2} bg='purple.200' />}
+        {state.isChecked && <Box w={2} h={2} bg='pink.200' />}
         </Flex>
         <Text color="gray.700" {...getLabelProps()}>{props.value}</Text>
     </chakra.label>

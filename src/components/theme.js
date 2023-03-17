@@ -16,12 +16,14 @@ const theme = extendTheme({
     styles: {
       global: (props) => ({
         body: {
+          // bg: "white",
           bg: "#FCE8E1",
         }
       })
     },
     fonts: {
-        heading: `'Alata', sans-serif`,
+        heading: `'Alata',  sans-serif`,
+        // body: `'Raleway', sans-serif`,
         body: `'Alata', sans-serif`,
     },
   })
