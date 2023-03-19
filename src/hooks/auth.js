@@ -21,7 +21,6 @@ export function useLogin() {
 
     async function login() {
         setLoading(true);
-        checkUser();
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
         var term = auth.currentUser.email;
@@ -34,6 +33,7 @@ export function useLogin() {
                 position: "top",
                 duration: 5000,
             })
+            await checkUser();
             console.log("Valid");
             navigate(DASHBOARD);
         } else {
