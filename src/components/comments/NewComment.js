@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
+import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { useAddComment } from "hooks/comments";
 import { useForm } from "react-hook-form";
 
@@ -27,14 +27,6 @@ export default function NewComment({post}) {
                 autoComplete="off"
                 {...register("text", { required: true })}
               />
-
-              {/* <Textarea 
-                bg="white"
-                pl="15px"
-                placeholder="Write comment..."
-                minRows={3}
-                {...register("text")}
-                /> */}
             </Box>
             <Flex pt="2">
               <Button

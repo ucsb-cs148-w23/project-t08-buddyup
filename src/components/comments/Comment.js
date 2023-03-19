@@ -15,7 +15,7 @@ export default function Comment({ comment }) {
   async function handleDeleteComment(){
     deleteComment(id);
   }
-  const { user: user2, isLoading } = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
+  const { user: user2} = useUser(user ? user.uid : "pBvdbPyaEi79xLYvgffv");
 
 
   return (
@@ -34,7 +34,6 @@ export default function Comment({ comment }) {
                 aria-label="Delete Comment"
                 type="submit"
                 size="xs"
-                pl="10px"
                 colorScheme="red"
                 variant="ghost"
                 icon={<FaTrash/>}
