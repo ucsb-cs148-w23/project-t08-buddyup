@@ -20,11 +20,11 @@ export function useAddUser() {
         const name = auth.currentUser.displayName;
         const email = auth.currentUser.email;
         const pfpURL = auth.currentUser.photoURL;
-        const bio = "NULL";
-        const year = "NULL";
-        const pronouns = "NULL";
-        const roomtype = "NULL";
-        const wantstoLive = "NULL";
+        const bio = "";
+        const year = "";
+        const pronouns = "";
+        const roomtype = "";
+        const wantstoLive = "";
         const admin = "False"
         await setDoc(doc(firestore, "users", uid), {
             uid,
