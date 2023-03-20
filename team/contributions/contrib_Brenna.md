@@ -1,4 +1,6 @@
 - Unofficial scribe, ensured that all files assigned in labs were created for the group (not related to coding)
-- Managed a lot of the administrative part 
+- Managed a lot of the administrative part of this class for the group
 - Communicated through the team's Discord when assignments were due
-- Worked with Sophia and Lauren on coding
+- Update Kanban Board regularly (made sure each person had an in progress issue w/ acceptance criteria)
+- Worked with Sophia and Lauren on coding (comments on posts, sidebar, login page, UI style decisions, merging all aspects of the website together)
+- Attended lectures, discussion sections, and most of the group meetings
