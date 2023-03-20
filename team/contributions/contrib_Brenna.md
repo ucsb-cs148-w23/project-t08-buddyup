@@ -1,1 +1,4 @@
-*For Brenna: "document the roles the team member played in the code development effort. You can comment on team contributions other than coding as well"*
+- Unofficial scribe, ensured that all files assigned in labs were created for the group (not related to coding)
+- Managed a lot of the administrative part 
+- Communicated through the team's Discord when assignments were due
+- Worked with Sophia and Lauren on coding
