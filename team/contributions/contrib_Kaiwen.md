@@ -1,1 +1,2 @@
-*For Kaiwen: "document the roles the team member played in the code development effort. You can comment on team contributions other than coding as well"*
+## Contributions: Kaiwen Tang ##
+My partner when working was Anouki, so we basically worked with pair programming throughout this entire project. I worked on the main dashboard page for the MVP, which involved initial post functionality, post button, and post text boxes. I also worked on post fields that specified the on campus/off campus details of the post. I also worked on the housing informational pages on the right sidebar. I also helped my team members in any obstacles they were having with their assigned issues if needed. 
