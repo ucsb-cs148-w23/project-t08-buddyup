@@ -1,1 +1,1 @@
-*For Sophia: "document the roles the team member played in the code development effort. You can comment on team contributions other than coding as well"*
+I worked with Lauren and Brenna to create the login, sidebar, and comments components of BuddyUp. I also made UI decisions (fonts, colors, formatting).
