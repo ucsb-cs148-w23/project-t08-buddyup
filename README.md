@@ -13,7 +13,7 @@ Kaiwen Tang (kkwen123),
 Sergio Colis Chavez (sergioacolis),
 Kai Hilbourne (kaihilbourne)
 
-#Deployment
+**#Deployment**
 - Live testable version of Buddy Up: https://t08-buddy-up.web.app/
 
 **Tech Stack(s) We Used:**
