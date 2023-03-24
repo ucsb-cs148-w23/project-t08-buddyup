@@ -2,7 +2,7 @@
 
 **Project Name:** Buddy Up
 
-**Project Description:** A web application for finding roommates and housing at UCSB.
+**Final Project Description:** A web application for finding roommates and housing at UCSB.
 
 **Project Presentation:** https://docs.google.com/presentation/d/1CQpbcgZV4gLuiKsoqFqY62BTCAAgdVQfSsmmTBp4gLs/edit?usp=sharing
 
