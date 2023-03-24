@@ -13,15 +13,17 @@ Kaiwen Tang (kkwen123),
 Sergio Colis Chavez (sergioacolis),
 Kai Hilbourne (kaihilbourne)
 
-**Tech Stack(s) We Plan to Use:**
-We will be using React for the frontend and Firebase for the backend.
+#Deployment
+- Live testable version of Buddy Up: https://t08-buddy-up.web.app/
+
+**Tech Stack(s) We Used:**
+We will be using React for the frontend and Firebase for the backend. We also used the Chakra UI library for frontend design.
 
 **What Our App Will Do for the User:**
 For our project we will be creating a platform for prospective and current UCSB students to meet roommates living on-campus, in IV, or in the greater Santa Barbara area. As stated above we will be using React and Firebase to create our application. Users will login using their UCSB email addresses, which will be implemented using Google OAuth. React provides the frontend framework for building user interfaces, while Firebase provides the backend services such as real-time database, authentication, and hosting. We are using Firebase as the backend for a React so that users' data can be easily synced and updated in real-time, providing a seamless user experience.
 
 **User Roles:**
-- UCSB students looking for housing: allowed to create profile, update personal information, post listing looking for roommates, rate/review leasing companies and dorms
-- Representatives for leasing companies: post housing listings once approved
+- UCSB students looking for housing: allowed to create profile, update personal information, post listing looking for roommates, rate/review leasing companies and dorms, able to delete posts and comments only if created by the user
 - Administrators (us): delete inappropriate/spam profiles/posts, add new data, make updates to application's functions
 
 **Installation:**
@@ -66,10 +68,7 @@ If you go back to click on the profile button, you'll end up on your profile! He
 All in all, our app will be a service for UCSB students to easily find roommates and connect with others through comments. Future functionality will include a page with descriptions of on-campus and off-campus housing options, as well as a way for students to rank them. Students will also be able to select their lifestyle preferences in profile bios. Once everything is implemented, UCSB students will be able to have one platform that will fulfill their housing needs. 
 
 **Known Problems**
-- When on your profile page, and attempt to click the comment icon of your post(s) you are redirected to the wrong page and it will give you an error message.
+- No known problems
 
 **Contributing**
 - No outside contribution at this time
-
-#Deployment
-- Live testable version of Buddy Up: https://t08-buddy-up.web.app/
