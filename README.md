@@ -17,6 +17,7 @@ Kai Hilbourne (kaihilbourne)
 
 **#Deployment**
 - Live testable version of Buddy Up: https://t08-buddy-up.web.app/
+- Please see docs/DEPLOY.md for full deployment instructions
 
 **Tech Stack(s) We Used:**
 We used React for the frontend and Firebase for the backend, as well as hosting. We also used the Chakra UI library for frontend design.
