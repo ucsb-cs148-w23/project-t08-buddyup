@@ -23,28 +23,15 @@ export function useLogin() {
         setLoading(true);
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
-        // var term = auth.currentUser.email;
-        // var re = new RegExp(".*@ucsb[.]edu");
-        // if (re.test(term)) {
-            toast({
-                title: "You are logged in",
-                status: "success",
-                isClosable: true,
-                position: "top",
-                duration: 5000,
-            })
-            await checkUser();
-            navigate(DASHBOARD);
-        // } else {
-        //     toast({
-        //         title: "Please use a valid UCSB email to log in",
-        //         status: "error",
-        //         isClosable: true,
-        //         position: "top",
-        //         duration: 5000,
-        //     })
-        //     navigate(LOGIN);
-        // }
+        toast({
+            title: "You are logged in",
+            status: "success",
+            isClosable: true,
+            position: "top",
+            duration: 5000,
+        })
+        await checkUser();
+        navigate(DASHBOARD);
         
         setLoading(false);
         return true;
