@@ -23,9 +23,9 @@ export function useLogin() {
         setLoading(true);
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
-        var term = auth.currentUser.email;
-        var re = new RegExp(".*@ucsb[.]edu");
-        if (re.test(term)) {
+        // var term = auth.currentUser.email;
+        // var re = new RegExp(".*@ucsb[.]edu");
+        // if (re.test(term)) {
             toast({
                 title: "You are logged in",
                 status: "success",
@@ -35,16 +35,16 @@ export function useLogin() {
             })
             await checkUser();
             navigate(DASHBOARD);
-        } else {
-            toast({
-                title: "Please use a valid UCSB email to log in",
-                status: "error",
-                isClosable: true,
-                position: "top",
-                duration: 5000,
-            })
-            navigate(LOGIN);
-        }
+        // } else {
+        //     toast({
+        //         title: "Please use a valid UCSB email to log in",
+        //         status: "error",
+        //         isClosable: true,
+        //         position: "top",
+        //         duration: 5000,
+        //     })
+        //     navigate(LOGIN);
+        // }
         
         setLoading(false);
         return true;
